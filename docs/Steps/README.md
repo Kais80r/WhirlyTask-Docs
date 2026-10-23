@@ -105,4 +105,4 @@ Watchers have trigger settings and their own action paths. They are covered in t
 | Chance Watcher | [Chance trigger](../Watchers/Triggers/For-Chance.md) |
 | Internet Watcher | [Internet trigger](../Watchers/Triggers/When-Internet.md) |
 
-For complete connected patterns, see [Examples](../Examples/README.md). For draft recovery versus named saves and files, see [Editors and saving](../App-Features/Editors-And-Saving.md).
+For complete connected patterns, see [Examples](../Examples/README.md). For Save, Open and session recovery, see [Editors and saving](../App-Features/Editors-And-Saving.md).

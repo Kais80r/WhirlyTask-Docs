@@ -4,7 +4,7 @@ Build one connected path, observe its result, then add branches and recovery. A 
 
 ## Establish a small path
 
-Start with `Start -> Status Message -> Finish Sequence`. Name the block, add one action, and use **Save Draft** before testing native playback. Session recovery preserves editing work across restart; it is separate from applying a runnable draft or creating a named library/file copy.
+Start with `Start -> Status Message -> Finish Sequence`. Name the block, add one action, and test with **Play**. Use **Save** to update its file or Library entry. Automatic recovery retains the editing session across restart.
 
 Add an explicit readiness check before input. Focus a window when needed, choose a narrow relevant search area, and check text/images instead of relying only on long waits.
 
@@ -32,6 +32,6 @@ Use separate negative cases: absent target, a lookalike, a closed window, and un
 
 ## Save a reusable result
 
-Save a named sequence/library copy or a portable file when ready. For a reusable fragment, [save selected nodes as a premade block](Reusable-Premade-Blocks.md). Add a Note explaining assumptions that another editor will need.
+Use **Save** to update the Sequence in its file or Library entry, or **Save As** to keep another version as a file. For a reusable fragment, [save selected nodes as a premade block](Reusable-Premade-Blocks.md). Add a Note explaining assumptions that another editor will need.
 
 Related: [Counter Limit](../Examples/Counter-Limit.md), [recognition](../Recognition/README.md), and [testing a sequence](../Tips/Testing-A-Sequence.md).

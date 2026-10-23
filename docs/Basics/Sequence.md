@@ -9,7 +9,7 @@ Open **Sequence Editor...** from the main window. The toolbox has **All**, **Bas
 1. Begin with a Start node and a small chain of actions.
 2. Select a node to edit its settings on the right.
 3. Connect each action to its successor. For conditions, connect the Then and Else paths deliberately.
-4. Use **Save Draft** to validate and apply the current graph for playback.
+4. Use **Save** to keep the document, then **Play** to validate and test the current graph.
 5. Test the short path before extending it.
 
 The settings panel hides when nothing is selected, leaving more space for the canvas. Select a step, Watcher, or editable block header to show the relevant settings again. The document name at the top is a label.
@@ -28,7 +28,7 @@ A recognition error is different from a confirmed negative result. Do not design
 
 ## Saving Is Explicit
 
-**Save Draft** updates the playable draft. **Save New** creates a named Library copy. Automatic session recovery also preserves editing work, including changes not yet applied for playback. Loading a saved item explicitly replaces the current editing document.
+**Save** or **Ctrl+S** updates the file or Library entry you opened. A new document asks for a file name and location. **Save As** creates another file and switches to it. **More > Add to Library** creates an independent Library copy. New and Open ask how to handle unsaved edits. Automatic recovery preserves the editing session across restart.
 
 See [Editors And Saving](../App-Features/Editors-And-Saving.md) before relying on any of these as a backup.
 

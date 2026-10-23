@@ -1,33 +1,44 @@
 # Editors And Saving
 
-The graph editor's draft, a named Library item, and a file export are separate things. Automatic session recovery is a fourth layer; it helps restore editing work but is not a named backup.
+Use **Save** or **Ctrl+S** to update the open workflow. It writes back to the file or Library entry you opened. A new document asks for a file name and location on its first save.
 
 ## Sequence Graph Editor
 
 | Action | What it does |
 | --- | --- |
-| Save Draft | Validates and applies the graph as the current playback draft |
-| Save New | Applies the draft and opens a dialog to create a named Library copy |
-| Save As | Applies the draft and opens the Library save/overwrite workflow |
-| Close / window X | Closes the editor while preserving its session; it does not mean discard |
-| New or loading another document | Replaces the active editing document; save a named copy first if you need both |
+| Save / Ctrl+S | Update the open file or Library entry; choose a file location for a new document |
+| Save As / Ctrl+Shift+S | Save to another file and continue editing that file |
+| Open / Ctrl+O | Choose a workflow file to edit |
+| Add to Library | Create a named Library copy of the open workflow |
+| New | Start an empty document |
+| Close / window X | Close the editor and retain its recovery session |
 
-Wait for the native save result. If validation fails, the editor can retain your work while playback still uses the last valid draft. A stored editor session is not proof the changed graph is ready to run.
+Sequence files use **.kseq**. Premade Block files use **.prm**. The document label identifies the open workflow; its save status shows whether changes still need saving.
 
-Save Draft does not create or overwrite a named Library entry. Save New does not create a portable file. Use the explicit Library/file actions for those purposes.
+## Save Your Work
+
+You can save an unfinished workflow. Errors remain visible in Editor Issues and must be fixed before playback. Saving a file does not mean every step is ready to run.
+
+Wait for the save confirmation. Cancelling the file dialog or encountering a write error leaves your edits and the current document association intact. If you edit during a save, those additional edits still need saving.
+
+Before **New** or opening another document, unsaved changes offer **Save**, **Don't Save**, and **Cancel**. Save continues only after the changes have been saved. **Don't Save** replaces the open document; **Cancel** keeps it open.
+
+## Playback
+
+Play checks the open Sequence before running it. You do not need to save a file just to test an edit. Invalid settings or an unavailable editor response prevent that run; inspect Editor Issues and the status message.
 
 ## Automatic Session Recovery
 
-The editor checkpoints its graph and editing state. Reopening can recover work, including edits that have not been applied for playback. Closing the window is not a reliable way to undo changes, and recovered work is not necessarily the version stored under a Library name.
+The editor checkpoints its graph and editing state so work can be recovered after a normal restart. Recovery retains the file association and unsaved state. It does not replace **Save** or create a separate file for sharing.
 
-Use Undo for an editing mistake. To deliberately return to a named version, load that version explicitly. Keep file backups of important workflows.
+Use Undo for an editing mistake. Use **Open** to load a saved file. **Save As** creates a separate working file when you want to keep another version.
 
 ## Track Editor Is Different
 
-The native Track Editor edits playback settings for a recording. Its Save applies the settings; Cancel or closing that Track Editor leaves its pending settings unapplied. Do not transfer that Save/Cancel rule to the sequence graph editor.
+The native Track Editor edits playback settings for a recording. Its **Save** applies those settings; **Cancel** or closing it leaves pending settings unapplied. Use the Library's Track file actions for **.mcro** files.
 
 ## Related Pages
 
-- [Graph Editor](Graph-Editor.md)
 - [Library And Files](Library-And-Files.md)
+- [Graph Editor](Graph-Editor.md)
 - [Editor Changes Disappear](../Troubleshooting/Editor-Changes-Disappear.md)

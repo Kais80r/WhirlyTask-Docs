@@ -18,7 +18,7 @@ Start with one short working path, then add decisions and background recovery as
 3. Find actions in the toolbox's **All** or **Basic** tab and build a short connected path from Start.
 4. Select each node to edit its settings. The right-hand settings panel hides when nothing is selected.
 5. Add an appropriate readiness check before the next action. Prefer Wait For when you need a condition, rather than guessing a long fixed delay.
-6. Click **Save Draft** to validate and apply the graph for playback.
+6. Use **Save** or **Ctrl+S** to choose a file name and location.
 7. Run that short workflow once and verify its effect before extending it.
 
 Connections determine order. An If node has Then and Else paths; arrange and connect both deliberately. [Blocks And Step IDs](Basics/Blocks-And-Numbering.md) explains named blocks and targeted jumps.
@@ -55,7 +55,7 @@ See [Watcher Settings](Watchers/Watcher-Settings.md) and [Examples](Watchers/Exa
 
 ## Save The Right Copy
 
-**Save Draft** applies the playable draft. **Save New** creates a named Library copy. Automatic session recovery separately preserves editing work when closing or reopening; recovered work may not yet be the version applied for playback or saved under a Library name.
+**Save** updates the file or Library entry you opened. A new document asks for a file name and location. **Save As** writes a different file and makes it the open document. **More > Add to Library** creates a separate Library copy. Play checks the open graph, and automatic recovery retains editing work across restart.
 
 For a reusable selection, hold Shift and drag over its nodes. The top button becomes **Save Premade Block**. After saving, clear the selection to use **Import Premade Block** again. Premade files use **.prm**.
 

@@ -27,4 +27,4 @@ In **Library -> Blocks**, select a template and choose **Save .prm**. On the rec
 
 Images embedded in the selected nodes travel with the template. Missing file references must be corrected before selection save. The Library file operations preserve the currently open sequence.
 
-Save the containing sequence separately with its normal library/file actions. See [editors and saving](../App-Features/Editors-And-Saving.md) and [blocks and Step IDs](../Basics/Blocks-And-Numbering.md).
+Use **Save** to update the containing Sequence in its file or Library entry. See [editors and saving](../App-Features/Editors-And-Saving.md) and [blocks and Step IDs](../Basics/Blocks-And-Numbering.md).

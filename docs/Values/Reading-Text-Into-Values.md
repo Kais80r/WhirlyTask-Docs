@@ -9,7 +9,7 @@
 3. Choose a **Screen zone** that contains the intended text with some space around it.
 4. Set **Read as** to the kind of result you need.
 5. For **Custom chars**, supply **Keep characters**.
-6. Apply the draft and test before using the result in a later decision.
+6. Test with Play before using the result in a later decision.
 
 A Starter Variable with an empty Text start value is useful when other steps need the name to exist before the first read. It is also required if Reset Variable should later restore this name's initial state.
 

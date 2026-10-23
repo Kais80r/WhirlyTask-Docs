@@ -5,7 +5,7 @@ These pages cover WhirlyTask's editor, Library, recording, playback, appearance,
 | I want to... | Open |
 | --- | --- |
 | Add, connect, select, and arrange graph nodes | [Graph Editor](Graph-Editor.md) |
-| Understand playable drafts, named saves, and session recovery | [Editors And Saving](Editors-And-Saving.md) |
+| Save files, keep Library copies and recover editing work | [Editors And Saving](Editors-And-Saving.md) |
 | Manage named items or portable files | [Library And Files](Library-And-Files.md) |
 | Switch between dark and light themes | [Appearance](Appearance.md) |
 | Change record, play, stop, or emergency hotkeys | [Hotkeys](Hotkeys.md) |
@@ -23,10 +23,10 @@ Crash Protection and Text Protection are app-wide stop mechanisms. A Watcher is 
 
 Use a protection when the desired response is to stop playback. Use a [Watcher](../Watchers/README.md) when the workflow needs custom notification, variable updates, or deliberate recovery. A Watcher does not automatically pause main actions.
 
-## Saving Has Separate Layers
+## Saving Your Work
 
-The graph editor's **Save Draft** applies the playable draft. **Save New** creates a named Library copy. Automatic session recovery preserves editing work separately, including invalid work that cannot yet be applied. Portable files are explicit copies for backup or transfer.
+Use **Save** or **Ctrl+S** to update the open file or Library entry. A new document asks for a file name and location. **Save As** writes another file. **More > Add to Library** creates a separate named copy.
 
-Validation errors block applying or saving the graph through Save Draft, Save New, and Save As. Warnings remain visible but do not block those actions. Read [Editors And Saving](Editors-And-Saving.md) for the distinction between recovery, playback, and a saved backup.
+Unfinished documents can be saved. Fix Editor Issues before playback. Automatic recovery retains editing work across restart. Read [Editors And Saving](Editors-And-Saving.md) for Save, Open and unsaved-change choices.
 
 For a first workflow, start with [Getting Started](../Getting-Started.md). For screen checks, use [Recognition](../Recognition/README.md).

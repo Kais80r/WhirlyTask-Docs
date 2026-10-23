@@ -10,7 +10,7 @@ A Watcher checks a condition while a Sequence is running and starts its own acti
 2. Add a trigger card such as **Text Watcher** or **Image Watcher**.
 3. Select the trigger to configure its condition and shared run settings.
 4. Add ordinary actions from **All**, **Basic**, or **Variable** and connect them to the Watcher chain.
-5. Use **Save Draft**, then test while the main flow remains running.
+5. Test with **Play** while the main flow remains running. Use **Save** to keep the workflow.
 
 The Watcher tab contains trigger cards. Its action chains use the same ordinary steps as the main graph. **Variable Watcher** also appears in the Variable tab.
 

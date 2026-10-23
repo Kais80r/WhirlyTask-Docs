@@ -21,10 +21,10 @@ Read the status message before changing several settings. Distinguish a valid ne
 1. Isolate one connected action or branch.
 2. Add a Status Message before and after it.
 3. Print the variables it uses.
-4. Save Draft and confirm validation succeeded.
+4. Check Editor Issues before playback.
 5. Test the intended positive and negative states.
 6. Add watchers back one at a time.
 
-Save Draft applies the playback graph. Session recovery, a named Library item, and a file backup are different; see [Editors And Saving](../App-Features/Editors-And-Saving.md).
+Save updates the open file or Library entry. Play checks the open graph; see [Editors And Saving](../App-Features/Editors-And-Saving.md).
 
 For global stops, check [Crash Protection](../App-Features/Crash-Protection.md) and [Text Protection](../App-Features/Text-Protection.md). For missing external notifications, check [Discord Webhook](../App-Features/Discord-Webhook.md).

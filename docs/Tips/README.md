@@ -11,6 +11,6 @@ Build small pieces, make state visible, and test both the expected and unexpecte
 | Keep variable names clear | [Naming Values Clearly](Naming-Values-Clearly.md) |
 | Avoid competing background actions | [Keeping Watchers Predictable](Keeping-Watchers-Predictable.md) |
 
-Use Save Draft to apply a valid graph for playback. Save a named Library copy or file backup when you want a reusable version; editor session recovery is separate. See [Editors And Saving](../App-Features/Editors-And-Saving.md).
+Use Save to keep the file and Play to test the open graph. Save As writes another working file; Add to Library creates an independent named copy. See [Editors And Saving](../App-Features/Editors-And-Saving.md).
 
 For an existing failure, start with [Troubleshooting](../Troubleshooting/README.md).

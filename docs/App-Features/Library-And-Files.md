@@ -1,22 +1,26 @@
 # Library And Files
 
-The Library holds named Tracks, Sequences, and Premade Blocks. A portable file is a separate copy for backup, transfer, or sharing.
+**Save** or **Ctrl+S** updates the workflow you opened. Open a file to save back to that file, or open a Library entry to save back to that entry. The Library holds named Tracks, Sequences and Premade Blocks that you can load or reuse.
 
-## Named Library Items
+## Workflow Files
 
-Open **Library** and select the appropriate pane. Check the item type and selected name before loading, renaming, deleting, or overwriting anything.
-
-For a Sequence, the graph editor provides:
-
-| Action | Result |
+| Workflow | File extension |
 | --- | --- |
-| Save Draft | Validate and apply the current playable graph; no named Library item is created |
-| Save New | Open the naming workflow for a new Library copy |
-| Save As | Open the Library save/overwrite workflow |
+| Track | .mcro |
+| Sequence | .kseq |
+| Premade Block | .prm |
 
-Errors in the graph block those actions. Warnings do not. Automatic session recovery retains editing work separately; a recovered session is not proof that the Library version was updated.
+In the graph editor, **Save** asks for a file name and location when a new document has no saved source yet. Subsequent saves update that file. A document opened from the Library saves back to its Library entry. **Save As** writes another file and makes it the open document. **Open** or **Ctrl+O** opens a workflow file.
 
-Explicitly loading a Sequence or file takes priority over the recovered editing session. Save a named copy first when you want to keep both versions.
+You can save unfinished graph documents. Check Editor Issues before playback. If a file dialog is cancelled or a write fails, the editor retains your work and does not claim it was saved.
+
+## Add A Workflow To The Library
+
+Use **More > Add to Library** in the editor and enter a name. The Library receives a separate copy. Editing or saving the open file does not update that copy automatically.
+
+Open **Library** and choose **Tracks**, **Sequences**, or **Blocks** to manage its named items. Select the intended item before loading, renaming, deleting, or replacing it.
+
+Loading a Library item makes it the open document. **Save** writes your edits back to that entry. Use **Save As** to keep a separate file on your PC.
 
 ## Premade Blocks
 
@@ -26,30 +30,20 @@ Create a Premade Block in the Sequence editor:
 2. Click **Save Premade Block**, or right-click and choose **Save as Premade Block**.
 3. Enter a unique name in the dialog.
 
-This saves a selection copy without replacing the open workflow. Only selected nodes and connections between them belong to the template. Invalid or ambiguous fragments are rejected.
+This saves a Library copy of the selected nodes and connections between them. Invalid or ambiguous fragments are rejected. It leaves the open Sequence intact.
 
-To insert one, clear the selection and click **Import Premade Block**. In the Library's **Blocks** pane, select the saved template and choose **Import**. The result is a copy in the graph, not a live link to the Library item.
+Clear the selection and click **Import Premade Block** to insert a saved template. In the Library's **Blocks** pane, select it and choose **Import**. Imported nodes are a copy you can edit in the Sequence.
 
 See [Reusable Premade Blocks](../Guides/Reusable-Premade-Blocks.md) for a complete walkthrough.
 
-## Portable Files
+## Library File Actions
 
-The Library file buttons reflect the selected item type:
+The Library's file buttons use the extension of the selected item type. In **Blocks**, **Save .prm** writes a selected template to a file and **Load .prm** adds a file to the Library. Import the template afterward to place its nodes in the open Sequence.
 
-| Item | File buttons / extension |
-| --- | --- |
-| Track | Save .mcro / Load .mcro |
-| Sequence | Save .kseq / Load .kseq |
-| Premade Block | Save .prm / Load .prm |
-
-A graph document label such as `Untitled.seq` is not the Sequence Library file-dialog extension.
-
-In **Library / Blocks**, select a template and use **Save .prm** to write it to a file. **Load .prm** adds a template to that Library; import it afterward when you want nodes in the open graph. These Premade file operations preserve the currently open Sequence.
-
-Loading other item types can change the active draft. Confirm the selected pane and item before using a file or Library action. Keep a separate file backup of important workflows rather than relying only on the current draft or recovery session.
+Library copies and workflow files are independent. Keep the copy you intend to reuse up to date explicitly.
 
 ## Check Dependencies After Transfer
 
-Verify referenced Tracks, app paths, variable names, screen zones, and block targets on the destination PC. Embedded image data travels with the saved graph, but an unresolved external image path must be corrected before it can be safely saved and run.
+Verify referenced Tracks, app paths, variable names, screen zones, and block targets on the destination PC. Embedded image data travels with the graph; an unresolved external image path needs attention before recognition can use it.
 
 See [Editors And Saving](Editors-And-Saving.md), [Track](../Basics/Track.md), and [Premade Blocks](../Basics/Premade-Blocks.md).

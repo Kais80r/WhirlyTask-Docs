@@ -1,19 +1,20 @@
 # Editor Changes Disappear
 
-First identify which version you are looking at: the open editor session, the applied playback draft, a named Library item, or a separately saved file.
+Check the open document name, its source and save status. Save updates the file or Library entry you opened; an independent copy and the recovery session can contain different editing states.
 
-| Situation | What to check |
+| Symptom | What to check |
 | --- | --- |
-| Editor shows changes but playback does not | Save Draft and check for a validation error |
-| A named Library item does not include your edits | Save Draft alone does not overwrite it; use the Library save/overwrite workflow |
-| Reopening restores unsaved edits | Automatic session recovery preserved editing work |
-| Loading an item replaces current work | You explicitly loaded another document; save a named copy first if both are needed |
-| Save New creates another item | Load/select the intended named copy before testing it |
+| Changes still show as unsaved | Use Save and wait for confirmation; cancelling or a write error does not save them |
+| A Library item does not include your edits | Open that entry and use Save; saving a separate file does not update its Library copy |
+| Save opens a file dialog | This document does not have a working file yet; choose its name and location |
+| Save As changes the document name | You are now editing the newly selected file |
+| New or Open stops at a question | Choose Save, Don't Save or Cancel for the unsaved document |
+| Playback refuses the current graph | Fix Editor Issues; unfinished documents can be saved before they are playable |
 
-Closing the graph editor with X does **not** mean discard. It preserves the session. Do not use close/reopen as Undo, and do not assume a recovered graph was validated for playback.
+The open graph is checked before playback. A failed editor response or invalid graph must not silently start a different editing state.
 
-If a save reports invalid fields or graph structure, fix that error. The editor can retain the draft while runtime keeps the last valid graph.
+Automatic recovery restores editing work across a restart, including unsaved changes. Use Save to update its file or Library entry, or Save As for a file you want to share. Edits made while a save is pending still need saving afterward.
 
-The native Track Editor has separate Save/Cancel behavior for recorded-track settings. Its Cancel rule does not describe the graph editor.
+The native Track Editor has its own Save/Cancel controls for recording settings.
 
 See [Editors And Saving](../App-Features/Editors-And-Saving.md), [Library And Files](../App-Features/Library-And-Files.md), and [Graph Editor](../App-Features/Graph-Editor.md).

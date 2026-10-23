@@ -6,7 +6,7 @@
 2. Select the trigger and set **Enabled** to **On**.
 3. Verify its condition, screen zone, and current value or window state.
 4. Check cooldown and **If another watcher is already running**.
-5. Connect a simple Status Message as the first action and apply **Save Draft**.
+5. Connect a simple Status Message as the first action, then test with **Play**.
 
 Image Watcher does not have a manual scan-interval field. A large OCR or image area can take longer than a simple variable check.
 

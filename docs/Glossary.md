@@ -74,9 +74,9 @@ A Watcher does not automatically stop or pause the main flow. See [Watchers](Wat
 
 | Term | Meaning |
 | --- | --- |
-| Save Draft | Validate and apply the graph as the current playable draft |
-| Save New | Create a named Library copy through the save workflow |
-| Save As | Use the Library save/overwrite workflow for the active document |
+| Save | Update the open file or Library entry; choose a file location for a new document |
+| Save As | Write a different file and continue editing it |
+| Add to Library | Create a separate named Library copy of the open workflow |
 | Session recovery | Automatically preserve editing work and UI state separately from playable and named copies |
 | Library | Named saved Tracks, Sequences, and Premade Blocks |
 | File copy | Portable copy saved with explicit Library/file actions |

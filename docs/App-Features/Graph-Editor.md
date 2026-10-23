@@ -51,6 +51,6 @@ See [Variables](../Values/README.md) and [Recognition](../Recognition/README.md)
 
 The **Issues** badge opens errors and warnings. Select an issue to reveal its affected node and, when applicable, focus the field that needs attention. Diagnostics cover active field settings and graph structure, including invalid options, numbers, missing targets, duplicate Step IDs, and unreachable steps.
 
-**Errors** block Save Draft, Save New, and Save As. **Warnings** do not block them. Variable references whose values are only available during playback still require runtime validation; editor checks cannot guarantee that every future screen or variable value will be valid.
+You can save unfinished documents. **Errors** must be fixed before playback; **warnings** remain visible for review. Variable references whose values are only available during playback still require runtime validation; editor checks cannot guarantee that every future screen or variable value will be valid.
 
-Your editing session is retained even when the graph cannot yet be applied. Fix the errors, then use **Save Draft** to update playback. See [Editors And Saving](Editors-And-Saving.md).
+Your editing session is retained while you work. Use **Save** to update the open file or Library entry and **Play** to validate and test the open graph. See [Editors And Saving](Editors-And-Saving.md).
