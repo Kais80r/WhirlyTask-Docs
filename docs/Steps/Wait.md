@@ -1,39 +1,13 @@
 # Wait
 
-Wait pauses the current step list for a fixed number of seconds.
+Delays the current execution path by **Seconds** before following its next link. Other active paths and watchers may still run.
 
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| seconds | How long to wait |
-
-## Setup From Scratch
-
-1. Add Wait after an action.
-2. Enter the number of seconds.
-3. Keep it as short as the workflow safely allows.
-4. Replace it with a Wait for step if there is a real screen state to wait for.
-
-## Example
+Use a small delay to avoid a tight retry loop or to allow an animation to settle. A fixed delay does not confirm readiness; [Wait For](Wait-For.md) or a condition is better when there is a visible signal.
 
 ```text
-1. Click Text Refresh
-2. Wait 1.5 seconds
-3. Wait For (Text) Ready timeout 30
+Start -> Wait: 0.5 -> Status Message: Continuing
 ```
 
-## Useful For
+The app accepts fractional seconds. Timing also depends on the system and the work being performed, so do not treat a short wait as a real-time timing guarantee.
 
-- Small pauses after clicks.
-- Giving menus time to open.
-- Giving windows time to focus.
-- Making recorded input more stable.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Fixed waits are unreliable | Use [Wait For (Text)](Wait-For.md), [Wait For (Image)](Wait-For.md), or [Wait For (Window)](Wait-For.md) for real readiness checks |
-| The sequence feels slow | Replace unnecessary fixed waits with condition-based waits |
-| A watcher fires during the wait | Check whether the watcher should pause, stop, or ignore that condition |
+For a delay selected between two bounds, use [Random Wait](Random-Wait.md).

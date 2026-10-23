@@ -1,44 +1,33 @@
 # Image Not Found
 
-This page is for Click Image, If Image, Wait Until Image, or image watchers not finding a target.
+Check which recognition mode the action uses before changing the reference or tolerance.
 
-## Check These First
+| Mode | Check first |
+| --- | --- |
+| Smart | Is the reference distinctive, visible, and still the same target? |
+| Pixel | Is the target the same pixel size, with every included RGB channel within tolerance? |
 
-- The target is visible.
-- The target is not covered.
-- The app is at the same scale as when the image was captured.
-- The image crop does not include changing text or numbers.
-- The selected search area includes the target.
+## Reference And Area
 
-## Better Image Targets
+- Confirm the Image preview shows the intended reference.
+- Keep the complete target inside the selected area.
+- Exclude changing counters, animation, hover effects, and the pointer from the reference.
+- Avoid blank areas and generic fragments shared by other controls.
+- Narrow the area if several copies are visible.
 
-Good:
+Smart tolerates some scale and appearance changes, but cannot guarantee recognition of a heavily changed or obscured target. Pixel has no scale adaptation or Smart fallback. Display scaling, zoom, rendering changes, or a single out-of-tolerance pixel can break a literal match.
 
-- Stable icon.
-- Unique symbol.
-- Static button art.
-- Small part of a panel that does not change.
+Use an opaque crop for Pixel. Semitransparent, entirely transparent, or sparse unsupported references are unavailable, not a valid absence. Keep the target inside a physical monitor rather than spanning a monitor gap.
 
-Risky:
+## Found, Then Gone
 
-- Large empty area.
-- Animated highlight.
-- Changing number.
-- Text that changes.
-- Cursor or hover effect.
+A moving target can disappear between recognition and the final click check. Click Image reacquires the same reference for up to three guarded attempts, preserving the configured delay. Exhausted target loss skips ordinary Click Image; If Image Click chooses Else.
 
-## Fixes
+For image condition/click steps, an unavailable worker, failed capture, invalid reference/configuration, or real input failure stops playback. Image watchers do not activate from an unavailable check. These errors must not trigger is not seen or choose Else as if absence had been verified.
 
-- Recapture the image target.
-- Crop a smaller stable part.
-- Use a selected search area.
-- Keep the window size consistent.
-- If the target has readable text, try Click Text.
+## Related Pages
 
-## More About
-
-- Click Image step: [Click Image](../Steps/Click-Image.md)
-- Wait For (Image) step: [Wait For (Image)](../Steps/Wait-For.md)
-- If Image step: [If Image](../Steps/If-Image.md)
-- Making areas reliable: [Making Areas Reliable](../Tips/Making-Areas-Reliable.md)
-- Text targets instead of images: [Click Text](../Steps/Click-Text.md)
+- [Smart And Pixel Image Recognition](../Recognition/Images.md)
+- [Click Image](../Steps/Click-Image.md)
+- [If Image Click](../Steps/If-Image-Click.md)
+- [Pixel Recognition](../Recognition/Pixel.md)

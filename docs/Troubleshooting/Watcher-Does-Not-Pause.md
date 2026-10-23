@@ -1,35 +1,18 @@
 # Watcher Does Not Pause
 
-This page is for watchers that fire but the main sequence keeps running.
+Triggering a watcher does not automatically give it exclusive control of the main sequence. Watcher actions can run alongside the main path. Current graphs use Stop Block when recovery must stop a particular work block.
 
-## Main Rule
-
-Watchers run alongside the main sequence by default.
-
-It only pauses the main sequence when it reaches a Pause Sequence step.
-
-## Fix
-
-Add Pause Sequence inside the watcher.
-
-If the watcher should take over immediately, make Pause Sequence the first watcher step.
-
-Example:
+If recovery must take over, select the intended Block on Stop Block and put it before recovery clicks, keys, or state changes.
 
 ```text
 Watcher steps:
-1. Pause Sequence
-2. Handle the problem
-3. Jump Sequence Step 4
+1. Stop Block: Work
+2. Handle the warning
+3. Start Block at Step: Work / chosen-step-id
 ```
 
-## If Pause Sequence Is Not First
+Steps before Stop Block can overlap the work block. This can be intentional for a notification, but it is usually unsuitable for two paths sending input to the same application.
 
-Steps before Pause Sequence can run while the main sequence is still running. This can be useful, but it can also be confusing.
+Verify the trigger first with Status Message. Then confirm Stop Block is reached and points to the correct block. It does not preserve a resumable pause point; choose where work should start again explicitly.
 
-## More About
-
-- Pause Sequence: [Pause Sequence](../Watchers/Steps/Pause-Sequence.md)
-- Watchers: [Watchers](../Watchers/README.md)
-- Watcher recovery example: [Watcher Recovery](../Examples/Watcher-Recovery.md)
-- Watcher tips: [Keeping Watchers Predictable](../Tips/Keeping-Watchers-Predictable.md)
+Legacy Pause Sequence cards normalize to current block-control behavior. See [Stop Block](../Steps/Stop-Block.md), [Start Block at Step](../Steps/Start-Block-at-Step.md), [Watcher Pauses And Never Continues](Watcher-Pauses-And-Never-Continues.md), and [Keeping Watchers Predictable](../Tips/Keeping-Watchers-Predictable.md).

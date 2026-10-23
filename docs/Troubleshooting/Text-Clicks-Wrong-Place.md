@@ -1,40 +1,31 @@
 # Text Clicks Wrong Place
 
-This page is for Click Text clicking the wrong match or clicking the right text but landing in the wrong spot.
+First separate an incorrect text match from a duplicate label or an offset problem. Click Text uses actual OCR boxes and verifies the target again before mouse-down, but OCR can still misread a scene.
 
-## Why It Happens
+## Check In This Order
 
-The same text may appear more than once, the text reader may find a similar word somewhere else, or the Offset may move the click away from the found center.
+1. Set Click offset to `0,0`.
+2. Restrict Screen zone to the intended control or dialog.
+3. Search for a distinctive complete word or phrase.
+4. Use All text until the basic match works.
+5. Read the same area with Read Text and print the result.
 
-## Fixes
+The same `OK` label may appear in multiple windows. A smaller suitable area is more useful than assuming the first recognized copy is the desired one.
 
-- Use a selected area around the correct target.
-- Match a longer phrase if it is unique.
-- Match a shorter phrase if the full text is read inconsistently.
-- Keep Offset at `0,0` when you want to click the center of the found text.
-- Adjust Offset only when the click should land beside the text.
-- Test Read Text on the same area to see what WhirlyTask sees.
-- If the target is an icon or stylized button, use Click Image.
+Offsets remain within the verified text target; they are not a way to click an unrelated control outside its bounds. Use an explicit mouse action for such a workflow.
 
-## Example
+## Filtered Targets
 
-Instead of:
+The query must already fit Match characters. Numbers only with query `12` may locate the digits in `Score:12`. If the model cannot separate those digits from excluded characters using actual OCR boxes, the check reports unavailable rather than estimating a click position.
 
-```text
-Click Text OK from Full Screen
-```
+Do not shorten a target to a common single character just to bypass a miss. Keep signs and decimals meaningful: `-10`, `10`, and `1.0` are different targets.
 
-Use:
+## Cancelled Or Skipped Clicks
 
-```text
-Click Text OK from selected dialog area
-Offset: 0,0
-```
+The target may have changed during the configured delay or hover. WhirlyTask retries boundedly and skips if no stable target remains. Unavailable verification or input-delivery failure stops playback. Inspect the status message before changing the area or delay.
 
-## More About
+## Related Pages
 
-- Click Text step: [Click Text](../Steps/Click-Text.md)
-- Wait For (Text) step: [Wait For (Text)](../Steps/Wait-For.md)
-- Selected area problems: [Selected Area Problems](Selected-Area-Problems.md)
-- Making areas reliable: [Making Areas Reliable](../Tips/Making-Areas-Reliable.md)
-- Image targets: [Click Image](../Steps/Click-Image.md)
+- [Click Text](../Steps/Click-Text.md)
+- [Text Recognition And Character Filters](../Recognition/Text.md)
+- [Selected Area Problems](Selected-Area-Problems.md)

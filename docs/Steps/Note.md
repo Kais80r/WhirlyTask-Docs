@@ -1,38 +1,14 @@
 # Note
 
-Note leaves a reminder in the step list.
+Adds an explanation to the graph. Use **Message** to record why a branch, target area, delay, or recovery action exists.
 
-It is useful for labeling sections or explaining why nearby steps are there.
+A Note is documentation for the person editing the sequence. It does not check screen content, change variables, or show a runtime notification.
 
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| Note text | The explanation shown in the editor |
-
-## When To Use It
-
-Use notes to explain why a section exists, especially in long sequences.
-
-## Example
+Useful notes explain assumptions:
 
 ```text
-1. Note: This section waits for the report to finish
-2. Click Text Generate
-3. Wait For (Text) Complete timeout 60
+The retry starts here only after the dialog is closed.
+The selected area covers the report toolbar at this window size.
 ```
 
-## Useful For
-
-- Marking sections.
-- Explaining watcher recovery logic.
-- Explaining why a jump goes to a specific step.
-- Leaving reminders for future edits.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Nothing appears during playback | Use [Status Message](Status-Message.md) when you need a visible message |
-| The note is hard to understand later | Write what the nearby steps are for, not just `fix` or `thing` |
-| The note mentions old step numbers | Update notes after moving or deleting steps |
+Keep runtime progress in [Status Message](Status-Message.md). Keep important execution requirements in actual conditions and links rather than relying on a note to enforce them.

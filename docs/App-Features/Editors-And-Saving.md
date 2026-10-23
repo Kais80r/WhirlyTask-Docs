@@ -1,54 +1,33 @@
 # Editors And Saving
 
-Editors let you change tracks, advanced tracks, and sequences.
+The graph editor's draft, a named Library item, and a file export are separate things. Automatic session recovery is a fourth layer; it helps restore editing work but is not a named backup.
 
-## Editors
+## Sequence Graph Editor
 
-Open editors from the main menu:
-
-```text
-Menu > Track Editor
-Menu > Advanced Track Editor
-Menu > Sequence Editor
-```
-
-The main window also has an Editor button for the loaded item.
-
-## Save Rule
-
-Editor changes are applied only when you press Save.
-
-Closing the editor or pressing Cancel discards unsaved changes.
-
-## Buttons
-
-| Button | Result |
+| Action | What it does |
 | --- | --- |
-| Save | Applies changes to the current item |
-| Save New | Saves a new copy |
-| Cancel | Closes without applying changes |
-| Window X | Also closes without applying changes |
+| Save Draft | Validates and applies the graph as the current playback draft |
+| Save New | Applies the draft and opens a dialog to create a named Library copy |
+| Save As | Applies the draft and opens the Library save/overwrite workflow |
+| Close / window X | Closes the editor while preserving its session; it does not mean discard |
+| New or loading another document | Replaces the active editing document; save a named copy first if you need both |
 
-## Why It Works This Way
+Wait for the native save result. If validation fails, the editor can retain your work while playback still uses the last valid draft. A stored editor session is not proof the changed graph is ready to run.
 
-This protects saved items from accidental edits. You can open an editor, test ideas, and close it without changing the loaded item unless you press Save.
+Save Draft does not create or overwrite a named Library entry. Save New does not create a portable file. Use the explicit Library/file actions for those purposes.
 
-## Troubleshooting
+## Automatic Session Recovery
 
-| Problem | What to try |
-| --- | --- |
-| Changes disappear | Press Save before closing the editor |
-| Save New creates a separate copy | Load the new copy if that is the version you want to run |
-| The wrong item opens in the editor | Check the loaded item label in the main window before editing |
+The editor checkpoints its graph and editing state. Reopening can recover work, including edits that have not been applied for playback. Closing the window is not a reliable way to undo changes, and recovered work is not necessarily the version stored under a Library name.
 
-## Tips
+Use Undo for an editing mistake. To deliberately return to a named version, load that version explicitly. Keep file backups of important workflows.
 
-- Press Save before testing from the main window.
-- Use Save New before a risky edit.
-- Check the loaded label in the main window so you know what is currently active.
+## Track Editor Is Different
 
-## More About
+The native Track Editor edits playback settings for a recording. Its Save applies the settings; Cancel or closing that Track Editor leaves its pending settings unapplied. Do not transfer that Save/Cancel rule to the sequence graph editor.
 
-- Editor changes disappear: [Editor Changes Disappear](../Troubleshooting/Editor-Changes-Disappear.md)
-- Tracks, advanced tracks, and sequences: [Basics](../Basics/README.md)
-- Library and files: [Library And Files](Library-And-Files.md)
+## Related Pages
+
+- [Graph Editor](Graph-Editor.md)
+- [Library And Files](Library-And-Files.md)
+- [Editor Changes Disappear](../Troubleshooting/Editor-Changes-Disappear.md)

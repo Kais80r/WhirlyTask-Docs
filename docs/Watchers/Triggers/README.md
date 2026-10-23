@@ -1,70 +1,18 @@
 # Watcher Triggers
 
-A trigger is the condition that makes a watcher fire.
+A trigger card defines when its connected Watcher actions may run. Add it from the **Watcher** tab, select it to edit the condition, then connect ordinary actions from the other toolbox tabs.
 
-The watcher checks the trigger repeatedly while the sequence is running. When the trigger becomes true, the watcher runs its steps.
+| Card | Condition | Guide |
+| --- | --- | --- |
+| Text Watcher | Text is seen or not seen | [Text](When-Text.md) |
+| Image Watcher | Image is seen or not seen | [Image](When-Image.md) |
+| Window Watcher | Window open, focus, or fullscreen state | [Window](When-Window.md) |
+| Variable Watcher | Value comparison, existence, or change | [Variable](../Variable-Watcher.md) |
+| Time Watcher | Daily wall-clock time | [Time](When-Time.md) |
+| Timer Watcher | Elapsed duration | [Timer](When-Timer.md) |
+| Chance Watcher | Probability roll | [Chance](For-Chance.md) |
+| Internet Watcher | Online or offline state | [Internet](When-Internet.md) |
 
-Choose the trigger by asking what kind of thing should cause the reaction.
+Every trigger has **Enabled**, **Cooldown seconds**, and **If another watcher is already running**. Timing fields vary by trigger. See [Watcher Settings](../Watcher-Settings.md).
 
-## Trigger Pages
-
-| Trigger | Use when |
-| --- | --- |
-| [What Is A Trigger](What-Is-A-Trigger.md) | You want the basic idea |
-| [When Text](When-Text.md) | Visible text appears on the screen |
-| [When Image](When-Image.md) | A stable image or icon appears |
-| [When Sequence Value](When-Sequence-Value.md) | A stored value matches or changes |
-| [When Window](When-Window.md) | A window or app state matters |
-| [When Internet](When-Internet.md) | Connection state matters |
-| [When Timer](When-Timer.md) | A set amount of time passes |
-| [For Chance](For-Chance.md) | You want a random or occasional trigger |
-
-## Which Trigger Should I Choose?
-
-| You want to react to... | Use |
-| --- | --- |
-| A word or phrase appearing on screen | [When Text](When-Text.md) |
-| A stable icon, button, or visual element | [When Image](When-Image.md) |
-| A value containing text, reaching a number, or changing | [When Sequence Value](When-Sequence-Value.md) |
-| A window opening, closing, or existing | [When Window](When-Window.md) |
-| Internet going online or offline | [When Internet](When-Internet.md) |
-| Time passing while the sequence runs | [When Timer](When-Timer.md) |
-| A random chance | [For Chance](For-Chance.md) |
-
-## Trigger Timing
-
-Text, Image, Window, Internet, and Chance triggers use an interval field.
-
-| Trigger | Timing field |
-| --- | --- |
-| Text | Scan every X seconds |
-| Image | Scan every X seconds |
-| Window | Check every X seconds |
-| Internet | Check every X seconds |
-| Chance | Roll every X seconds |
-| Timer | After X seconds or every X seconds |
-| Sequence Value | No scan interval field |
-
-The cooldown decides how soon the same watcher can fire again after it already ran.
-
-If a watcher fires too often, increase the cooldown.
-
-If a watcher feels slow, lower its interval or cooldown carefully.
-
-## Trigger Reliability
-
-| Trigger type | Reliability tip |
-| --- | --- |
-| Text | Use a unique phrase and avoid tiny selected areas |
-| Image | Capture only the stable part of the image |
-| Sequence Value | Print the value with `{ValueName}` while testing |
-| Window | Use a window title or app state that stays consistent |
-| Internet | Add a cooldown so short connection changes do not spam recovery |
-| Timer | Use `after` for one delayed reaction and `every` for repeated reactions |
-| Chance | Keep chance-based behavior away from important safety logic |
-
-## More About
-
-- [Watchers](../README.md)
-- [Keeping Watchers Predictable](../../Tips/Keeping-Watchers-Predictable.md)
-- [Watcher Does Not Fire](../../Troubleshooting/Watcher-Does-Not-Fire.md)
+A trigger needs a valid result. An OCR error is not confirmed missing text, and a missing variable is not an empty value for ordinary comparisons.

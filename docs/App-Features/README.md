@@ -1,73 +1,32 @@
 # App Features
 
-This folder explains WhirlyTask features that are not individual sequence steps.
-
-These features live around the main app, menu, recording system, playback system, and global safety settings.
-
-Use this folder when the thing you want is controlled from the main WhirlyTask menu instead of from an Add Step row inside a sequence.
-
-## Find A Feature By Goal
+These pages cover WhirlyTask's editor, Library, recording, playback, appearance, and app-wide protections. Use the [step reference](../Steps/README.md) for actions inside a workflow.
 
 | I want to... | Open |
 | --- | --- |
-| Stop playback if a selected app or window closes | [Crash Protection](Crash-Protection.md) |
-| Stop playback if specific text appears | [Text Protection](Text-Protection.md) |
-| Send messages to Discord | [Discord Webhook](Discord-Webhook.md) |
+| Add, connect, select, and arrange graph nodes | [Graph Editor](Graph-Editor.md) |
+| Understand playable drafts, named saves, and session recovery | [Editors And Saving](Editors-And-Saving.md) |
+| Manage named items or portable files | [Library And Files](Library-And-Files.md) |
+| Switch between dark and light themes | [Appearance](Appearance.md) |
 | Change record, play, stop, or emergency hotkeys | [Hotkeys](Hotkeys.md) |
-| Control what gets recorded into tracks | [Recording Options](Recording-Options.md) |
-| Save OCR screenshots and reports while testing text reading | [OCR Debug Captures](OCR-Debug-Captures.md) |
+| Choose which input a Track records | [Recording Options](Recording-Options.md) |
 | Change playback speed or looping | [Playback, Speed, And Loop](Playback-Speed-And-Loop.md) |
-| Load, save, and manage saved items | [Library And Files](Library-And-Files.md) |
-| Understand Save, Save New, and Cancel | [Editors And Saving](Editors-And-Saving.md) |
-| Keep WhirlyTask visible or open these docs | [Always On Top And Help](Always-On-Top-And-Help.md) |
+| Stop playback when a configured app closes | [Crash Protection](Crash-Protection.md) |
+| Stop playback when configured text appears | [Text Protection](Text-Protection.md) |
+| Configure Discord output | [Discord Webhook](Discord-Webhook.md) |
+| Save diagnostic OCR captures while testing | [OCR Debug Captures](OCR-Debug-Captures.md) |
+| Keep the app visible or open documentation | [Always On Top And Help](Always-On-Top-And-Help.md) |
 
-## Feature Pages
+## Protection Or Watcher?
 
-| Feature | What it explains |
-| --- | --- |
-| [Crash Protection](Crash-Protection.md) | Stop playback if a selected window/app closes |
-| [Text Protection](Text-Protection.md) | Stop playback if selected text appears on screen |
-| [Discord Webhook](Discord-Webhook.md) | Set up Discord output for messages and protection alerts |
-| [Hotkeys](Hotkeys.md) | Change Record, Play, Stop, and Emergency keys |
-| [Recording Options](Recording-Options.md) | Choose what gets recorded into tracks |
-| [OCR Debug Captures](OCR-Debug-Captures.md) | Save OCR screenshots and reports while testing text reading |
-| [Playback, Speed, And Loop](Playback-Speed-And-Loop.md) | Playback speed and continuous track playback |
-| [Library And Files](Library-And-Files.md) | Save/load tracks, advanced tracks, and sequences |
-| [Editors And Saving](Editors-And-Saving.md) | How editor Save, Save New, and Cancel behave |
-| [Always On Top And Help](Always-On-Top-And-Help.md) | Window pinning and opening documentation |
+Crash Protection and Text Protection are app-wide stop mechanisms. A Watcher is part of a Sequence and can run an action chain when its trigger is valid.
 
-## App Features Versus Steps
+Use a protection when the desired response is to stop playback. Use a [Watcher](../Watchers/README.md) when the workflow needs custom notification, variable updates, or deliberate recovery. A Watcher does not automatically pause main actions.
 
-| Thing | Where to learn |
-| --- | --- |
-| A step inside a sequence | [Steps](../Steps/README.md) |
-| A watcher inside a sequence | [Watchers](../Watchers/README.md) |
-| A global playback safety setting | This folder |
-| A saved item type | [Basics](../Basics/README.md) |
+## Saving Has Separate Layers
 
-## Protections Versus Watchers
+The graph editor's **Save Draft** applies the playable draft. **Save New** creates a named Library copy. Automatic session recovery preserves editing work separately, including invalid work that cannot yet be applied. Portable files are explicit copies for backup or transfer.
 
-Crash Protection and Text Protection are simple global safety settings. They stop playback.
+Validation errors block applying or saving the graph through Save Draft, Save New, and Save As. Warnings remain visible but do not block those actions. Read [Editors And Saving](Editors-And-Saving.md) for the distinction between recovery, playback, and a saved backup.
 
-Watchers are sequence-specific and can run custom steps.
-
-| Need | Use |
-| --- | --- |
-| Stop immediately when a selected app closes | Crash Protection |
-| Stop immediately when a phrase appears | Text Protection |
-| Click, wait, recover, message, or continue after a condition | Watcher |
-
-## Useful Starting Points
-
-- If playback should stop when a monitored app closes, use [Crash Protection](Crash-Protection.md).
-- If playback should stop when specific text appears, use [Text Protection](Text-Protection.md).
-- If messages should go to Discord, set up [Discord Webhook](Discord-Webhook.md).
-- If recorded tracks include too much mouse movement, check [Recording Options](Recording-Options.md).
-- If screen text is hard to diagnose, turn on [OCR Debug Captures](OCR-Debug-Captures.md).
-
-## More About
-
-- [Getting Started](../Getting-Started.md)
-- [Steps](../Steps/README.md)
-- [Watchers](../Watchers/README.md)
-- [Troubleshooting](../Troubleshooting/README.md)
+For a first workflow, start with [Getting Started](../Getting-Started.md). For screen checks, use [Recognition](../Recognition/README.md).

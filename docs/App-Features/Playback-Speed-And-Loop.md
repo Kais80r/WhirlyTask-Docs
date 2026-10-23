@@ -1,59 +1,24 @@
 # Playback, Speed, And Loop
 
-Playback settings decide how a loaded item runs.
+Playback speed changes the timing of recorded input. A higher setting shortens recorded delays; a lower setting stretches them. It does not make a target application load faster or make OCR finish sooner.
 
-## Playback Speed
+Slow a recording down while diagnosing missed input. For readiness that varies between runs, prefer an explicit [Wait For](../Steps/Wait-For.md) condition in a sequence over assuming one fixed speed is always safe.
 
-Speed changes how fast recorded playback runs.
+## Track Looping
 
-Higher speed makes playback faster. Lower speed makes playback slower.
+The main Loop control and **Menu > Continuous Playback** apply to recorded tracks. Looping is not the sequence graph's control-flow system.
 
-Use slower playback when:
+The configured loop count limits track repetitions. Enabling continuous playback can set a large repeat count; use Stop or Emergency to interrupt it. Check the loaded item and visible settings instead of assuming Loop means an unlimited sequence loop.
 
-- The target app is slow.
-- Recorded actions happen too quickly.
-- You are debugging a track.
+For sequence repetition, connect the graph deliberately or use [Repeat X Times](../Steps/Repeat-X-Times.md) and the documented jump steps. Give a loop a clear exit condition and allow the target application time to respond.
 
-Use faster playback when:
+## Common Problems
 
-- The target app responds quickly.
-- The track has unnecessary delays.
-
-## Loop Playback
-
-Loop playback repeats a loaded track.
-
-There are two loop controls:
-
-- the Loop button on the main window
-- `Menu > Continuous Playback`
-
-Loop only works for tracks. If a sequence needs looping, build the loop inside the sequence with steps like [Jump Sequence Step](../Steps/Jump-Sequence-Step.md) and counters.
-
-## Loop Count
-
-The loop count decides how many times the track repeats.
-
-Example:
-
-```text
-Loop enabled
-Loop count: 5
-```
-
-The loaded track plays five times.
-
-## Troubleshooting
-
-| Problem | What to try |
+| Problem | Check |
 | --- | --- |
-| Loop is disabled | Load a track. Sequences need loop steps inside the sequence |
-| The loop repeats too fast | Lower playback speed or add waits between repeated actions |
-| A sequence does not loop | Use [Jump Sequence Step](../Steps/Jump-Sequence-Step.md) or the [Basic Loop](../Examples/Basic-Loop.md) pattern |
-| The target app is not ready between repeats | Add waits or wait-for checks before the next repeat |
+| Loop control is unavailable | A recorded track must be the active item |
+| Clicks arrive before the application is ready | Slow the track or use a sequence with readiness checks |
+| A sequence runs once | Its graph needs an explicit repeat path |
+| Repeated input targets another window | Check [window focus](../Troubleshooting/Wrong-Window-Or-Focus.md) |
 
-## Tips
-
-- For track repetition, use Loop.
-- For sequence repetition, use [Basic Loop](../Examples/Basic-Loop.md).
-- Add waits or wait-for checks between repeated actions when the app needs time.
+See [Hotkeys](Hotkeys.md) for playback controls.

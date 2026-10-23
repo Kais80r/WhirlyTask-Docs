@@ -1,62 +1,26 @@
-# When Text
+# Text Watcher
 
-Use When Text when a watcher should react to words or numbers visible on the screen.
+Text Watcher checks for visible text in a screen zone and starts its action chain when the selected seen/not-seen condition is valid.
 
-The app reads the screen and checks whether the selected text condition is true.
+## Fields
 
-Use this for text that may appear while the main sequence is doing other work. If the normal next step is simply waiting for text, [Wait For (Text)](../../Steps/Wait-For.md) in the main steps is usually clearer.
-
-## Good Uses
-
-- A status label appears.
-- A popup message appears.
-- A button or heading becomes visible.
-- A result changes to a known word.
-
-## Area Choice
-
-| Area | Use when |
+| Field | Set it to |
 | --- | --- |
-| Full Screen | The text can appear in different places |
-| Selected area | The text appears in one stable place |
+| Text | The literal word or phrase to find; supported variable references may supply it |
+| Match characters | All text, Numbers only, Letters only, Letters and numbers, First number, or Custom chars |
+| Keep characters | Allowed characters when Custom chars is selected |
+| Mode | is seen or is not seen |
+| Screen zone | Full Screen or the selected area containing the text |
+| Check every seconds | The requested interval between checks |
 
-Selected areas are faster and less noisy, but they must include the full text with a little space around it.
+The shared [run settings](../Watcher-Settings.md) follow these fields.
 
-## Scan Interval
+## Filtering And Matching
 
-Text triggers scan the selected area repeatedly while the sequence runs.
+The character filter applies to recognized text. The query must already contain only characters allowed by that filter. With Numbers only, query `12` may match recognized `Score:12`; query `Score12` is invalid instead of being silently rewritten to `12`.
 
-Use the scan interval to choose how often WhirlyTask reads the area. Lower intervals react faster but do more OCR work.
+Matching preserves meaningful word boundaries and numeric punctuation. Do not expect `Start` to match `Restart`, or `10` to stand for `1.0`. Recognition can still be wrong, so test similar words and the absence case in your actual layout.
 
-## Setup Example
+A scan or filter error does not fire `is not seen`. A visible condition may fire again after cooldown. Use a narrow area with padding and an action that clears the cause when repeated firing is unwanted.
 
-```text
-Watcher trigger:
-When Text Complete is seen from selected area every 2 seconds
-
-Watcher steps:
-1. Status Message Complete appeared
-```
-
-If the watcher should interrupt the main sequence:
-
-```text
-Watcher steps:
-1. Pause Sequence
-2. Click Text OK
-3. Jump Sequence Step 4
-```
-
-## Tips
-
-- Use a short, unique piece of text.
-- Avoid text that appears in many places.
-- Make the selected area slightly larger than the letters.
-- If the app reads the text wrong, test Read Text on the same area.
-- If text is stylized or tiny, a larger area often reads better.
-
-## More About
-
-- Text reading problems: [Read Text Is Wrong](../../Troubleshooting/Read-Text-Is-Wrong.md)
-- Selected areas: [Selected Area Problems](../../Troubleshooting/Selected-Area-Problems.md)
-- Taking over: [Pause Sequence](../Steps/Pause-Sequence.md)
+See [Text Recognition](../../Recognition/Text.md), [Watcher Settings](../Watcher-Settings.md), and [Text Watcher Examples](../Examples.md#notify-when-text-appears).

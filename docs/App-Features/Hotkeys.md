@@ -1,53 +1,26 @@
 # Hotkeys
 
-Hotkeys let you control WhirlyTask without clicking the app window.
-
-## Default Hotkeys
+Hotkeys control recording and playback without bringing WhirlyTask to the foreground.
 
 | Action | Default |
 | --- | --- |
 | Record | F8 |
 | Play | F9 |
 | Stop | F10 |
-| Emergency | F12 |
+| Emergency stop | F12 |
 
-The main window also shows the current hotkeys.
+The main window shows the configured recording/playback bindings. **Menu > Bindings** changes Record, Stop, and Play. F12 is reserved for emergency stopping; it is not a fourth configurable binding submenu.
 
-## Where To Change Them
+Record starts/stops recording. Play runs the active loaded item or valid playback draft. Stop ends recording/playback. Emergency stopping also handles held inputs when automation must be interrupted.
 
-Open:
+## If A Binding Does Not Work
 
-```text
-Menu > Bindings
-```
+- Check the current binding shown by WhirlyTask.
+- Load the intended item before pressing Play.
+- Stop playback before starting a recording.
+- If the status says **Hotkey busy**, another application may have registered that key; select another supported binding.
+- Avoid assigning a key that the target application needs for an unrelated action.
 
-There are separate binding menus for:
+Know the emergency key before testing input-heavy automation. Editor shortcuts such as Undo, Copy, and Paste are editing commands; they are separate from these global playback controls.
 
-- Record
-- Stop
-- Play
-- Emergency
-
-## What Each Hotkey Does
-
-| Hotkey | Meaning |
-| --- | --- |
-| Record | Starts or stops recording |
-| Play | Starts playback of the loaded item |
-| Stop | Stops recording or playback |
-| Emergency | Stops everything and releases pressed inputs |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| A key is already used by another WhirlyTask action | Choose a different binding for one of the actions |
-| Another app uses the same key | Pick a less common key or close the conflicting app while using WhirlyTask |
-| Play does nothing | Load an item before pressing Play |
-| Record does not start | Stop playback first, then press Record |
-
-## Tips
-
-- Keep Emergency on a key you can reach quickly.
-- Avoid hotkeys that another app already uses heavily.
-- If input gets stuck or the wrong thing is happening, use Emergency.
+See [Testing A Sequence](../Tips/Testing-A-Sequence.md) for a small test workflow.

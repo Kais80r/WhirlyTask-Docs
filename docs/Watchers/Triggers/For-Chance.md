@@ -1,50 +1,14 @@
-# For Chance
+# Chance Watcher
 
-Use For Chance when a watcher should only fire sometimes instead of every time.
+Chance Watcher makes probability rolls while a Sequence runs. A successful roll makes its action chain eligible to start.
 
-This is an advanced trigger. Most workflows should use text, image, value, window, or internet triggers first.
+| Field | Meaning |
+| --- | --- |
+| Chance percent | Probability for each roll |
+| Roll every seconds | Requested interval between rolls |
 
-Chance is not a safety check. It is for optional behavior.
+Set Enabled, Cooldown seconds, and the conflict policy in the shared [Watcher Settings](../Watcher-Settings.md).
 
-## Good Uses
+A chance is evaluated per roll, not as a guarantee over a chosen time span. Even a high percentage can fail, and repeated rolls can succeed close together when cooldown allows it.
 
-- Occasional checks.
-- Randomized optional behavior.
-- Testing whether a watcher path works without forcing it every run.
-
-## Avoid It For
-
-- Error recovery.
-- Crash or safety behavior.
-- Required waits.
-- Anything that must happen every time.
-
-For required logic, use a real condition such as text, image, window, value, or internet state.
-
-## Roll Interval
-
-Chance triggers roll repeatedly while the sequence runs.
-
-Use the `roll every` field to choose how often WhirlyTask makes a chance roll. Each roll uses the percent chance from the trigger.
-
-## Setup Example
-
-```text
-Watcher trigger:
-For Chance 10%
-(roll every 5 seconds)
-
-Watcher steps:
-1. Status Message Optional check ran
-```
-
-## Tips
-
-- Keep the chance easy to understand.
-- Use Status Message while testing.
-- Use a real condition for important recovery logic, such as text, image, window, value, or internet state.
-
-## More About
-
-- [Watcher Triggers](README.md)
-- [Keeping Watchers Predictable](../../Tips/Keeping-Watchers-Predictable.md)
+Use this for optional variation or randomized behavior, not for a safety check or a mandatory recovery. Use a real state condition when an action must happen because of the screen, window, or variable state.

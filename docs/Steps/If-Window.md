@@ -1,45 +1,15 @@
 # If Window
 
-If Window checks a window condition, then runs the Then branch or Else branch.
+Checks a window whose title contains the configured **Window title**, then follows **Then** or **Else**.
 
-## Fields
+**Mode** can be `is focused`, `is not focused`, `is open`, `is not open`, `is fullscreen`, or `is not fullscreen`.
 
-| Field | Meaning |
-| --- | --- |
-| Window title | Text that appears in the window title |
-| Mode | `is open`, `is not open`, `is focused`, `is not focused`, `is fullscreen`, or `is not fullscreen` |
-| Then branch | Steps to run when the condition is true |
-| Else branch | Steps to run when the condition is false |
-
-## Setup From Scratch
-
-1. Add If Window.
-2. Enter a stable part of the window title.
-3. Choose the mode.
-4. Add Status Message in Then and Else to test.
-5. Replace the messages with real actions after the branch works.
-
-## Example
+Choose a distinctive title fragment. Several matching windows can make the result ambiguous. An open window may be behind another window or still loading; use a text/image condition if visible application content matters.
 
 ```text
-If Window Report Tool is focused
-Then:
-1. Press Key Ctrl+S
-Else:
-1. Focus Window Report Tool
-2. Press Key Ctrl+S
+If Window: Report / is open
+  Then -> Focus Window: Report
+  Else -> Open App/File: C:\Reports\summary.xlsx
 ```
 
-## When To Use Wait For (Window) Instead
-
-Use [Wait For (Window)](Wait-For.md) when the sequence should pause until the condition happens.
-
-Use If Window when the sequence should choose between two paths right now.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The branch runs while another window is active | Check `is focused` instead of only `is open` |
-| The wrong window matches | Use a more specific title fragment |
-| The window appears later | Use [Wait For (Window)](Wait-For.md) when you need to wait |
+A condition does not focus or change the target. Use [Focus Window](Focus-Window.md) or [Fullscreen Window](Fullscreen-Window.md) for those actions. Use [Wait For](Wait-For.md) when the window may appear later.

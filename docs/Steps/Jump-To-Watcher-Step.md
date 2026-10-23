@@ -1,46 +1,7 @@
 # Jump to Watcher Step
 
-> Note: this step is currently hidden from the Add Step menu. Use [Jump Block Step](Jump-Block-Step.md) for normal watcher loops. Jump to Watcher Step is kept for a possible future feature.
+This address is retained for links from older documentation.
 
-Jump to Watcher Step jumps to a numbered step inside the current watcher.
+This legacy action is not in the current toolbox. Build watcher recovery with explicit Stop Block and Start Block at Step targets. Do not rely on a hidden numbered watcher-step command for a new workflow.
 
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| Step number | The watcher step to continue from |
-
-## Where It Works
-
-This step only works inside a watcher.
-
-## Setup From Scratch
-
-1. Create a watcher.
-2. Add multiple watcher steps.
-3. Add Jump to Watcher Step.
-4. Enter the watcher step number.
-5. Test carefully to avoid endless loops.
-
-## Example
-
-```text
-Watcher steps:
-1. Status Message Checking again
-2. Wait 1 second
-3. Jump to Watcher Step 1
-```
-
-## Useful For
-
-- Loops inside a watcher.
-- Rechecking a recovery state.
-- Repeating watcher-only actions.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The step does nothing useful outside a watcher | Use it only inside watcher steps |
-| The watcher loops forever | Add a clear exit such as Stop Sequence, Reset and Restart Sequence, or Jump Sequence Step |
-| The jump target is wrong | Use watcher step numbers, not main sequence step numbers |
+Continue with [block controls](Start-Block-at-Step.md).

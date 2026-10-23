@@ -1,71 +1,49 @@
-# What Is A Value
+# What Is A Variable?
 
-A value is a named piece of text stored inside a sequence.
+A variable is a named value shared by steps during playback. It can contain text, an empty string, or a number represented as text.
 
-It can start with text, stay empty, or be changed while the sequence runs.
+## Names And References
 
-Values are how one step passes information to another step.
+| Field or usage | Example | Meaning |
+| --- | --- | --- |
+| Variable target | `attempts` | Write or compare the variable with that name |
+| Read Text result variable | `resultText` | Store the OCR result under that name |
+| Reference in a supported field | `{attempts}` | Substitute its value during playback |
 
-## Why Values Matter
+Use raw names in target fields. Names are case-sensitive, and the name suggestions retain that spelling. Avoid relying on visually similar Unicode characters or different capitalization to refer to the same name.
 
-Values let steps share information.
+## Declare A Start Value
 
-Example:
+Add **Starter Variable** from the Variable tab, set **Variable**, **Set to**, and **Interpret as**. Starter Variables are declarations initialized before the normal connected steps begin.
 
-```text
-1. Read Text into statusText
-2. If Value statusText contains Complete
-3. Status Message Done: {statusText}
-```
+Use **Text** for literal text or a blank value. Use **Math** for an expression such as `(2 + 3) * 4` or `{unitPrice} * 2`. References in startup values must resolve successfully; missing or cyclic references are errors.
 
-The Read Text step fills the value. The If Value step checks it. The Status Message step displays it.
+A variable can also be created later by Set Variable or Read Text. That does not give it a declared Reset Variable baseline.
 
-## Starting Values
+## Change Or Clear A Value
 
-Starting Values define what a value contains when the sequence begins.
+**Set Variable** replaces the value. In Text mode, clearing **Set to** stores an empty string; it does not retain the previous text. Whitespace entered deliberately is preserved.
 
-Examples:
+**Change Variable** supports **Add**, **Subtract**, and **Set number**. Give it a valid numeric amount. Math expressions and numeric comparisons require valid finite numbers; invalid arithmetic is not silently changed to zero.
 
-```text
-statusText starts as empty
-attempts starts as 0
-isReady starts as false
-```
+## Compare A Variable
 
-If the sequence uses Reset and Restart Sequence, values return to these starting values.
+**If Variable** and **Variable Watcher** offer these comparison modes:
 
-## Values Are Text
-
-Even numbers are stored as text first. Number comparisons only work well when the value contains a clean number.
-
-If a value contains extra symbols or words, use `contains` instead of a number comparison.
-
-## Placeholders
-
-Use braces to insert a value into a text box:
-
-```text
-Current result: {resultText}
-Attempt: {attempts}
-```
-
-When the step runs, WhirlyTask replaces the placeholder with the current value.
-
-If the value name is `ResultText`, the placeholder must be `{ResultText}`. Spelling and capitalization matter.
-
-## Common Value Patterns
-
-| Pattern | Example |
+| Mode | Use |
 | --- | --- |
-| Store screen text | Read Text fills `statusText` |
-| Count loops | Change Sequence Value adds 1 to `loops` |
-| Store state | Set Sequence Value sets `state` to `waiting` |
-| Send a result | Discord Message sends `Result: {resultText}` |
-| Trigger a watcher | Watcher fires when `state` changed |
+| equals / not equals | Compare text, ignoring letter case |
+| contains | Check whether the text contains the comparison text |
+| >, >=, <, <= | Compare numeric values |
+| is empty / is not empty | Check for empty text or ordinary surrounding whitespace |
+| exists / does not exist | Check whether the name has been created |
 
-## More About
+The empty and existence modes do not show **Compare to**. Variable Watcher also offers **changed**.
 
-- [Values](README.md)
-- [Using Values In Messages](Using-Values-In-Messages.md)
-- [Reading Text Into Values](Reading-Text-Into-Values.md)
-- [Using Values In Text Boxes](../Tips/Using-Values-In-Text-Boxes.md)
+A missing variable is not an empty variable. Ordinary comparisons against a missing name fail safely instead of selecting Then or firing a watcher. Use **exists** or **does not exist** when absence is the condition you intend. Existing values with unresolved or cyclic references also cannot be used as valid ordinary comparisons.
+
+## Reset One Variable
+
+[Reset Variable](Resetting-Variables.md) restores the resolved value captured from Starter Variable at the beginning of playback. It does not re-evaluate that declaration using later values.
+
+See [Using Variable References](Using-Values-In-Messages.md) and the individual [variable step pages](README.md#choose-the-right-step).

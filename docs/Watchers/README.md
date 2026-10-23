@@ -1,130 +1,44 @@
 # Watchers
 
-Watchers are background checks inside a sequence.
+A Watcher checks a condition while a Sequence is running and starts its own action chain when that condition is valid. Use one for a side event that may happen at an unexpected time. Use a normal If or Wait For step for the next expected part of the main path.
 
 ![Watcher control flow](../assets/diagrams/watcher-control.svg)
 
-A normal sequence runs its main steps from top to bottom. A watcher runs beside those main steps and checks for a condition, such as text appearing, a value changing, an image being found, or a window opening.
+## Add A Watcher
 
-You can think of a watcher like this:
+1. Open the Sequence graph editor and select the **Watcher** toolbox tab.
+2. Add a trigger card such as **Text Watcher** or **Image Watcher**.
+3. Select the trigger to configure its condition and shared run settings.
+4. Add ordinary actions from **All**, **Basic**, or **Variable** and connect them to the Watcher chain.
+5. Use **Save Draft**, then test while the main flow remains running.
 
-```text
-While the sequence runs:
-  if this condition happens:
-    run these watcher steps
-```
+The Watcher tab contains trigger cards. Its action chains use the same ordinary steps as the main graph. **Variable Watcher** also appears in the Variable tab.
 
-Use watchers for side events, recovery, safety checks, and background reactions. Main steps should still handle the normal path.
+## Choose A Trigger
 
-Good structure:
-
-```text
-Main steps:
-1. Do the normal workflow
-2. Wait for the expected result
-3. Continue
-
-Watcher:
-When a warning appears:
-1. Handle the warning
-2. Continue or stop
-```
-
-## When To Use A Watcher
-
-Use a watcher when the condition can happen while other work is running.
-
-| Situation | Watcher is a good fit? |
+| Trigger | Checks |
 | --- | --- |
-| An unexpected warning can appear at any time | Yes |
-| A value can change while the main steps continue | Yes |
-| A connection or window state can change during playback | Yes |
-| The next normal expected step is to wait for text | Usually no, use main steps |
-| The workflow should always check something before continuing | Usually no, use an If or Wait step |
+| [Text Watcher](Triggers/When-Text.md) | Recognized text in a screen area |
+| [Image Watcher](Triggers/When-Image.md) | A Smart or Pixel image target |
+| [Window Watcher](Triggers/When-Window.md) | A window's open, focus, or fullscreen state |
+| [Variable Watcher](Triggers/When-Sequence-Value.md) | A variable's value, existence, or change |
+| [Time Watcher](Triggers/When-Time.md) | A daily clock time and time zone |
+| [Timer Watcher](Triggers/When-Timer.md) | Elapsed time since playback or a previous trigger |
+| [Chance Watcher](Triggers/For-Chance.md) | Repeated probability rolls |
+| [Internet Watcher](Triggers/When-Internet.md) | Online or offline state |
 
-## Start Here
+## Main Steps Keep Running
 
-| Page | What it explains |
-| --- | --- |
-| [Triggers](Triggers/README.md) | What makes a watcher fire |
-| [Watcher Settings](Watcher-Settings.md) | State, scan interval, cooldown, and conflict behavior |
-| [Pause Sequence](Steps/Pause-Sequence.md) | How a watcher can take over |
-| [Examples](Examples.md) | Common watcher setups |
-| [Watcher Troubleshooting](Troubleshooting.md) | What to check when watchers do not work |
+Triggering a Watcher does not automatically pause the main flow. A notification can run alongside the main actions. If recovery must stop a main block, use **Stop Block** explicitly and design how that block will start again.
 
-## The Important Rule
+The **If another watcher is already running** option controls conflicts between Watchers. It does not stop the main flow.
 
-By default, a watcher runs alongside the main sequence.
+A failed capture or unavailable recognition engine is not confirmed absence. An `is not seen` Watcher must not be used as an error handler for OCR or image-engine failures.
 
-That means the watcher can do its own steps while the main sequence keeps running. This is useful for quick alerts, logs, notifications, or small fixes.
+## Repetition And End Of Playback
 
-If you add a Pause Sequence step inside the watcher, the watcher takes control when it reaches that step. After that, use Jump Sequence Step, Reset and Restart Sequence, or Stop Sequence to decide what happens next.
+A condition that stays true can fire again after its cooldown. Make recovery remove the condition, or choose a cooldown that suits the task. A Timer Watcher in after mode is a one-shot elapsed-time trigger; every mode repeats.
 
-If the watcher should take control immediately, put Pause Sequence as the first watcher step.
+Watchers belong to playback. If the Sequence finishes or stops, they do not remain as independent background automations. Keep the main path alive while testing a Watcher.
 
-## Watcher Parts
-
-| Part | Meaning |
-| --- | --- |
-| State | Whether the watcher is on or off |
-| Scan interval | How often WhirlyTask checks the watcher condition |
-| Cooldown | How long to wait before the watcher can fire again |
-| Conflict | What happens if another watcher is already running |
-| Trigger | The condition that makes it fire |
-| Watcher steps | What it does after the trigger is true |
-
-## Three Common Watcher Styles
-
-| Style | What it does | Example ending |
-| --- | --- | --- |
-| Notify only | Sends a status or Discord message while main steps keep running | No pause needed |
-| Take over and recover | Pauses the main sequence, fixes the problem, then continues | Jump Sequence Step |
-| Stop or reset | Stops unsafe playback or starts from a clean beginning | Stop Sequence or Reset and Restart Sequence |
-
-## Good Watcher Design
-
-- Give each watcher one clear job.
-- Choose a conflict mode that matches the watcher job.
-- Use a cooldown long enough to avoid repeated firing.
-- Put Pause Sequence early if the watcher should take over immediately.
-- Use Status Message while testing so you can see when it fires.
-- Keep recovery steps short and predictable.
-
-## What Watchers Can Be Used For
-
-- Reacting to something that can happen at an unexpected time.
-- Closing or handling unexpected dialogs.
-- Sending a message when text appears.
-- Pausing the main sequence when an error appears.
-- Reacting when a sequence value changes.
-- Refocusing a window if the workflow loses focus.
-- Stopping a sequence when a dangerous or unwanted state appears.
-
-## Common Watcher Systems
-
-| System | Open this |
-| --- | --- |
-| Handle unexpected warning | [Watcher Recovery](../Examples/Watcher-Recovery.md) |
-| Continue after taking over | [Pause Sequence](Steps/Pause-Sequence.md) |
-| Tune watcher behavior | [Watcher Settings](Watcher-Settings.md) |
-| React to text | [When Text](Triggers/When-Text.md) |
-| React to a value | [When Sequence Value](Triggers/When-Sequence-Value.md) |
-| Fix watcher problems | [Watcher Troubleshooting](Troubleshooting.md) |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Main steps keep running during recovery | Add Pause Sequence near the start of the watcher |
-| The sequence stays paused | End the watcher with Jump Sequence Step, Reset and Restart Sequence, or Stop Sequence |
-| The watcher fires repeatedly | Increase the cooldown or make the trigger more specific |
-| The watcher fires in the wrong situation | Use more specific trigger text, image, window, or area |
-| The watcher handles the normal expected path | Move that logic into main steps |
-
-## More About
-
-- [Getting Started](../Getting-Started.md)
-- [Triggers](Triggers/README.md)
-- [Watcher Settings](Watcher-Settings.md)
-- [Watcher Recovery](../Examples/Watcher-Recovery.md)
-- [Watcher Does Not Fire](../Troubleshooting/Watcher-Does-Not-Fire.md)
+See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Pause-Sequence.md), [Examples](Examples.md), and [Troubleshooting](Troubleshooting.md).

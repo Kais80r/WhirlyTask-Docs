@@ -1,46 +1,19 @@
 # Keeping Watchers Predictable
 
-Watchers are powerful because they run in the background. That also means they should be kept simple.
+Give each watcher one clear job, such as handling one warning or reporting one state change. Keep normal workflow steps in the main path.
 
-## Give Each Watcher One Job
+## Trigger, Interval, And Cooldown
 
-Good watcher jobs:
+The scan interval controls when eligible checks are scheduled. Cooldown limits repeated activation after a trigger. Lowering cooldown does not make a slow OCR request finish sooner, and a very short interval is not a guarantee of instant detection.
 
-- Stop when a counter reaches a limit.
-- Handle one warning popup.
-- Send one notification when important text appears.
-- Reset and restart when a connection problem appears.
+For text/image checks, choose a useful area and test a visible positive plus a known negative. Unavailable recognition must not satisfy an is not seen trigger.
 
-Avoid making one watcher handle many unrelated problems.
+## Decide Who Owns Input
 
-## Use Cooldowns
+A watcher can run alongside the main sequence. If its recovery steps must take over, use Stop Block on the intended work block before sending competing clicks or keys.
 
-A cooldown prevents the same watcher from firing repeatedly too fast.
+Stop Block does not preserve a resumable pause position. Use Start Block at Step with an explicit target to start work again, Jump Block Step to transfer the current path, Reset and Restart Sequence for a fresh run, or Finish Sequence to end playback.
 
-Use a longer cooldown for alerts and messages. Use a shorter cooldown only when the watcher must react quickly.
+Start testing with `Status Message: Watcher fired`. Once the trigger is proven, test the stop/restart behavior and check that recovery cannot duplicate an already completed external action. Use cooldowns for repeated notifications.
 
-## Decide If It Should Take Over
-
-If the watcher only sends a message or stops the sequence, it may not need Pause Sequence.
-
-If the watcher needs to do recovery work before the main sequence continues, put Pause Sequence near the start of the watcher.
-
-## Add A Test Message
-
-While building, make the first watcher step:
-
-```text
-Status Message Watcher fired
-```
-
-Then you can tell whether the trigger works before debugging the rest of the watcher.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The watcher never fires | Make sure the watcher is enabled and add a Status Message as the first watcher step |
-| The condition is never true | Test the trigger with the same window, text, image, or value state you expect during playback |
-| The watcher reacts too late | Shorten the cooldown only as much as needed |
-| The main sequence keeps moving | Add Pause Sequence near the start of the watcher |
-| Recovery starts after other changes already happened | Move Pause Sequence before steps that click, type, jump, or change values |
+See [Watchers](../Watchers/README.md), [Watcher Does Not Fire](../Troubleshooting/Watcher-Does-Not-Fire.md), and [Watcher Pauses And Never Continues](../Troubleshooting/Watcher-Pauses-And-Never-Continues.md).

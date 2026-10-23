@@ -1,39 +1,30 @@
 # Selected Area Problems
 
-This page is for problems that only happen when using a selected screen area.
+Recognition reads the visible pixels inside its search area. A valid area must cover the target at the moment the check runs.
 
-## Signs The Area Is The Problem
+## Quick Test
 
-- Full Screen works, but the selected area does not.
-- A larger area reads correctly, but a tight area reads wrong.
-- The text result changes even though the visible text looks the same.
-- Click Text works in one crop but not another.
+1. Keep the target window visible in its normal position.
+2. Select the complete word, reference image, or indicator with some margin.
+3. Test a visible positive state and a known negative state.
+4. If the crop fails, enlarge it slightly and repeat.
+5. If duplicates cause the wrong match, reduce the area around the intended copy.
 
-## Why Bigger Areas Can Work Better
+Full Screen is useful for diagnosis, but a smaller suitable area reduces unrelated candidates and can reduce recognition work. An extremely tight crop can cut off accents, decimal points, shadows, or parts of the reference image.
 
-Screen text reading needs context. A very tight crop can cut off dots, shadows, outlines, or spacing that helps identify letters.
+## After Display Changes
 
-Small crops can also make icons look like letters or make punctuation disappear.
+Recheck the area after moving a window, changing zoom, resizing, switching fullscreen, or changing monitor layout/scaling. Areas refer to the screen region; they do not automatically follow every moving application control.
 
-## How To Select Better Areas
+For Pixel image matching, the complete original-size template must fit in the area and on an observed physical monitor. For If Pixel, any matching color pixel in the area is enough, so a very broad area can match an unrelated object.
 
-- Include the full text line.
-- Add a little empty space around the text.
-- Avoid cutting through letters or shadows.
-- Avoid including unrelated icons if possible.
-- Keep the window position and size stable.
-- Avoid areas that move or resize during the run.
+## Failure Is Not Absence
 
-## Good Rule
+Malformed/out-of-screen areas and failed captures are errors. They must not activate inverted text/image/color checks or authorize Else. Check the status message rather than treating every unsuccessful check as “target not present.”
 
-Select the full letters with a little surrounding space.
+## Related Pages
 
-Select the readable line as a small box with margin around it.
-
-## More About
-
-- Read Text step: [Read Text](../Steps/Read-Text.md)
-- Making areas reliable: [Making Areas Reliable](../Tips/Making-Areas-Reliable.md)
-- Read Text gives wrong text: [Read Text Is Wrong](Read-Text-Is-Wrong.md)
-- Read Text finds nothing: [Read Text Finds Nothing](Read-Text-Finds-Nothing.md)
-- Clicking text in the right area: [Text Clicks Wrong Place](Text-Clicks-Wrong-Place.md)
+- [Screen Recognition](../Recognition/README.md)
+- [Read Text Finds Nothing](Read-Text-Finds-Nothing.md)
+- [Text Clicks Wrong Place](Text-Clicks-Wrong-Place.md)
+- [Image Not Found](Image-Not-Found.md)

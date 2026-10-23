@@ -1,33 +1,13 @@
 # Guides
 
-Guides explain how to build a kind of automation from start to finish.
+These workflows connect the graph editor's current steps into complete automations. Read a step's reference page when you need its exact fields.
 
-Use this folder when you know the result you want, but you are not sure which WhirlyTask pieces should be combined.
-
-## Guides
-
-| Guide | Use it when |
+| Guide | Goal |
 | --- | --- |
-| [Build A Reliable Sequence](Build-A-Reliable-Sequence.md) | You want a clean process for building and testing a sequence |
-| [Screen Text Reading Workflow](Screen-Text-Reading-Workflow.md) | You want to read visible text and use it later |
-| [Watcher Recovery Workflow](Watcher-Recovery-Workflow.md) | You want a watcher to pause, recover, and continue safely |
-| [Messages And Values Workflow](Messages-And-Values-Workflow.md) | You want status or Discord messages with live values |
+| [Build a reliable sequence](Build-A-Reliable-Sequence.md) | Start small, connect valid paths, verify actions, and save deliberately |
+| [Reusable premade blocks](Reusable-Premade-Blocks.md) | Save a node selection, import a template, and share `.prm` files |
+| [Screen text reading](Screen-Text-Reading-Workflow.md) | Read visible text into a variable and use the result |
+| [Watcher recovery](Watcher-Recovery-Workflow.md) | Stop affected work, recover, and restart at an explicit Step ID |
+| [Messages and variables](Messages-And-Values-Workflow.md) | Report progress using runtime values |
 
-## Guides Versus Examples
-
-| Folder | Purpose |
-| --- | --- |
-| Guides | Explain how to think through a system |
-| Examples | Show complete patterns you can copy |
-| Steps | Explain one step at a time |
-| Troubleshooting | Fix a specific problem |
-
-## Recommended Order
-
-If you are building a sequence for the first time:
-
-1. Read [Getting Started](../Getting-Started.md).
-2. Read [Build A Reliable Sequence](Build-A-Reliable-Sequence.md).
-3. Open the step pages you need from [Steps](../Steps/README.md).
-4. Check [Examples](../Examples/README.md) for a similar pattern.
-5. Use [Troubleshooting](../Troubleshooting/README.md) when one part fails.
+Start with [Getting Started](../Getting-Started.md). For compact graph patterns, see [Examples](../Examples/README.md); for recognition behavior, see [Recognition](../Recognition/README.md).

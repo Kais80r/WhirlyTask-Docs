@@ -1,143 +1,112 @@
-# Steps
+# Step reference
 
-This folder documents the actual steps shown in the WhirlyTask Add Step menu.
+These are the current graph editor's toolbox entries. Select a node to edit its fields in the inspector, and draw links to determine execution. Canvas position and displayed numbers do not replace links or stable Step ID targets.
 
-Each step has its own page. The groups below match the menu groups in the editor.
-
-If you are not sure what a track, advanced track, or sequence is, start with [Basics](../Basics/README.md).
-
-Most step pages explain:
-
-- What the step does.
-- What each field means.
-- How to set it up from scratch.
-- What it is useful for.
-- Common mistakes.
-- Related examples or troubleshooting pages.
-
-![Sequence anatomy](../assets/diagrams/sequence-anatomy.svg)
-
-## Find A Step By Goal
-
-| I want to... | Step to check first |
-| --- | --- |
-| Replay a saved recording | [Play Track](Play-Track.md) |
-| Run a reusable step block | [Run Advanced Track](Run-Advanced-Track.md) |
-| Wait a fixed amount of time | [Wait](Wait.md) |
-| Wait for text, images, windows, or internet state | [Wait For](Wait-For.md) |
-| Click something visible | [Click Text](Click-Text.md) or [Click Image](Click-Image.md) |
-| Read visible text into a value | [Read Text](Read-Text.md) |
-| Save a screen image | [Take Screenshot](Take-Screenshot.md) |
-| Press a keyboard key | [Press Key](Press-Key.md) |
-| Move or click with the mouse | [Set Cursor Position](Set-Cursor-Position.md) or [Press Mouse Button](Press-Mouse-Button.md) |
-| Check a condition and branch | [If Text](If-Text.md), [If Image](If-Image.md), [If Window](If-Window.md), [If Internet](If-Internet.md), or [If Sequence Value](If-Sequence-Value.md) |
-| Store or change a value | [Set Sequence Value](Set-Sequence-Value.md) or [Change Sequence Value](Change-Sequence-Value.md) |
-| Repeat a block a fixed number of times | [Repeat X Times](Repeat-X-Times.md) |
-| Jump back or jump around | [Jump Sequence Step](Jump-Sequence-Step.md) or [Jump Block Step](Jump-Block-Step.md) |
-| Let a watcher take over | [Pause Sequence](Pause-Sequence.md) |
-| End playback | [Stop Sequence](Stop-Sequence.md) |
-| Start the sequence over and reset values | [Reset and Restart Sequence](Reset-And-Restart-Sequence.md) |
-| Send a message | [Status Message](Status-Message.md) or [Discord Message](Discord-Message.md) |
-| Open, focus, fullscreen, or close something | [System steps](#system) |
-
-## Step Categories
-
-The step menu is split by purpose:
-
-| Category | Purpose |
-| --- | --- |
-| Playback | Run saved items, wait, scan, read, or capture the screen |
-| Input | Click, move the cursor, or press keys/buttons |
-| Logic | Make decisions, repeat nested steps, and change values |
-| Flow Control | Jump, pause, stop, return, or restart |
-| System | Control windows, files, links, clipboard, and focus |
-| Output | Show notes, status messages, or Discord messages |
-
-## Playback
-
-| Step | Open this |
-| --- | --- |
-| Play Track | [Play Track](Play-Track.md) |
-| Run Advanced Track | [Run Advanced Track](Run-Advanced-Track.md) |
-| Wait | [Wait](Wait.md) |
-| Random Wait | [Random Wait](Random-Wait.md) |
-| Wait For | [Wait For](Wait-For.md) |
-| Read Text | [Read Text](Read-Text.md) |
-| Take Screenshot | [Take Screenshot](Take-Screenshot.md) |
-
-## Input
-
-| Step | Open this |
-| --- | --- |
-| Click Image | [Click Image](Click-Image.md) |
-| Click Text | [Click Text](Click-Text.md) |
-| Press Key | [Press Key](Press-Key.md) |
-| Set Cursor Position | [Set Cursor Position](Set-Cursor-Position.md) |
-| Press Mouse Button | [Press Mouse Button](Press-Mouse-Button.md) |
-| Scroll Wheel | [Scroll Wheel](Scroll-Wheel.md) |
-
-## Logic
-
-| Step | Open this |
-| --- | --- |
-| If Text | [If Text](If-Text.md) |
-| If Image | [If Image](If-Image.md) |
-| If Window | [If Window](If-Window.md) |
-| If Internet | [If Internet](If-Internet.md) |
-| If Sequence Value | [If Sequence Value](If-Sequence-Value.md) |
-| For Chance | [For Chance](For-Chance.md) |
-| Repeat X Times | [Repeat X Times](Repeat-X-Times.md) |
-| Set Sequence Value | [Set Sequence Value](Set-Sequence-Value.md) |
-| Change Sequence Value | [Change Sequence Value](Change-Sequence-Value.md) |
+Start with [Getting Started](../Getting-Started.md) or [Build a reliable sequence](../Guides/Build-A-Reliable-Sequence.md). For the distinction between recordings, sequences, and templates, see [Basics](../Basics/README.md).
 
 ## Flow Control
 
-| Step | Open this |
+| Step | Purpose |
 | --- | --- |
-| Pause Sequence | [Pause Sequence](Pause-Sequence.md) |
-| Stop Sequence | [Stop Sequence](Stop-Sequence.md) |
-| Reset and Restart Sequence | [Reset and Restart Sequence](Reset-And-Restart-Sequence.md) |
-| Return to Sequence | [Return to Sequence](Return-To-Sequence.md) |
-| Jump Block Step | [Jump Block Step](Jump-Block-Step.md) |
-| Jump Sequence Step | [Jump Sequence Step](Jump-Sequence-Step.md) |
+| [Start](Start.md) | Entry point for a connected path |
+| [Stop Block](Stop-Block.md) | Stop one named block |
+| [Jump Block Step](Jump-Block-Step.md) | Transfer execution to a stable target and end the source path |
+| [Start Block at Step](Start-Block-at-Step.md) | Start another block at a stable target alongside current work |
+| [Finish Sequence](Finish-Sequence.md) | End playback |
+| [Reset and Restart Sequence](Reset-And-Restart-Sequence.md) | Begin a new run and initialize variables again |
 
-Jump to Watcher Step is currently hidden from the Add Step menu. Its page remains for the parked watcher-specific jump behavior.
+## Tracks
+
+| Step | Purpose |
+| --- | --- |
+| [Play Track](Play-Track.md) | Replay a saved input recording |
+
+To reuse graph nodes, [save a selection as a premade block](../Guides/Reusable-Premade-Blocks.md) and import a copy from the Library. Templates use `.prm` files. There is no separate Premade Block Editor or current Run Premade Block toolbox card.
+
+## Timing
+
+| Step | Purpose |
+| --- | --- |
+| [Wait](Wait.md) | Fixed delay |
+| [Random Wait](Random-Wait.md) | Delay between configured bounds |
+| [Wait For](Wait-For.md) | Wait for a condition or timeout; either outcome continues |
+
+## Input
+
+| Step | Purpose |
+| --- | --- |
+| [Click Image](Click-Image.md) | Recognize an image and attempt a guarded click |
+| [Click Text](Click-Text.md) | Find known text and attempt a guarded click |
+| [Press Key](Press-Key.md) | Press/release a supported key |
+| [Set Cursor Position](Set-Cursor-Position.md) | Move to a desktop point |
+| [Press Mouse Button](Press-Mouse-Button.md) | Press/release at the current cursor position |
+| [Scroll Wheel](Scroll-Wheel.md) | Scroll in a direction for a duration |
+
+## Logic
+
+| Step | Purpose |
+| --- | --- |
+| [If Text](If-Text.md) | Branch on recognized known text |
+| [If Image](If-Image.md) | Branch on a Smart or literal Pixel template match |
+| [If Image Click](If-Image-Click.md) | Then only after successful guarded click delivery |
+| [If Pixel](If-Pixel.md) | Find at least one pixel of a selected color in an area |
+| [If Window](If-Window.md) | Check open/focused/fullscreen state |
+| [If Internet](If-Internet.md) | Check connectivity state |
+| [If Block Running](If-Block-Running.md) | Check whether a named block is executing |
+| [For Chance](For-Chance.md) | Chance-based Then/Else branch |
+
+Text/image recognition can be unavailable. That is not evidence that a target is absent. See [Recognition](../Recognition/README.md) for filters, matching modes, precision limits, and fresh-click checks.
+
+## Variables
+
+| Step | Purpose |
+| --- | --- |
+| [Starter Variable](Starter-Variable.md) | Declare a value before playback |
+| [Set Variable](Set-Variable.md) | Assign Text or calculated Math |
+| [Change Variable](Change-Variable.md) | Add, subtract, or set a finite number |
+| [Reset Variable](Reset-Variable.md) | Restore one resolved initial value |
+| [If Variable](If-Variable.md) | Compare a valid value or check explicit presence |
+
+Variables use case-sensitive names and `{name}` substitution in supported fields. [Variable Watcher](../Watchers/Variable-Watcher.md) is also available in the variable-related toolbox view. See [Variables](../Values/README.md).
 
 ## System
 
-| Step | Open this |
+| Step | Purpose |
 | --- | --- |
-| Focus Window | [Focus Window](Focus-Window.md) |
-| Fullscreen Window | [Fullscreen Window](Fullscreen-Window.md) |
-| Set Clipboard | [Set Clipboard](Set-Clipboard.md) |
-| Open App/File | [Open App/File](Open-App-File.md) |
-| Open Link | [Open Link](Open-Link.md) |
-| Close Window/App | [Close Window/App](Close-Window-App.md) |
+| [Read Text](Read-Text.md) | Read a screen region into a variable |
+| [Take Screenshot](Take-Screenshot.md) | Save a timestamped BMP of a screen region |
+| [Focus Window](Focus-Window.md) | Restore/activate a matching window |
+| [Fullscreen Window](Fullscreen-Window.md) | Maximize a matching window |
+| [Set Clipboard](Set-Clipboard.md) | Put text on the clipboard |
+| [Open App/File](Open-App-File.md) | Open a target with Windows |
+| [Open Link](Open-Link.md) | Open a URL with its default handler |
+| [Close Window/App](Close-Window-App.md) | Request normal closing of a matching window |
 
 ## Output
 
-| Step | Open this |
+| Step | Purpose |
 | --- | --- |
-| Discord Message | [Discord Message](Discord-Message.md) |
-| Status Message | [Status Message](Status-Message.md) |
-| Note | [Note](Note.md) |
+| [Discord Message](Discord-Message.md) | Send configured webhook output |
+| [Status Message](Status-Message.md) | Report transient local progress |
+| [Note](Note.md) | Explain assumptions in the editor |
 
-## Good Testing Pattern
+## Watchers
 
-When a step does not work, test it alone first:
+Watchers have trigger settings and their own action paths. They are covered in the [Watcher reference](../Watchers/README.md).
 
-```text
-1. Status Message Starting test
-2. The step you are testing
-3. Status Message Finished test
-4. Stop Sequence
-```
+| Toolbox entry | Reference |
+| --- | --- |
+| Text Watcher | [Text trigger](../Watchers/Triggers/When-Text.md) |
+| Image Watcher | [Image trigger](../Watchers/Triggers/When-Image.md) |
+| Window Watcher | [Window trigger](../Watchers/Triggers/When-Window.md) |
+| Variable Watcher | [Variable trigger](../Watchers/Variable-Watcher.md) |
+| Time Watcher | [Clock-time trigger](../Watchers/Triggers/When-Time.md) |
+| Timer Watcher | [Elapsed timer trigger](../Watchers/Triggers/When-Timer.md) |
+| Chance Watcher | [Chance trigger](../Watchers/Triggers/For-Chance.md) |
+| Internet Watcher | [Internet trigger](../Watchers/Triggers/When-Internet.md) |
 
-For full patterns like loops, retries, watcher recovery, and notifications, see [Examples](../Examples/README.md).
+## Older documentation links
 
-## Related Pages
+Old Sequence Value names now point to the canonical Variable pages. Older Pause/Stop Sequence, numbered jumps, Return to Sequence, Repeat X Times, and Run Advanced Track pages remain as compatibility explanations; they are not additional current toolbox cards.
 
-- [Getting Started](../Getting-Started.md)
-- [Values](../Values/README.md)
-- [Watchers](../Watchers/README.md)
-- [Troubleshooting](../Troubleshooting/README.md)
+For complete connected patterns, see [Examples](../Examples/README.md). For draft recovery versus named saves and files, see [Editors and saving](../App-Features/Editors-And-Saving.md).

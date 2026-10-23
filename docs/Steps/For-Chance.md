@@ -1,42 +1,13 @@
 # For Chance
 
-For Chance randomly chooses whether to run the Then branch or Else branch.
+Performs a chance-based branch when this node executes. Set **Chance percent**, then connect **Then** for a successful roll and **Else** otherwise.
 
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| percent | Chance that the Then branch runs |
-| Then branch | Steps to run when the chance succeeds |
-| Else branch | Steps to run when the chance fails |
-
-## Setup From Scratch
-
-1. Add For Chance.
-2. Enter a percent, such as `25` or `50`.
-3. Add Status Message in Then and Else while testing.
-4. Replace the messages with the real optional behavior.
-
-## Example
+At `0`, Then is never selected. At `100`, Then is always selected. A value such as `25` describes a chance per evaluation, not a promise that every fourth execution will choose Then.
 
 ```text
-For Chance 25
-Then:
-1. Status Message Optional check ran
-Else:
-1. Status Message Optional check skipped
+For Chance: 25
+  Then -> Status Message: Extra check selected
+  Else -> continue normal work
 ```
 
-## Useful For
-
-- Optional behavior.
-- Occasional checks.
-- Testing branch behavior without forcing it every run.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Important recovery is unreliable | Use a real condition such as If Text, If Image, or If Window |
-| Testing feels unpredictable | Temporarily use a fixed branch while testing, then restore the chance value |
-| The percent is unclear | Use a simple value like `10`, `25`, `50`, or `75` |
+This is not a repeat counter or a reliability check. Use [If Variable](If-Variable.md) for a deterministic limit. Use a [Chance Watcher](../Watchers/Triggers/For-Chance.md) for periodic background rolls.

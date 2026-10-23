@@ -1,119 +1,39 @@
-# Values
+# Variables
 
-Values let a sequence remember information.
-
-A value is a named text field. Steps can put text into it, change it, compare it, or use it in messages.
-
-Values are one of the most important parts of sequences because they connect steps together. One step can read or create information, and another step can use it later.
-
-Think of a value like a named box:
+Variables let steps share text or numbers. The current editor calls them Variables; some documentation URLs retain the older word Values.
 
 ```text
 statusText = Ready
-attempts = 3
+attempts = 0
 ```
 
-The name lets other steps find the box again.
+The name identifies the stored value. A target field such as **Variable** uses the name `attempts`. A supported text or value field uses `{attempts}` to read its contents during playback.
 
-## Start Here
+## Choose The Right Step
 
-| Page | What it explains |
+| Need | Step |
 | --- | --- |
-| [What Is A Value](What-Is-A-Value.md) | The basic idea |
-| [Using Values In Messages](Using-Values-In-Messages.md) | How `{ValueName}` works |
-| [Reading Text Into Values](Reading-Text-Into-Values.md) | How Read Text stores screen text |
-| [Using Values In Text Boxes](../Tips/Using-Values-In-Text-Boxes.md) | Where `{ValueName}` can be typed into step fields |
+| Declare a value at playback startup | [Starter Variable](../Steps/Starter-Variable.md) |
+| Store text, clear a value, or calculate an expression | [Set Variable](../Steps/Set-Variable.md) |
+| Add, subtract, or set a number | [Change Variable](../Steps/Change-Variable.md) |
+| Restore one declared startup value | [Reset Variable](../Steps/Reset-Variable.md) |
+| Choose Then or Else from a comparison | [If Variable](../Steps/If-Variable.md) |
+| Store recognized screen text | [Read Text](../Steps/Read-Text.md) |
+| React in the background | [Variable Watcher](../Watchers/Triggers/When-Sequence-Value.md) |
 
-## Value Life Cycle
+## Use The Variable Tab
 
-| Moment | What happens |
-| --- | --- |
-| Sequence starts | Each value gets its Starting Value |
-| A step reads, sets, or changes a value | The value stores the new text |
-| A later step uses `{ValueName}` | WhirlyTask replaces the placeholder with the current value |
-| Reset and Restart Sequence runs | Values return to their Starting Values |
+Select **Variable** in the toolbox. It contains the variable actions and Variable Watcher. The **Variables used** overview lists names found in the document and where they are used.
 
-## Example
+**Start value** and **Configured value** describe values written in the graph. **Read Text result** identifies an output. **No configured source** means the name is referenced but no local source was found. This overview is not a live playback monitor; it does not claim to show the current runtime value.
 
-```text
-Starting value:
-statusText starts as empty
+Target and result fields offer name suggestions. You can still enter a new name. In supported input fields, choose a name in **Choose variable**, then click **Insert** or **Replace**. Choosing a name alone does not change the field.
 
-Main step:
-Read Text into statusText
+## Learn The Rules
 
-Message:
-Current status: {statusText}
-```
+- [Names, initialization, and comparisons](What-Is-A-Value.md)
+- [Insert references into text and numbers](Using-Values-In-Messages.md)
+- [Read screen text into a variable](Reading-Text-Into-Values.md)
+- [Restore a startup value](Resetting-Variables.md)
 
-The value starts empty. Read Text fills it. The message uses it.
-
-## What Values Can Be Used For
-
-- Store text read from the screen.
-- Count attempts in a loop.
-- Remember whether something is ready, waiting, failed, or complete.
-- Send live information in Status Message or Discord Message.
-- Let If Sequence Value choose a branch.
-- Let watchers react to changing state.
-
-## Common Value Systems
-
-| System | Pages |
-| --- | --- |
-| Read text into a value | [Reading Text Into Values](Reading-Text-Into-Values.md) |
-| Loop counter | [Counter Limit](../Examples/Counter-Limit.md) |
-| Retry counter | [Change Sequence Value](../Steps/Change-Sequence-Value.md) |
-| Message with live text | [Notification System](../Examples/Notification-System.md) |
-
-## Which Value Step Should I Use?
-
-| Need | Use |
-| --- | --- |
-| Put exact text into a value | [Set Sequence Value](../Steps/Set-Sequence-Value.md) |
-| Add or subtract from a counter | [Change Sequence Value](../Steps/Change-Sequence-Value.md) |
-| Read visible screen text into a value | [Read Text](../Steps/Read-Text.md) |
-| Check a value and choose a branch | [If Sequence Value](../Steps/If-Sequence-Value.md) |
-| React when a value changes in the background | [When Sequence Value](../Watchers/Triggers/When-Sequence-Value.md) |
-
-## Good Value Names
-
-Use clear names with no spaces.
-
-Good:
-
-```text
-statusText
-resultText
-attempts
-isReady
-lastMessage
-```
-
-Avoid:
-
-```text
-value1
-thing
-x
-text
-```
-
-Temporary names are fine while testing, but clear names make old sequences easier to fix.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| A placeholder is not replaced | Match the value name exactly, including capitalization |
-| A message or check is blank | Fill the value before using it |
-| Number comparisons fail | Make sure the value contains only the number you want to compare |
-| Values reset unexpectedly | Check whether Reset and Restart Sequence returned them to their Starting Values |
-| The sequence is hard to fix later | Use clear value names that describe what each value stores |
-
-## More About
-
-- [Getting Started](../Getting-Started.md)
-- [Glossary](../Glossary.md)
-- [Using Values In Messages](Using-Values-In-Messages.md)
-- [Value Is Blank](../Troubleshooting/Value-Is-Blank.md)
+Use descriptive names such as `attempts`, `resultText`, or `orderTotal`. Names are case-sensitive: `resultText` and `resulttext` are different variables.

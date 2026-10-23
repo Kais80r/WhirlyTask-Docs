@@ -1,71 +1,88 @@
 # Glossary
 
-This page explains the words used in WhirlyTask and in these docs.
+These are the current terms used in WhirlyTask. Some older documentation filenames remain for stable links.
 
-## Main Item Types
+## Workflows And Editor
 
-| Word | Meaning |
+| Term | Meaning |
 | --- | --- |
-| Track | A recorded keyboard and mouse action that can be replayed |
-| Advanced Track | An editable reusable step list |
-| Sequence | A full workflow with main steps, starting values, and optional watchers |
+| Track | Recorded keyboard and mouse input that can be replayed |
+| Sequence | Editable workflow of connected actions, decisions, blocks, variables, and optional Watchers |
+| Premade Block | Saved selection of graph nodes imported later as a reusable copy; portable files use .prm |
+| Advanced Track | Internal or older name associated with Premade Blocks |
+| Node / step | A card in the graph representing an action, condition, declaration, or trigger |
+| Connection | Link that determines where execution continues |
+| Block | Named main-flow section that can be targeted by block-control steps |
+| Step ID | An addressable target within a block; it is not a visual execution-order number |
+| Then / Else | The paths selected by a valid conditional result |
+| Auto Layout | Reposition graph nodes to make connections easier to follow |
+| Inspector / settings panel | Right-hand settings for the selected step, Watcher, or editable block; hidden without a selection |
 
-## Sequence Words
+## Variables
 
-| Word | Meaning |
+| Term | Meaning |
 | --- | --- |
-| Step | One action inside a sequence or advanced track |
-| Main Steps | The normal path of a sequence |
-| Starting Values | Values that exist when the sequence starts |
-| Value | A named piece of text stored by the sequence |
-| Watcher | A background check inside a sequence |
-| Trigger | The condition that makes a watcher run |
-| Cooldown | How long a watcher waits before it can fire again |
-| Branch | A path inside an If step, usually Then or Else |
-| Loop | Steps that jump back and repeat |
+| Variable / value | Named data stored during playback |
+| Raw name | A target name such as attempts, entered without reference braces |
+| Reference | A token such as {attempts} that resolves in a supported input field |
+| Starter Variable | Declaration initialized before normal playback actions |
+| Set Variable | Store or calculate a replacement value; empty Text clears it |
+| Change Variable | Add, subtract, or set a numeric value |
+| Reset Variable | Restore one declared variable's resolved startup snapshot and assignment mode |
+| Text / Math | Treat an assignment as substituted text or as a calculated expression |
+| Variables used | Configured names, sources, and uses in the graph; not a live runtime monitor |
+| Insert / Replace | Explicitly insert a chosen reference at the cursor, or replace the whole field |
+| Exists | The name has been created; different from whether its value is empty |
 
-## Screen Words
+Variable names are case-sensitive. A missing name is not an empty string for ordinary comparisons. See [Variables](Values/README.md).
 
-| Word | Meaning |
+## Recognition
+
+| Term | Meaning |
 | --- | --- |
-| Selected area | A rectangle on the screen that WhirlyTask should scan or use |
-| Full Screen | The whole screen is scanned |
-| Screen text reading | Reading visible letters from an image of the screen |
-| OCR | The technical name for screen text reading |
-| Image matching | Looking for a saved visual target on the screen |
+| OCR / text recognition | Read letters and numbers from captured screen pixels |
+| Screen zone | Full Screen or a selected area used by a screen-based action |
+| Read Text | Store recognized text in a result variable |
+| Read as | Filter the output produced by Read Text |
+| Match characters | Filter recognized candidates for text finding; the query must already fit the filter |
+| Smart image recognition | Learned matching that tolerates some visual differences |
+| Pixel image recognition | Compare a reference image at its original size with a per-channel RGB tolerance |
+| If Pixel | Check for a chosen color anywhere in a screen area; distinct from Pixel image matching |
+| If Image Click | Find and click the same accepted image target; Then requires a delivered click |
+| Confirmed absence | A valid scan did not find the target; an error is not absence |
 
-## Message Words
+See [Recognition](Recognition/README.md) for supported filters, capture limits, and matching behavior.
 
-| Word | Meaning |
+## Watchers And Control
+
+| Term | Meaning |
 | --- | --- |
-| Status Message | A message shown inside WhirlyTask |
-| Discord Message | A message sent to a Discord channel through a webhook |
-| Webhook | A special Discord URL that lets WhirlyTask post into one server channel |
-| Placeholder | Text like `{ValueName}` that gets replaced with a sequence value |
+| Watcher | A trigger and action chain checked alongside the normal workflow |
+| Trigger | Condition that makes a Watcher eligible to run |
+| Cooldown | Minimum wait before that Watcher may trigger again |
+| Watcher conflict policy | What to do when another Watcher is active; it does not pause main blocks |
+| Stop Block | Stop the selected main block |
+| Start Block at Step | Start a selected block at a chosen Step ID |
+| Jump Block Step | Redirect to an explicit block/step target |
+| Reset and Restart Sequence | Begin the workflow again with startup initialization |
+| Finish Sequence | End Sequence playback, including its Watchers |
 
-## Control Words
+A Watcher does not automatically stop or pause the main flow. See [Watchers](Watchers/README.md).
 
-| Word | Meaning |
+## Saving And App Features
+
+| Term | Meaning |
 | --- | --- |
-| Pause Sequence | A watcher step that lets the watcher take control from the main sequence |
-| Jump Sequence Step | Move the main sequence to a specific step number |
-| Jump Block Step | Move inside the current block, such as inside Then or Else |
-| Reset and Restart Sequence | Reset all values to their starting values and begin the sequence again |
-| Stop Sequence | End playback |
-| Return to Sequence | Leave an advanced track and continue the sequence that called it |
+| Save Draft | Validate and apply the graph as the current playable draft |
+| Save New | Create a named Library copy through the save workflow |
+| Save As | Use the Library save/overwrite workflow for the active document |
+| Session recovery | Automatically preserve editing work and UI state separately from playable and named copies |
+| Library | Named saved Tracks, Sequences, and Premade Blocks |
+| File copy | Portable copy saved with explicit Library/file actions |
+| Status Message | Message shown inside WhirlyTask |
+| Discord webhook | URL used by Discord Message to post to a channel |
+| Crash Protection | Stop playback when a configured app or window closes |
+| Text Protection | Stop playback when configured text is detected |
+| Emergency Stop | Configured hotkey used to stop playback |
 
-## Protection Words
-
-| Word | Meaning |
-| --- | --- |
-| Crash Protection | Stops playback if a selected app or window closes |
-| Text Protection | Stops playback if specific text appears on the screen |
-| Emergency Stop | The hotkey used to stop playback immediately |
-
-## More About
-
-- [Getting Started](Getting-Started.md)
-- [Basics](Basics/README.md)
-- [Steps](Steps/README.md)
-- [Watchers](Watchers/README.md)
-- [Values](Values/README.md)
+See [Editors And Saving](App-Features/Editors-And-Saving.md), [Library And Files](App-Features/Library-And-Files.md), and [App Features](App-Features/README.md).

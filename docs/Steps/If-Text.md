@@ -1,58 +1,40 @@
 # If Text
 
-If Text checks whether specific text is visible, then runs the Then branch or Else branch.
-
-Use it when the workflow should choose a path based on what the screen currently shows.
+If Text checks visible text and chooses Then or Else after a valid recognition result.
 
 ## Fields
 
 | Field | Meaning |
 | --- | --- |
-| Text | The text to search for |
-| Mode | `is seen` or `is not seen` |
-| Area | Where to check for the text |
-| Then branch | Steps to run when the condition is true |
-| Else branch | Steps to run when the condition is false |
+| Text | The phrase to search for; may use `{variables}` |
+| Match characters | All text or a character filter |
+| Keep characters | Allowed characters for Custom chars |
+| Mode | is seen or is not seen |
+| Screen zone | Where to check |
+| Then / Else | Steps chosen by the condition |
 
-## Setup From Scratch
-
-1. Add If Text.
-2. Enter the text to check.
-3. Choose the area.
-4. Add a Status Message in the Then branch.
-5. Add a different Status Message in the Else branch.
-6. Run once to confirm the correct branch runs.
-7. Replace the test messages with real steps.
+With **is seen**, Then runs for a match and Else for valid absence. With **is not seen**, those results are inverted. An invalid filter/query, capture failure, unavailable OCR worker, or unavailable exact filtered-text position stops playback before either branch.
 
 ## Example
 
 ```text
-If Text Complete is seen from selected status area
-Then:
-1. Status Message Complete
-Else:
-1. Wait 1 second
-2. Jump Sequence Step 1
+If Text
+Text: Complete
+Match characters: All text
+Mode: is seen
+Screen zone: selected status area
+Then: Status Message: Finished
+Else: Status Message: Not complete
 ```
 
-## When To Use Wait For (Text) Instead
+For a numeric label such as `Score:12`, choose Numbers only and search for `12`. Enter only characters permitted by the selected filter. The query is not automatically stripped or corrected.
 
-Use [Wait For (Text)](Wait-For.md) when the sequence should pause until the text appears.
+Use [Wait For](Wait-For.md) when playback should wait until a state appears. If Text decides from the current check; it does not keep waiting for a future match.
 
-Use If Text when the sequence should choose between two paths right now.
+Keep the full word and margin inside the area. Under All text, `Start` does not match `Restart`, and `10` does not match `1.0`. These rules reduce accidental activations but cannot eliminate OCR mistakes.
 
-## Useful For
+## Related Pages
 
-- Skipping work when something is already done.
-- Choosing a recovery path.
-- Checking if a warning is visible.
-- Branching based on a current screen state.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Branch testing is confusing | Start each branch with a simple Status Message before adding real actions |
-| The wrong copy of text is detected | Use a selected area around the correct part of the screen |
-| `is not seen` passes too easily | Test the selected area with the text visible before trusting the negative check |
-| The text appears later | Use [Wait For (Text)](Wait-For.md) when you need to wait |
+- [Text Recognition And Character Filters](../Recognition/Text.md)
+- [If Image](If-Image.md)
+- [Selected Area Problems](../Troubleshooting/Selected-Area-Problems.md)

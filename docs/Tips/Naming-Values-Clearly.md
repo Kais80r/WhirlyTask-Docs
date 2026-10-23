@@ -1,46 +1,15 @@
-# Naming Values Clearly
+# Naming Variables Clearly
 
-Good value names make a sequence easier to understand and fix later.
+Name a variable for the information it stores: `statusText`, `retryCount`, `priceText`, or `buttonLabel` is easier to follow than several unrelated variables named `value1`.
 
-## Good Names
+Variable names are case-sensitive. `retryCount` and `RetryCount` do not refer to the same value. Keep spelling and Unicode characters consistent; visually similar letters are not automatically merged.
 
-Use names that describe what the value stores:
+Enter the raw name in variable target/result fields. Use `{retryCount}` only when another supported field should expand its current value.
 
-```text
-statusText
-Loops
-lastResult
-isReady
-retryCount
-windowTitle
-```
+Use Starter Variables for values that should exist at playback start. Set Variable and Read Text can create destinations during playback. Add/Subtract requires an existing numeric value, so initialize a counter deliberately.
 
-## Weak Names
+An empty value is different from a missing name. Use the appropriate If Variable presence or emptiness condition rather than assuming they are interchangeable.
 
-Avoid names that only make sense for a minute while building:
+The Variable library tab summarizes configured names and sources; it does not promise to display live runtime values. Avoid using that overview as a debugger for the value currently stored during playback.
 
-```text
-value1
-text2
-a
-thing
-test
-```
-
-They work, but later it is harder to remember what they mean.
-
-## Match The Name To The Job
-
-Examples:
-
-| Job | Better value name |
-| --- | --- |
-| Count loop runs | `Loops` |
-| Store text read from the screen | `readText` |
-| Remember a success/fail word | `statusText` |
-| Count failed retries | `retryCount` |
-| Store a yes/no state | `isReady` |
-
-## Tip
-
-If a value is used in Discord Message or Status Message, choose a name that makes the final message easy to read.
+See [Variables](../Values/README.md) and [Using Variables In Text Boxes](Using-Values-In-Text-Boxes.md).

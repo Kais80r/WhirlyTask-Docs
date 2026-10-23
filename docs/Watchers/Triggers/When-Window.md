@@ -1,58 +1,19 @@
-# When Window
+# Window Watcher
 
-Use When Window when the watcher should react to a window or application state.
+Window Watcher checks the state of a window identified by **Window title**.
 
-This is useful when a workflow can be interrupted by another window, a dialog, or a focus change.
+## Fields
 
-Use window triggers for window-level state. If you need to know whether the content inside the window is ready, use text or image checks too.
-
-## Good Uses
-
-- A confirmation window opens.
-- A login window appears.
-- The wrong app becomes active.
-- A required window is missing.
-
-## Check Interval
-
-Window triggers are checked repeatedly while the sequence runs.
-
-Use the `check every` field to choose how often WhirlyTask checks the window state. New Window watchers default to 1 second.
-
-Shorter intervals react faster to focus changes or dialogs. Longer intervals are calmer when the window state does not need instant reaction.
-
-## Setup Example
-
-```text
-Watcher trigger:
-When Window Settings is open
-(check every 1 second)
-
-Watcher steps:
-1. Pause Sequence
-2. Press key Escape
-3. Jump Sequence Step 3
-```
-
-## Window Trigger Versus Window Step
-
-| Need | Use |
+| Field | Choices or meaning |
 | --- | --- |
-| React if a window appears while work is running | When Window watcher trigger |
-| Wait in the normal path until a window exists | [Wait For (Window)](../../Steps/Wait-For.md) |
-| Branch once based on a window state | [If Window](../../Steps/If-Window.md) |
-| Bring a window forward | [Focus Window](../../Steps/Focus-Window.md) |
+| Window title | The target window title |
+| Mode | is focused, is not focused, is open, is not open, is fullscreen, is not fullscreen |
+| Check every seconds | Requested interval between checks |
 
-## Tips
+Set the shared [Enabled, cooldown, and conflict settings](../Watcher-Settings.md) afterward.
 
-- Use a clear part of the window title.
-- Avoid titles that change constantly.
-- If focus matters, test with the app in the same state you expect during playback.
-- Combine with Pause Sequence when the main path must stop until the window is handled.
+Choose the mode that represents the event you care about. An open window may be behind another app, so is open is different from is focused. Changing focus as recovery can also affect the main flow while it is still running.
 
-## More About
+Start with a Status Message action to verify the title and state. If recovery sends keys or clicks, use explicit block control when parallel main actions would be unsafe.
 
-- [Wait For (Window)](../../Steps/Wait-For.md)
-- [If Window](../../Steps/If-Window.md)
-- [Focus Window](../../Steps/Focus-Window.md)
-- [Wrong Window Or Focus](../../Troubleshooting/Wrong-Window-Or-Focus.md)
+See [Focus Window](../../Steps/Focus-Window.md) and [Controlling Main Blocks](../Steps/Pause-Sequence.md).
