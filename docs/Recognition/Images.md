@@ -2,7 +2,7 @@
 
 Image actions search for the reference image you provide. They do not take an object name such as “any green button” and detect every example of that category.
 
-The **Recognition** selector is available on [If Image](../Steps/If-Image.md), [Click Image](../Steps/Click-Image.md), [If Image Click](../Steps/If-Image-Click.md), and [Image Watcher](../Watchers/Triggers/When-Image.md).
+The **Recognition** selector is available on [If Image](../Steps/If-Image.md), [Click Image](../Steps/Click-Image.md), [Click If Image](../Steps/Click-If-Image.md), and [Image Watcher](../Watchers/Triggers/When-Image.md).
 
 | Recognition | Use it when | Important limit |
 | --- | --- | --- |
@@ -27,9 +27,9 @@ Use the Image field to browse for a file. The editor also supports pasted image 
 
 Image clicks are verified again after the configured cursor movement and delay. If the target moved or disappeared, WhirlyTask can search again for the same reference, up to three guarded attempts. It preserves the configured delay for each new target.
 
-After target-loss exhaustion, ordinary Click Image skips and continues. If Image Click chooses Else. A missing image, invalid configuration, unavailable recognition, failed capture, or real input-delivery failure stops playback; those errors do not authorize Else.
+After target-loss exhaustion, ordinary Click Image skips and continues. Click If Image chooses Else. A missing image, invalid configuration, unavailable recognition, failed capture, or real input-delivery failure stops playback; those errors do not authorize Else.
 
-Use [If Image Click](../Steps/If-Image-Click.md) when Then must depend on a delivered click. A separate If Image followed by Click Image performs two independent actions and is not equivalent.
+Use [Click If Image](../Steps/Click-If-Image.md) when Then must depend on a delivered click. A separate If Image followed by Click Image performs two independent actions and is not equivalent.
 
 ## Related Pages
 

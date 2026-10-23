@@ -38,8 +38,11 @@ If the target is absent or keeps moving, the action can retry up to three guarde
 
 Use a specific phrase and a narrow area if several copies are visible. Test the area with [Read Text](Read-Text.md) when the returned characters are unclear.
 
+Use [Click If Text](Click-If-Text.md) when Then should depend on a delivered click and Else should handle confirmed absence or target loss. A separate If Text followed by Click Text performs two independent actions.
+
 ## Related Pages
 
 - [Text Recognition And Character Filters](../Recognition/Text.md)
 - [Text Clicks Wrong Place](../Troubleshooting/Text-Clicks-Wrong-Place.md)
 - [Click Image](Click-Image.md)
+- [Click If Text](Click-If-Text.md)

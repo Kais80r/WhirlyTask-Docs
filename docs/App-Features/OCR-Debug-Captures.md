@@ -2,7 +2,7 @@
 
 The **Menu > OCR Debug Captures** toggle enables an optional diagnostic facility for OCR failures. It is separate from normal screen recognition and ordinary document saving.
 
-Turning it on does not record every screen frame or guarantee that every failed step creates a file. The current text-click path does not attach a debug-capture context, so a Click Text failure by itself may produce no debug files. Use [Read Text](../Steps/Read-Text.md) with a Status Message to inspect recognized text first.
+Turning it on does not record every screen frame or guarantee that every failed step creates a file. The text-click path does not attach a debug-capture context, so a Click Text or Click If Text failure by itself may produce no debug files. Use [Read Text](../Steps/Read-Text.md) with a Status Message to inspect recognized text first.
 
 ## Files And Locations
 

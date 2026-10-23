@@ -8,7 +8,8 @@ Choose based on how the action should respond to the app, rather than how long i
 | Wait for a screen state, branch, or count attempts | [Sequence](Sequence.md) | Steps can use conditions and variables |
 | React to an unexpected event during normal work | [Sequence with Watchers](../Watchers/README.md) | A Watcher checks alongside the main flow |
 | Reuse a working group of steps | [Premade Block](Premade-Blocks.md) | Save selected nodes and import a copy later |
-| Click the same visible target after finding it | [If Image Click](../Steps/If-Image-Click.md) | Then runs only after the accepted target is clicked |
+| Click the same visible target after finding it | [Click If Image](../Steps/Click-If-Image.md) | Then runs only after the accepted target is clicked |
+| Click a recognized phrase and choose what happens next | [Click If Text](../Steps/Click-If-Text.md) | Then requires a verified text click; confirmed absence or target loss chooses Else |
 
 ## Combine Them When Useful
 

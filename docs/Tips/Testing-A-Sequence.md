@@ -11,7 +11,7 @@ Test the smallest connected path that demonstrates the behavior you need. Keep S
 
 For If Text, If Image, or If Pixel, put a different message in Then and Else. Test with the target present and absent. An unavailable capture or invalid configuration is a third outcome, not evidence that Else is correct.
 
-For If Image Click, test delivery separately from application success. Then means the click was delivered; use Wait For afterward to confirm the expected visible response.
+For Click If Image and Click If Text, test delivery separately from application success. Then means the verified click was delivered; use Wait For afterward to confirm the expected visible response. Test confirmed absence and moving targets for Else, and check that capture, recognition, and input errors stop instead of taking a branch.
 
 Keep watchers disabled while isolating the main path, then test them one at a time. Add cooldowns and decide whether recovery should stop a work block before it sends competing input.
 

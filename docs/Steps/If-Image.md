@@ -31,7 +31,7 @@ Then: Status Message: Ready
 Else: Status Message: Not ready
 ```
 
-Use [If Image Click](If-Image-Click.md) to click the same accepted target and branch only after delivery. Use [Wait For](Wait-For.md) to wait for a future state instead of choosing a branch now.
+Use [Click If Image](Click-If-Image.md) to click the same accepted target and branch only after delivery. Use [Wait For](Wait-For.md) to wait for a future state instead of choosing a branch now.
 
 ## Related Pages
 

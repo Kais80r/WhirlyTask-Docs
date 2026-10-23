@@ -23,4 +23,6 @@ Matching preserves meaningful word boundaries and numeric punctuation. Do not ex
 
 A scan or filter error does not fire `is not seen`. A visible condition may fire again after cooldown. Use a narrow area with padding and an action that clears the cause when repeated firing is unwanted.
 
+A Watcher detection is not a permanent click position. Use [Click If Text](../../Steps/Click-If-Text.md) in the action chain to find and verify the text again; Then runs only after that click was delivered.
+
 See [Text Recognition](../../Recognition/Text.md), [Watcher Settings](../Watcher-Settings.md), and [Text Watcher Examples](../Examples.md#notify-when-text-appears).

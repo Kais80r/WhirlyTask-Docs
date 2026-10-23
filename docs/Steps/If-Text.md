@@ -31,6 +31,8 @@ For a numeric label such as `Score:12`, choose Numbers only and search for `12`.
 
 Use [Wait For](Wait-For.md) when playback should wait until a state appears. If Text decides from the current check; it does not keep waiting for a future match.
 
+Use [Click If Text](Click-If-Text.md) when the target should be clicked and Then must depend on successful delivery. An If Text check alone does not guarantee that a later click still has the same accepted target.
+
 Keep the full word and margin inside the area. Under All text, `Start` does not match `Restart`, and `10` does not match `1.0`. These rules reduce accidental activations but cannot eliminate OCR mistakes.
 
 ## Related Pages

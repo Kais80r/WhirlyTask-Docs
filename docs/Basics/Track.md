@@ -18,6 +18,6 @@ Use the [Track Editor](../App-Features/Editors-And-Saving.md#track-editor-is-dif
 
 Add [Play Track](../Steps/Play-Track.md), select the saved Track, and configure its repeat setting. Add a readiness check before it if the app can take time to load, and verify the result afterward when later actions depend on success.
 
-A recorded click is sensitive to window position, focus, and layout changes. Use [Click Text](../Steps/Click-Text.md), [Click Image](../Steps/Click-Image.md), or [If Image Click](../Steps/If-Image-Click.md) when the target should be found from the current screen.
+A recorded click is sensitive to window position, focus, and layout changes. Use [Click Text](../Steps/Click-Text.md), [Click Image](../Steps/Click-Image.md), or [Click If Image](../Steps/Click-If-Image.md) when the target should be found from the current screen.
 
 See [Choosing What To Use](Choosing-What-To-Use.md) and [Sequence](Sequence.md).

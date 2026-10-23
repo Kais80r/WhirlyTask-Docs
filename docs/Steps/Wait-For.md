@@ -14,6 +14,6 @@ Waits until a selected condition matches or the timeout expires, then follows it
 
 Text supports **Match characters** and, for Custom chars, **Keep characters**. The requested text must conform to that filter. OCR failures or invalid filtered queries do not count as valid absence; invalid text evaluation stops playback. See [text recognition](../Recognition/Text.md).
 
-Wait For Image uses the image condition path; the Smart/Pixel selector documented for If Image, Click Image, If Image Click, and Image Watcher is not an additional field here.
+Wait For Image uses the image condition path; the Smart/Pixel selector documented for If Image, Click Image, Click If Image, and Image Watcher is not an additional field here.
 
 Pick a small relevant screen area and a realistic positive timeout. Use [If Text](If-Text.md), [If Image](If-Image.md), [If Window](If-Window.md), or [If Internet](If-Internet.md) for the follow-up decision.

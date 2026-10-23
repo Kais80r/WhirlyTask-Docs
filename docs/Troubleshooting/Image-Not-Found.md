@@ -21,7 +21,7 @@ Use an opaque crop for Pixel. Semitransparent, entirely transparent, or sparse u
 
 ## Found, Then Gone
 
-A moving target can disappear between recognition and the final click check. Click Image reacquires the same reference for up to three guarded attempts, preserving the configured delay. Exhausted target loss skips ordinary Click Image; If Image Click chooses Else.
+A moving target can disappear between recognition and the final click check. Click Image reacquires the same reference for up to three guarded attempts, preserving the configured delay. Exhausted target loss skips ordinary Click Image; Click If Image chooses Else.
 
 For image condition/click steps, an unavailable worker, failed capture, invalid reference/configuration, or real input failure stops playback. Image watchers do not activate from an unavailable check. These errors must not trigger is not seen or choose Else as if absence had been verified.
 
@@ -29,5 +29,5 @@ For image condition/click steps, an unavailable worker, failed capture, invalid 
 
 - [Smart And Pixel Image Recognition](../Recognition/Images.md)
 - [Click Image](../Steps/Click-Image.md)
-- [If Image Click](../Steps/If-Image-Click.md)
+- [Click If Image](../Steps/Click-If-Image.md)
 - [Pixel Recognition](../Recognition/Pixel.md)

@@ -37,7 +37,8 @@ Start with [Getting Started](Getting-Started.md), then use the topic pages for t
 | Restore one variable's start value | [Reset Variable](Steps/Reset-Variable.md) |
 | Store screen text | [Read Text](Steps/Read-Text.md) |
 | Filter recognized characters | [Text Recognition](Recognition/Text.md) |
-| Click the same image that was found | [If Image Click](Steps/If-Image-Click.md) |
+| Click the same image that was found | [Click If Image](Steps/Click-If-Image.md) |
+| Click recognized text and branch on delivery | [Click If Text](Steps/Click-If-Text.md) |
 | Compare an image pixel for pixel | [Pixel Recognition](Recognition/Pixel.md) |
 | Check a color in an area | [If Pixel](Steps/If-Pixel.md) |
 | React when a variable changes | [Variable Watcher](Watchers/Variable-Watcher.md) |

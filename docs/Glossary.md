@@ -47,7 +47,8 @@ Variable names are case-sensitive. A missing name is not an empty string for ord
 | Smart image recognition | Learned matching that tolerates some visual differences |
 | Pixel image recognition | Compare a reference image at its original size with a per-channel RGB tolerance |
 | If Pixel | Check for a chosen color anywhere in a screen area; distinct from Pixel image matching |
-| If Image Click | Find and click the same accepted image target; Then requires a delivered click |
+| Click If Image | Find and click the same accepted image target; Then requires a delivered click |
+| Click If Text | Find and verify OCR text, then branch on whether the click was delivered |
 | Confirmed absence | A valid scan did not find the target; an error is not absence |
 
 See [Recognition](Recognition/README.md) for supported filters, capture limits, and matching behavior.

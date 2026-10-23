@@ -33,7 +33,8 @@ Use **Ctrl+S** to save, **Ctrl+Shift+S** to save under another name, and **Ctrl+
 | An image with some visual variation | [Smart image recognition](docs/Recognition/Images.md) |
 | A literal image at its original size | [Pixel image recognition](docs/Recognition/Pixel.md) |
 | Any pixel of a chosen color inside an area | [If Pixel](docs/Steps/If-Pixel.md) |
-| An image that should be clicked only when found | [If Image Click](docs/Steps/If-Image-Click.md) |
+| An image that should be clicked only when found | [Click If Image](docs/Steps/Click-If-Image.md) |
+| Text that should be clicked only when found | [Click If Text](docs/Steps/Click-If-Text.md) |
 
 Text recognition runs locally. The OCR search steps have character filters, while **Read Text** writes filtered output to a variable. Recognition can fail on hidden, ambiguous or unreadable targets; a failed scan is not proof that a target is absent.
 

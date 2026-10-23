@@ -15,7 +15,7 @@ Text and Smart image recognition run locally. They do not send captured screen i
 
 - [If Text](../Steps/If-Text.md) and [If Image](../Steps/If-Image.md) choose a branch after a valid check.
 - [Click Text](../Steps/Click-Text.md) and [Click Image](../Steps/Click-Image.md) locate a target and verify it again before clicking.
-- [If Image Click](../Steps/If-Image-Click.md) chooses Then only after the click was delivered.
+- [Click If Image](../Steps/Click-If-Image.md) and [Click If Text](../Steps/Click-If-Text.md) choose Then only after a verified click was delivered. A valid absence or exhausted target loss chooses Else.
 - [Read Text](../Steps/Read-Text.md) stores recognized text in a variable.
 - [Watchers](../Watchers/README.md) check conditions while playback runs.
 

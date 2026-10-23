@@ -18,8 +18,8 @@ Use a normal screen crop for transparent images. See [Pixel Recognition](../../R
 
 Image Watcher has automatic scan scheduling, not an editable Check every seconds field. A larger area or uncertain target may take longer to evaluate.
 
-The target can move or disappear after the Watcher fires. Use **If Image Click** when the action should search and click the same accepted target, then continue only after a delivered click. Do not assume a Watcher result is a permanently safe click position.
+The target can move or disappear after the Watcher fires. Use **Click If Image** when the action should search and click the same accepted target, then continue only after a delivered click. Do not assume a Watcher result is a permanently safe click position.
 
 A valid scan with no target is different from an unavailable capture or engine. Errors do not count as `is not seen`. Persistent conditions can trigger again after cooldown.
 
-See [Image Recognition](../../Recognition/Images.md), [If Image Click](../../Steps/If-Image-Click.md), and [Watcher Settings](../Watcher-Settings.md).
+See [Image Recognition](../../Recognition/Images.md), [Click If Image](../../Steps/Click-If-Image.md), and [Watcher Settings](../Watcher-Settings.md).

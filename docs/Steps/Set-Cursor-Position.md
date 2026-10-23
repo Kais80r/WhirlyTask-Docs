@@ -8,4 +8,4 @@ Use the screen-point helper to choose a physical desktop location. On multiple m
 Start -> Set Cursor Position: 640,360 -> Press Mouse Button: M1 / 0.05
 ```
 
-A fixed position does not identify an object. Prefer [Click Text](Click-Text.md), [Click Image](Click-Image.md), or [If Image Click](If-Image-Click.md) when the target can move and should be recognized before input.
+A fixed position does not identify an object. Prefer [Click Text](Click-Text.md), [Click Image](Click-Image.md), or [Click If Image](Click-If-Image.md) when the target can move and should be recognized before input.

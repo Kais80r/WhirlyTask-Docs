@@ -48,7 +48,8 @@ To reuse graph nodes, [save a selection as a premade block](../Guides/Reusable-P
 | --- | --- |
 | [If Text](If-Text.md) | Branch on recognized known text |
 | [If Image](If-Image.md) | Branch on a Smart or literal Pixel template match |
-| [If Image Click](If-Image-Click.md) | Then only after successful guarded click delivery |
+| [Click If Image](Click-If-Image.md) | Then only after successful guarded click delivery |
+| [Click If Text](Click-If-Text.md) | Find OCR text, verify it, click, and branch on delivery |
 | [If Pixel](If-Pixel.md) | Find at least one pixel of a selected color in an area |
 | [If Window](If-Window.md) | Check open/focused/fullscreen state |
 | [If Internet](If-Internet.md) | Check connectivity state |

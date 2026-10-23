@@ -36,7 +36,7 @@ After movement and the configured delay, the action checks target identity again
 
 If no stable target remains, ordinary Click Image skips and playback continues. Invalid input, an unavailable recognizer, capture failure, or actual mouse-delivery failure stops playback.
 
-Use [If Image Click](If-Image-Click.md) when the following branch must depend on successful delivery. A separate If Image check does not guarantee a later Click Image will still find that target.
+Use [Click If Image](Click-If-Image.md) when the following branch must depend on successful delivery. A separate If Image check does not guarantee a later Click Image will still find that target.
 
 Offsets do not authorize clicks outside the verified image. Keep `0,0` for the recognized center; use a separate explicit cursor/mouse action for an unrelated location.
 

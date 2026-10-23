@@ -38,7 +38,8 @@ The Variables used overview shows configured sources, not live runtime values. S
 | Wait for a visible phrase | [Wait For, Text](Steps/Wait-For.md) |
 | Store text from an area | [Read Text](Steps/Read-Text.md) |
 | Click a recognized word | [Click Text](Steps/Click-Text.md) |
-| Click an image and branch after the click | [If Image Click](Steps/If-Image-Click.md) |
+| Click an image and branch after the click | [Click If Image](Steps/Click-If-Image.md) |
+| Click text and branch after the click | [Click If Text](Steps/Click-If-Text.md) |
 | Recognize a visual target with some variation | Smart image recognition |
 | Compare an image at its original size | Pixel image recognition |
 | Check a color anywhere in an area | [If Pixel](Steps/If-Pixel.md) |

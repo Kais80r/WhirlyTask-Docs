@@ -2,7 +2,7 @@
 
 WhirlyTask reads visible text using a local multilingual PaddleOCR pipeline. The current pipeline combines the PP-OCRv6 medium detector with the PP-OCRv6 small recognizer. It supports more than English, but results depend on the language, font, size, contrast, and captured area. It does not translate text.
 
-Use [Read Text](../Steps/Read-Text.md) to store text, or search for a phrase with [If Text](../Steps/If-Text.md), [Click Text](../Steps/Click-Text.md), [Text Watcher](../Watchers/Triggers/When-Text.md), or [Wait For](../Steps/Wait-For.md) with **Wait for: Text**.
+Use [Read Text](../Steps/Read-Text.md) to store text, or search for a phrase with [If Text](../Steps/If-Text.md), [Click Text](../Steps/Click-Text.md), [Click If Text](../Steps/Click-If-Text.md), [Text Watcher](../Watchers/Triggers/When-Text.md), or [Wait For](../Steps/Wait-For.md) with **Wait for: Text**.
 
 ## Matching Rules
 
@@ -45,7 +45,7 @@ Whole-line matches can use the detected line bounds. Matching part of a line use
 
 Sometimes the model puts wanted and excluded characters in one inseparable box. For example, the colon and minus in `Score: -12.50` may share a box. A filtered search cannot safely guess the minus position in that case and reports that exact character bounds are unavailable. Keep the full phrase with **All text**, or choose a clearer target/area.
 
-[Click Text](../Steps/Click-Text.md) checks the same text and filter again before mouse-down, then verifies that the target pixels remained stable. A changed target can be retried or skipped; an unavailable check stops playback instead of treating it as a negative result.
+[Click Text](../Steps/Click-Text.md) and [Click If Text](../Steps/Click-If-Text.md) check the same text and filter again before mouse-down, then verify that the target pixels remained stable. They can retry a changing target up to three guarded attempts. Ordinary Click Text skips if no stable target remains; Click If Text chooses Else. Click If Text chooses Then only after the verified click was delivered. Capture, OCR, invalid-query, and input-delivery errors stop both actions; Click If Text takes neither branch.
 
 ## Speed And Repeated Checks
 

@@ -1,6 +1,6 @@
 # Text Clicks Wrong Place
 
-First separate an incorrect text match from a duplicate label or an offset problem. Click Text uses actual OCR boxes and verifies the target again before mouse-down, but OCR can still misread a scene.
+First separate an incorrect text match from a duplicate label or an offset problem. Click Text and Click If Text use actual OCR boxes and verify the target again before mouse-down, but OCR can still misread a scene.
 
 ## Check In This Order
 
@@ -22,10 +22,11 @@ Do not shorten a target to a common single character just to bypass a miss. Keep
 
 ## Cancelled Or Skipped Clicks
 
-The target may have changed during the configured delay or hover. WhirlyTask retries boundedly and skips if no stable target remains. Unavailable verification or input-delivery failure stops playback. Inspect the status message before changing the area or delay.
+The target may have changed during the configured delay or hover. WhirlyTask can retry up to three guarded attempts. If no stable target remains, ordinary Click Text skips and continues; Click If Text chooses Else. Then on Click If Text requires a delivered click. Unavailable verification or input-delivery failure stops playback without taking either branch. Inspect the status message before changing the area or delay.
 
 ## Related Pages
 
 - [Click Text](../Steps/Click-Text.md)
+- [Click If Text](../Steps/Click-If-Text.md)
 - [Text Recognition And Character Filters](../Recognition/Text.md)
 - [Selected Area Problems](Selected-Area-Problems.md)

@@ -4,7 +4,7 @@ WhirlyTask has two different pixel features. **Pixel image recognition** checks 
 
 ## Pixel Image Recognition
 
-Choose **Recognition: Pixel** on If Image, Click Image, If Image Click, or Image Watcher.
+Choose **Recognition: Pixel** on If Image, Click Image, Click If Image, or Image Watcher.
 
 - The reference keeps its original width and height.
 - Tolerance `0` requires exact RGB equality.

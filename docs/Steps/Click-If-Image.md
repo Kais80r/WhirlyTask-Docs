@@ -1,6 +1,6 @@
-# If Image Click
+# Click If Image
 
-If Image Click searches for a reference image, safely attempts the click, and runs Then only after the mouse click was delivered. It combines recognition and delivery into one branch action.
+Click If Image searches for a reference image, safely attempts the click, and runs Then only after the mouse click was delivered. It combines recognition and delivery into one branch action.
 
 ## Fields
 
@@ -16,14 +16,15 @@ It has the same image, Recognition, Pixel tolerance, Screen zone, Cursor mode, M
 | Valid search found no target | Else |
 | Target kept disappearing/moving through three guarded attempts | Else |
 | Recognition/capture unavailable or invalid configuration | Stop; neither branch |
-| Real input-delivery failure or playback stopped | Neither branch |
+| Real input-delivery failure | Stop; neither branch |
+| Playback stopped | Neither branch |
 
 Each retry reacquires the same reference and preserves the configured delay. The final guard verifies the target before mouse-down. It does not use a second independent Click Image step inside Then.
 
 ## Example
 
 ```text
-If Image Click
+Click If Image
 Image: confirm-button.png
 Recognition: Smart
 Screen zone: selected dialog area

@@ -34,7 +34,7 @@ Name your actual main block `Main`, or select its real name. Missing variables a
 
 Use **Image Watcher**, choose or paste the image, and select **Smart** or **Pixel** recognition. Smart allows some visual variation; Pixel compares the original image size with the configured per-channel tolerance. Add a Status Message first, before adding a mouse action.
 
-If the accepted image itself must be clicked, use **If Image Click** in the action chain rather than assuming a previous Watcher detection is still a safe click location.
+If the accepted image itself must be clicked, use **Click If Image** in the action chain rather than assuming a previous Watcher detection is still a safe click location.
 
 ## Take Control Deliberately
 

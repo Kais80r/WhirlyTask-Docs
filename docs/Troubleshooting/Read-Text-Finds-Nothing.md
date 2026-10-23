@@ -18,7 +18,7 @@ Try a slightly larger area if the crop cuts off letters. If Full Screen works bu
 
 ## Search Actions
 
-If Text, Click Text, and Text Watcher also validate their search filters. An empty custom set or a query containing excluded characters is an error, not a normal “not found” result. Correct the query or use All text.
+If Text, Click Text, Click If Text, and Text Watcher also validate their search filters. An empty custom set or a query containing excluded characters is an error, not a normal “not found” result. Correct the query or use All text.
 
 ## Related Pages
 

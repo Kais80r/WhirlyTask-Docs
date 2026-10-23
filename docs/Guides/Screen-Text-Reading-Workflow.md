@@ -1,6 +1,6 @@
 # Read screen text and use it
 
-Use **Read Text** to collect text into a variable. Use **If Text** or **Click Text** when the job is to find a known label; reading a whole region is a different operation.
+Use **Read Text** to collect text into a variable. Use **If Text** to check a known label, **Click Text** to click it, or [Click If Text](../Steps/Click-If-Text.md) to branch on whether a verified click was delivered.
 
 1. Choose a small screen area containing the value.
 2. Add Read Text with a clear **Result variable**, such as `amount`.
