@@ -29,7 +29,7 @@
 
     <rect x="90" y="258" width="820" height="64" rx="10" fill="#1b2633" stroke="#c9d3df"/>
     <text x="500" y="286" text-anchor="middle" font-size="16" font-weight="700">Recognition and app features</text>
-    <text x="500" y="309" text-anchor="middle" font-size="14">Text OCR, Smart / Pixel images, color checks, Discord alerts, hotkeys, recording and the library</text>
+    <text x="500" y="309" text-anchor="middle" font-size="14">Text recognition, image recognition, color checks, Discord alerts, hotkeys, recording and the library</text>
 
     <rect x="190" y="350" width="620" height="50" rx="10" fill="#1b2633" stroke="#c9d3df"/>
     <text x="500" y="381" text-anchor="middle" font-size="15">Connect steps, verify targets, read results, react to events and stop when needed</text>
