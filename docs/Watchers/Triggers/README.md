@@ -8,7 +8,7 @@ A trigger card defines when its connected Watcher actions may run. Add it from t
 | Image Watcher | Image is seen or not seen | [Image](When-Image.md) |
 | Window Watcher | Window open, focus, or fullscreen state | [Window](When-Window.md) |
 | Variable Watcher | Value comparison, existence, or change | [Variable](../Variable-Watcher.md) |
-| Daily Schedule | Daily wall-clock time | [Daily schedule](Daily-Schedule.md) |
+| Clock Time | Daily wall-clock time | [Clock time](Clock-Time.md) |
 | Timer / Interval | Elapsed duration | [Timer / interval](Timer-Interval.md) |
 | Chance Watcher | Probability roll | [Chance](For-Chance.md) |
 | Internet Watcher | Online or offline state | [Internet](When-Internet.md) |

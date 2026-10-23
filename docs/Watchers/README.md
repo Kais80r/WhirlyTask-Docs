@@ -22,7 +22,7 @@ The Watcher tab contains trigger cards. Its action chains use the same ordinary 
 | [Image Watcher](Triggers/When-Image.md) | A Smart or Pixel image target |
 | [Window Watcher](Triggers/When-Window.md) | A window's open, focus, or fullscreen state |
 | [Variable Watcher](Variable-Watcher.md) | A variable's value, existence, or change |
-| [Daily Schedule](Triggers/Daily-Schedule.md) | A daily clock time and time zone |
+| [Clock Time](Triggers/Clock-Time.md) | A daily clock time and time zone |
 | [Timer / Interval](Triggers/Timer-Interval.md) | Elapsed time since playback or a previous trigger |
 | [Chance Watcher](Triggers/For-Chance.md) | Repeated probability rolls |
 | [Internet Watcher](Triggers/When-Internet.md) | Online or offline state |

@@ -57,7 +57,7 @@ See [Recognition](Recognition/README.md) for supported filters, capture limits, 
 | Term | Meaning |
 | --- | --- |
 | Watcher | A trigger and action chain checked alongside the normal workflow |
-| Daily Schedule | Watcher that runs at a chosen daily clock time and time zone |
+| Clock Time | Watcher that runs at a chosen daily clock time and time zone |
 | Timer / Interval | Watcher that runs once after a delay or repeats at an elapsed-time interval |
 | Trigger | Condition that makes a Watcher eligible to run |
 | Cooldown | Minimum wait before that Watcher may trigger again |

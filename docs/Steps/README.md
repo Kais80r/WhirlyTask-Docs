@@ -100,7 +100,7 @@ Watchers have trigger settings and their own action paths. They are covered in t
 | Image Watcher | [Image trigger](../Watchers/Triggers/When-Image.md) |
 | Window Watcher | [Window trigger](../Watchers/Triggers/When-Window.md) |
 | Variable Watcher | [Variable trigger](../Watchers/Variable-Watcher.md) |
-| Daily Schedule | [Clock-time trigger](../Watchers/Triggers/Daily-Schedule.md) |
+| Clock Time | [Clock-time trigger](../Watchers/Triggers/Clock-Time.md) |
 | Timer / Interval | [Elapsed timer trigger](../Watchers/Triggers/Timer-Interval.md) |
 | Chance Watcher | [Chance trigger](../Watchers/Triggers/For-Chance.md) |
 | Internet Watcher | [Internet trigger](../Watchers/Triggers/When-Internet.md) |
