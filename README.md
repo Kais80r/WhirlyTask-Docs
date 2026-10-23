@@ -2,6 +2,8 @@
 
 Build Windows desktop automations with recorded input, connected steps, screen recognition and background watchers.
 
+![WhirlyTask workflow overview: tracks and premade blocks feed a sequence, with background watchers and screen recognition.](docs/assets/diagrams/whirlytask-automation-flow.svg)
+
 These docs describe the current graph editor. Older names such as **Sequence Value** and **Advanced Track** appear on compatibility pages; the current interface uses **Variable** and **Premade Block**.
 
 ## Build your first workflow
