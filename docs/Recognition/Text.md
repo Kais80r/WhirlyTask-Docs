@@ -2,7 +2,7 @@
 
 WhirlyTask reads visible text using a local multilingual PaddleOCR pipeline. The current pipeline combines the PP-OCRv6 medium detector with the PP-OCRv6 small recognizer. It supports more than English, but results depend on the language, font, size, contrast, and captured area. It does not translate text.
 
-Use [Read Text](../Steps/Read-Text.md) to store text, or search for a phrase with [If Text](../Steps/If-Text.md), [Click Text](../Steps/Click-Text.md), [Wait For Text](../Steps/Wait-For.md), and [Text Watcher](../Watchers/Triggers/When-Text.md).
+Use [Read Text](../Steps/Read-Text.md) to store text, or search for a phrase with [If Text](../Steps/If-Text.md), [Click Text](../Steps/Click-Text.md), [Text Watcher](../Watchers/Triggers/When-Text.md), or [Wait For](../Steps/Wait-For.md) with **Wait for: Text**.
 
 ## Matching Rules
 

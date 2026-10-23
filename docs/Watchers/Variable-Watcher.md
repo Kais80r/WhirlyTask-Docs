@@ -38,4 +38,4 @@ Actions:
 
 Select the actual main block rather than leaving a placeholder target. The Watcher conflict policy controls other Watchers; it does not automatically stop main actions.
 
-See [Variables](../Values/README.md), [If Variable](../Steps/If-Variable.md), [Watcher Settings](Watcher-Settings.md), and [Controlling Main Blocks](Steps/Pause-Sequence.md).
+See [Variables](../Values/README.md), [If Variable](../Steps/If-Variable.md), [Watcher Settings](Watcher-Settings.md), and [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md).

@@ -1,6 +1,6 @@
 # Glossary
 
-These are the current terms used in WhirlyTask. Some older documentation filenames remain for stable links.
+These terms describe the controls and behavior in WhirlyTask.
 
 ## Workflows And Editor
 
@@ -9,7 +9,6 @@ These are the current terms used in WhirlyTask. Some older documentation filenam
 | Track | Recorded keyboard and mouse input that can be replayed |
 | Sequence | Editable workflow of connected actions, decisions, blocks, variables, and optional Watchers |
 | Premade Block | Saved selection of graph nodes imported later as a reusable copy; portable files use .prm |
-| Advanced Track | Internal or older name associated with Premade Blocks |
 | Node / step | A card in the graph representing an action, condition, declaration, or trigger |
 | Connection | Link that determines where execution continues |
 | Block | Named main-flow section that can be targeted by block-control steps |
@@ -58,6 +57,8 @@ See [Recognition](Recognition/README.md) for supported filters, capture limits, 
 | Term | Meaning |
 | --- | --- |
 | Watcher | A trigger and action chain checked alongside the normal workflow |
+| Daily Schedule | Watcher that runs at a chosen daily clock time and time zone |
+| Timer / Interval | Watcher that runs once after a delay or repeats at an elapsed-time interval |
 | Trigger | Condition that makes a Watcher eligible to run |
 | Cooldown | Minimum wait before that Watcher may trigger again |
 | Watcher conflict policy | What to do when another Watcher is active; it does not pause main blocks |

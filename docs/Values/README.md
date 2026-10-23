@@ -1,6 +1,6 @@
 # Variables
 
-Variables let steps share text or numbers. The current editor calls them Variables; some documentation URLs retain the older word Values.
+Variables let steps share text or numbers.
 
 ```text
 statusText = Ready
@@ -19,7 +19,7 @@ The name identifies the stored value. A target field such as **Variable** uses t
 | Restore one declared startup value | [Reset Variable](../Steps/Reset-Variable.md) |
 | Choose Then or Else from a comparison | [If Variable](../Steps/If-Variable.md) |
 | Store recognized screen text | [Read Text](../Steps/Read-Text.md) |
-| React in the background | [Variable Watcher](../Watchers/Triggers/When-Sequence-Value.md) |
+| React in the background | [Variable Watcher](../Watchers/Variable-Watcher.md) |
 
 ## Use The Variable Tab
 

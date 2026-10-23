@@ -8,7 +8,7 @@ Start with one short working path, then add decisions and background recovery as
 | --- | --- |
 | Replay a fixed keyboard or mouse action | [Record a Track](Basics/Track.md) |
 | Wait, branch, recognize the screen, or use variables | [Build a Sequence](Basics/Sequence.md) |
-| Reuse a working group of nodes | [Save a Premade Block](Basics/Advanced-Track.md) |
+| Reuse a working group of nodes | [Save a Premade Block](Basics/Premade-Blocks.md) |
 | React to an unexpected event during playback | [Add a Watcher](Watchers/README.md) |
 
 ## Build A Small Sequence

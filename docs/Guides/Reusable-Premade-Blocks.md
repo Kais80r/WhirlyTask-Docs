@@ -1,6 +1,6 @@
 # Reusable premade blocks
 
-A premade block is a saved graph template. Importing it copies nodes into the open sequence so you can adjust them there. The current workflow uses the Sequence Editor; there is no separate Premade Block Editor.
+A premade block is a saved graph template. Create it in the Sequence Editor by selecting the nodes to reuse. Importing it copies nodes into the open sequence so you can adjust them there.
 
 ## Save a selection
 

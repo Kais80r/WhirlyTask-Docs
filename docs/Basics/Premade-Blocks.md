@@ -1,8 +1,8 @@
 # Premade Blocks
 
-A Premade Block is a saved selection of graph nodes that you can insert into a Sequence. The file format is **.prm**. Some internal names and older documentation URLs use Advanced Track; the current UI calls these Premade Blocks.
+A Premade Block is a saved selection of graph nodes that you can insert into a Sequence. The file format is **.prm**.
 
-Create them in the Sequence graph editor. There is no separate Premade Block Editor to open.
+Create and edit reusable step selections in the Sequence graph editor.
 
 ## Save A Selection
 

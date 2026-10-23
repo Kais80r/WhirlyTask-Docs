@@ -13,6 +13,6 @@
     <rect x="70" y="307" width="760" height="75" rx="8" fill="#1b2633" stroke="#e0bf82"/>
     <rect x="70" y="307" width="8" height="75" fill="#dc9535"/>
     <text x="105" y="338" font-size="18" font-weight="700">Watchers</text>
-    <text x="105" y="363" font-size="14">Background reactions that can run alongside or take over with Pause Sequence</text>
+    <text x="105" y="363" font-size="14">Background triggers with action paths and explicit Stop Block / Start Block at Step control</text>
   </g>
 </svg>

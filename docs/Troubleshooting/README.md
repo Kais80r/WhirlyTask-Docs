@@ -10,8 +10,8 @@ Read the status message before changing several settings. Distinguish a valid ne
 | Text click is misplaced or skipped | [Text Clicks Wrong Place](Text-Clicks-Wrong-Place.md) |
 | Reference image is missed | [Image Not Found](Image-Not-Found.md) |
 | Watcher never runs | [Watcher Does Not Fire](Watcher-Does-Not-Fire.md) |
-| Main keeps running during recovery | [Watcher Does Not Pause](Watcher-Does-Not-Pause.md) |
-| Main remains paused | [Watcher Pauses And Never Continues](Watcher-Pauses-And-Never-Continues.md) |
+| Main keeps running during recovery | [Main Block Keeps Running](Main-Block-Keeps-Running.md) |
+| Main does not resume after recovery | [Watcher Recovery Does Not Resume The Main Block](Watcher-Recovery-Does-Not-Resume.md) |
 | Variable seems empty or missing | [Value Is Blank](Value-Is-Blank.md) |
 | Editor and playback show different work | [Editor Changes Disappear](Editor-Changes-Disappear.md) |
 | Input reaches another application | [Wrong Window Or Focus](Wrong-Window-Or-Focus.md) |

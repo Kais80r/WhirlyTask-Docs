@@ -26,8 +26,8 @@ These choices concern other Watchers, not the normal main flow. Concurrent actio
 | --- | --- |
 | Text, Window, Internet | Check every seconds |
 | Chance | Roll every seconds |
-| Timer | Trigger after/every, then Seconds |
-| Time | Time and Time zone |
+| Timer / Interval | Trigger after/every, then Seconds |
+| Daily Schedule | Time and Time zone |
 | Image | Automatic scan scheduling; no manual interval field |
 | Variable | No manual interval field |
 
@@ -35,7 +35,7 @@ A configured check interval is not a guarantee of recognition latency. Capturing
 
 ## Cooldown Is Not A One-Shot Switch
 
-Text, Image, Window, Internet, and ordinary Variable conditions may trigger again while the condition remains active after cooldown. Variable changed mode reacts to changes; Time is a daily schedule; Timer after and every have their own elapsed-time behavior.
+Text, Image, Window, Internet, and ordinary Variable conditions may trigger again while the condition remains active after cooldown. Variable changed mode reacts to changes; Daily Schedule triggers at its chosen clock time; Timer / Interval uses its after or every elapsed-time behavior.
 
 For a persistent warning, make the action chain clear the warning or use a suitably long cooldown. If repeated messages appear, inspect the condition before shortening the scan interval.
 

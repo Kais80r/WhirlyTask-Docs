@@ -32,4 +32,4 @@ A Watcher can stop a main block while handling a side event, but the block needs
 
 Use Auto Layout to arrange nodes and make branches easier to follow. It changes positions, not the workflow's connections. Use the minimap and zoom to navigate a large graph, then select a node to reopen its settings.
 
-For reuse, Shift+drag to select a coherent section and save it as a [Premade Block](Advanced-Track.md). Internal Step IDs are remapped when that saved selection is imported as a copy.
+For reuse, Shift+drag to select a coherent section and save it as a [Premade Block](Premade-Blocks.md). Internal Step IDs are remapped when that saved selection is imported as a copy.

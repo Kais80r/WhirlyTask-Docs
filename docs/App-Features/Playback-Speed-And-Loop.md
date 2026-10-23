@@ -10,7 +10,7 @@ The main Loop control and **Menu > Continuous Playback** apply to recorded track
 
 The configured loop count limits track repetitions. Enabling continuous playback can set a large repeat count; use Stop or Emergency to interrupt it. Check the loaded item and visible settings instead of assuming Loop means an unlimited sequence loop.
 
-For sequence repetition, connect the graph deliberately or use [Repeat X Times](../Steps/Repeat-X-Times.md) and the documented jump steps. Give a loop a clear exit condition and allow the target application time to respond.
+For sequence repetition, connect the graph deliberately with a counter, an If Variable check, and Jump Block Step. See the [counter-limit example](../Examples/Counter-Limit.md). Give a loop a clear exit condition and allow the target application time to respond.
 
 ## Common Problems
 

@@ -2,8 +2,6 @@
 
 A Watcher does not automatically pause the main workflow. For recovery that requires control of the app, use explicit block-control steps.
 
-This page keeps an older Pause Sequence URL so existing links remain useful. **Pause Sequence is not the current toolbox action to add.**
-
 ## Stop, Recover, Resume
 
 1. Give the main block a clear name.

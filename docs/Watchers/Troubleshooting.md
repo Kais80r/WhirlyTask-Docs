@@ -32,4 +32,4 @@ Find the block you stopped. Use a valid **Start Block at Step** target when reco
 
 Two Watchers running alongside one another can both move the mouse, change focus, or write variables. Choose a suitable conflict policy and keep action chains short. A Watcher cannot use a Step ID jump into a different Watcher's chain.
 
-See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Pause-Sequence.md), and [Recognition](../Recognition/README.md).
+See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md), and [Recognition](../Recognition/README.md).

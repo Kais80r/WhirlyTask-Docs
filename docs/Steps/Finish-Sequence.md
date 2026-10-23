@@ -10,4 +10,4 @@ Start -> do work -> Status Message: Done -> Finish Sequence
 
 A click being delivered does not prove the application accepted it. Add a confirmation condition before marking work complete when that distinction matters.
 
-Use [Stop Block](Stop-Block.md) to stop only one block, and [Reset and Restart Sequence](Reset-And-Restart-Sequence.md) to initialize a new run. Older files can contain a Finish Advanced Track title; new graph workflows use Finish Sequence.
+Use [Stop Block](Stop-Block.md) to stop only one block, and [Reset and Restart Sequence](Reset-And-Restart-Sequence.md) to initialize a new run.

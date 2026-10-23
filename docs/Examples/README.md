@@ -1,6 +1,6 @@
 # Examples
 
-These patterns describe connected graphs, not lists of numbered rows. Replace targets, areas, names, and stable Step IDs with values from your own workflow.
+These patterns show connected workflows. Replace targets, areas, names, and stable Step IDs with values from your own workflow.
 
 | Example | Pattern |
 | --- | --- |

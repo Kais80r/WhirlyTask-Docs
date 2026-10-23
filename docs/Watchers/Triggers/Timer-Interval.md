@@ -1,6 +1,6 @@
-# Timer Watcher
+# Timer / Interval
 
-Timer Watcher triggers from elapsed time during Sequence playback.
+Timer / Interval triggers from elapsed time during Sequence playback.
 
 | Field | Choices or meaning |
 | --- | --- |
@@ -13,4 +13,4 @@ Set the shared [Enabled, cooldown, and conflict settings](../Watcher-Settings.md
 
 For example, every / 60 with a Status Message action provides a periodic reminder while the main workflow is still running. Cooldown and other active Watchers can affect whether an eligible trigger starts; this is not a hard real-time scheduler.
 
-Use [Time Watcher](When-Time.md) for a particular daily clock time, and [Wait](../../Steps/Wait.md) when the main path itself should wait before its next action.
+Use [Daily Schedule](Daily-Schedule.md) for a particular daily clock time, and [Wait](../../Steps/Wait.md) when the main path itself should wait before its next action.

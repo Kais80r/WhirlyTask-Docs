@@ -30,7 +30,7 @@ This saves a selection copy without replacing the open workflow. Only selected n
 
 To insert one, clear the selection and click **Import Premade Block**. In the Library's **Blocks** pane, select the saved template and choose **Import**. The result is a copy in the graph, not a live link to the Library item.
 
-There is no separate Premade Block Editor or Edit Block workflow. See [Reusable Premade Blocks](../Guides/Reusable-Premade-Blocks.md).
+See [Reusable Premade Blocks](../Guides/Reusable-Premade-Blocks.md) for a complete walkthrough.
 
 ## Portable Files
 
@@ -52,4 +52,4 @@ Loading other item types can change the active draft. Confirm the selected pane 
 
 Verify referenced Tracks, app paths, variable names, screen zones, and block targets on the destination PC. Embedded image data travels with the saved graph, but an unresolved external image path must be corrected before it can be safely saved and run.
 
-See [Editors And Saving](Editors-And-Saving.md), [Track](../Basics/Track.md), and [Premade Blocks](../Basics/Advanced-Track.md).
+See [Editors And Saving](Editors-And-Saving.md), [Track](../Basics/Track.md), and [Premade Blocks](../Basics/Premade-Blocks.md).

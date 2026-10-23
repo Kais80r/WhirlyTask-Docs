@@ -50,4 +50,4 @@ Watcher condition
 
 Choose a valid resume point whose preconditions recovery establishes. A Watcher does not pause the main flow automatically, and stopping a block does not itself restart it.
 
-See [Controlling Main Blocks](Steps/Pause-Sequence.md), [Start Block at Step](../Steps/Start-Block-at-Step.md), and [Watcher Recovery](../Guides/Watcher-Recovery-Workflow.md).
+See [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md), [Start Block at Step](../Steps/Start-Block-at-Step.md), and [Watcher Recovery](../Guides/Watcher-Recovery-Workflow.md).

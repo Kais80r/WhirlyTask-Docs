@@ -8,7 +8,7 @@ WhirlyTask combines recorded input with an editable graph of actions, decisions,
 | --- | --- | --- |
 | Track | Replay recorded mouse and keyboard input | [Track](Track.md) |
 | Sequence | Build the main workflow and decide what happens next | [Sequence](Sequence.md) |
-| Premade Block | Save selected graph nodes for reuse in another workflow | [Premade Blocks](Advanced-Track.md) |
+| Premade Block | Save selected graph nodes for reuse in another workflow | [Premade Blocks](Premade-Blocks.md) |
 
 Start with a short Track for a fixed recording, or a Sequence when the next action depends on the screen or a variable. Create Premade Blocks from useful selections once the workflow works.
 

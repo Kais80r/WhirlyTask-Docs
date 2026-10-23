@@ -1,4 +1,4 @@
-# Watcher Pauses And Never Continues
+# Watcher Recovery Does Not Resume The Main Block
 
 After Stop Block, recovery must decide where the work block should start again. Stop Block does not remember a resumable pause point. Reaching a later wait or failing a click is not a continuation instruction.
 

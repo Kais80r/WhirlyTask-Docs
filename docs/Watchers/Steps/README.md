@@ -10,4 +10,4 @@ Watcher action chains use the same ordinary steps as the main graph. Add the tri
 | Click a currently accepted visual target | [If Image Click](../../Steps/If-Image-Click.md) |
 | Change a shared value | [Set Variable](../../Steps/Set-Variable.md) or [Change Variable](../../Steps/Change-Variable.md) |
 
-The Watcher tab contains triggers rather than duplicates of all ordinary actions. [Controlling Main Blocks](Pause-Sequence.md) explains explicit recovery control.
+The Watcher tab contains triggers rather than duplicates of all ordinary actions. [Controlling Main Blocks](Controlling-Main-Blocks.md) explains explicit recovery control.

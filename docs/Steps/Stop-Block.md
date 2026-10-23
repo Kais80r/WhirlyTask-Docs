@@ -14,4 +14,4 @@ Error Watcher -> Stop Block: Work
 
 Give the Work block a clear name and give the retry action a stable **Step ID**. Check whether restarting that action might repeat an already completed external action before using this pattern.
 
-Legacy Pause Sequence and Stop Sequence cards are normalized to current block control behavior. New sequences should use the current title and an explicit block target.
+Select the intended block explicitly so recovery stops the correct work.

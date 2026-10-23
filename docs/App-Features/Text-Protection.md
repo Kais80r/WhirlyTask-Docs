@@ -16,6 +16,6 @@ Choose a clear, distinctive phrase. Test it in the actual font and screen state;
 
 After configuring [Discord Webhook](Discord-Webhook.md), its separate Discord Message toggle can notify you about a confirmed protection stop. An unavailable OCR check must not be reported as if the phrase had been recognized.
 
-Use [Wait For Text](../Steps/Wait-For.md) to pause one point in a workflow. Use a [Text Watcher](../Watchers/Triggers/When-Text.md) when you need a chosen area, a character filter, cooldown, or custom recovery steps.
+Use [Wait For](../Steps/Wait-For.md) with **Wait for: Text** to wait for text at one point in a workflow. Use a [Text Watcher](../Watchers/Triggers/When-Text.md) for background checks and custom recovery steps.
 
 See [Text Recognition And Character Filters](../Recognition/Text.md) for the shared matching rules and limitations.

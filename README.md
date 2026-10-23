@@ -4,7 +4,7 @@ Build Windows desktop automations with recorded input, connected steps, screen r
 
 ![WhirlyTask workflow overview: tracks and premade blocks feed a sequence, with background watchers and screen recognition.](docs/assets/diagrams/whirlytask-automation-flow.svg)
 
-These docs describe the current graph editor. Older names such as **Sequence Value** and **Advanced Track** appear on compatibility pages; the current interface uses **Variable** and **Premade Block**.
+Use the graph editor to connect actions, compare variables, recognize screen targets and save reusable Premade Blocks.
 
 ## Build your first workflow
 
@@ -21,7 +21,7 @@ The editor recovers its working session across a normal restart. Recovery, apply
 | --- | --- |
 | Replay a recorded mouse/keyboard action | [Track](docs/Basics/Track.md) |
 | Decisions, waits, variables and connected actions | [Sequence](docs/Basics/Sequence.md) |
-| Reuse selected steps in another workflow | [Premade Block](docs/Basics/Advanced-Track.md) |
+| Reuse selected steps in another workflow | [Premade Block](docs/Basics/Premade-Blocks.md) |
 | React to an event while the sequence runs | [Watcher](docs/Watchers/README.md) |
 | Store screen text, counters or other results | [Variables](docs/Values/README.md) |
 
@@ -56,4 +56,4 @@ Use the exact field names shown in your app. This repository documents behavior,
 
 ## Maintaining the documentation
 
-Run `python tools/check_docs.py` before submitting an update. It checks local links, heading anchors, path casing and SVG files without downloading anything. See [documentation changes](docs/CHANGELOG.md) for this refresh and [the screenshot guide](docs/assets/screenshots/README.md) before adding images.
+Run `python tools/check_docs.py` before submitting an update. It checks local links, heading anchors, path casing and SVG files without downloading anything. Follow [the screenshot guide](docs/assets/screenshots/README.md) when adding images.

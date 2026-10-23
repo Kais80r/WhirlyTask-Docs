@@ -16,4 +16,4 @@ Stop Block does not preserve a resumable pause position. Use Start Block at Step
 
 Start testing with `Status Message: Watcher fired`. Once the trigger is proven, test the stop/restart behavior and check that recovery cannot duplicate an already completed external action. Use cooldowns for repeated notifications.
 
-See [Watchers](../Watchers/README.md), [Watcher Does Not Fire](../Troubleshooting/Watcher-Does-Not-Fire.md), and [Watcher Pauses And Never Continues](../Troubleshooting/Watcher-Pauses-And-Never-Continues.md).
+See [Watchers](../Watchers/README.md), [Watcher Does Not Fire](../Troubleshooting/Watcher-Does-Not-Fire.md), and [Watcher Recovery Does Not Resume The Main Block](../Troubleshooting/Watcher-Recovery-Does-Not-Resume.md).

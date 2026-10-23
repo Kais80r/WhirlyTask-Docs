@@ -31,7 +31,7 @@ Start with [Getting Started](Getting-Started.md), then use the topic pages for t
 | --- | --- |
 | Replay recorded input | [Track](Basics/Track.md) |
 | Build a connected workflow | [Sequence](Basics/Sequence.md) |
-| Reuse selected nodes | [Premade Blocks](Basics/Advanced-Track.md) |
+| Reuse selected nodes | [Premade Blocks](Basics/Premade-Blocks.md) |
 | Select a jump or resume target | [Blocks And Step IDs](Basics/Blocks-And-Numbering.md) |
 | Insert a variable without typing braces | [Using Variable References](Values/Using-Values-In-Messages.md) |
 | Restore one variable's start value | [Reset Variable](Steps/Reset-Variable.md) |
@@ -44,10 +44,8 @@ Start with [Getting Started](Getting-Started.md), then use the topic pages for t
 | Recover after an unexpected event | [Watcher Examples](Watchers/Examples.md) |
 | Understand what closing the editor preserves | [Editors And Saving](App-Features/Editors-And-Saving.md) |
 
-## Current Names
+## Variables And Reusable Steps
 
-The editor uses **Variable**, **Starter Variable**, **Set Variable**, **Change Variable**, **Reset Variable**, and **If Variable**. Some page URLs keep the older word Values so links remain stable.
+Use **Starter Variable** to declare a start value, **Set Variable** or **Change Variable** to update it, **Reset Variable** to restore its start value, and **If Variable** to choose a branch.
 
-Reusable selections are **Premade Blocks**, saved as **.prm** files when exported. The Advanced-Track documentation URL describes this current workflow; there is no standalone Premade Block Editor to open.
-
-For changes covered by this documentation refresh, see the [Changelog](CHANGELOG.md).
+Save selected nodes as a **Premade Block** when they should be reused. Clear the selection to import a saved copy. Portable Premade Block files use **.prm**.

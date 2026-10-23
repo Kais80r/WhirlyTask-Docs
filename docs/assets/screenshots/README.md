@@ -13,6 +13,6 @@ Use this folder for current screenshots made with a small, fictional test workfl
 | `watcher.png` | A trigger, its settings and its connected action chain |
 | `editor-issues.png` | A deliberately invalid field and its diagnostic |
 
-Use PNG, keep labels readable and include enough context to explain the action. Do not publish webhook URLs, private text, account names, local user paths or real captured work. Do not add images or links for features that are no longer in the interface, such as a separate Premade Block Editor.
+Use PNG, keep labels readable and include enough context to explain the action. Show the controls exactly as they appear in the app. Do not publish webhook URLs, private text, account names, local user paths or real captured work.
 
 The diagrams in [../diagrams](../diagrams) are SVG illustrations, not screenshots of the running app.

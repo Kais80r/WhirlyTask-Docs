@@ -16,4 +16,4 @@ Choose the mode that represents the event you care about. An open window may be 
 
 Start with a Status Message action to verify the title and state. If recovery sends keys or clicks, use explicit block control when parallel main actions would be unsafe.
 
-See [Focus Window](../../Steps/Focus-Window.md) and [Controlling Main Blocks](../Steps/Pause-Sequence.md).
+See [Focus Window](../../Steps/Focus-Window.md) and [Controlling Main Blocks](../Steps/Controlling-Main-Blocks.md).

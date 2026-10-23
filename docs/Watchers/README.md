@@ -21,9 +21,9 @@ The Watcher tab contains trigger cards. Its action chains use the same ordinary 
 | [Text Watcher](Triggers/When-Text.md) | Recognized text in a screen area |
 | [Image Watcher](Triggers/When-Image.md) | A Smart or Pixel image target |
 | [Window Watcher](Triggers/When-Window.md) | A window's open, focus, or fullscreen state |
-| [Variable Watcher](Triggers/When-Sequence-Value.md) | A variable's value, existence, or change |
-| [Time Watcher](Triggers/When-Time.md) | A daily clock time and time zone |
-| [Timer Watcher](Triggers/When-Timer.md) | Elapsed time since playback or a previous trigger |
+| [Variable Watcher](Variable-Watcher.md) | A variable's value, existence, or change |
+| [Daily Schedule](Triggers/Daily-Schedule.md) | A daily clock time and time zone |
+| [Timer / Interval](Triggers/Timer-Interval.md) | Elapsed time since playback or a previous trigger |
 | [Chance Watcher](Triggers/For-Chance.md) | Repeated probability rolls |
 | [Internet Watcher](Triggers/When-Internet.md) | Online or offline state |
 
@@ -37,8 +37,8 @@ A failed capture or unavailable recognition engine is not confirmed absence. An 
 
 ## Repetition And End Of Playback
 
-A condition that stays true can fire again after its cooldown. Make recovery remove the condition, or choose a cooldown that suits the task. A Timer Watcher in after mode is a one-shot elapsed-time trigger; every mode repeats.
+A condition that stays true can fire again after its cooldown. Make recovery remove the condition, or choose a cooldown that suits the task. Timer / Interval in after mode is a one-shot elapsed-time trigger; every mode repeats.
 
 Watchers belong to playback. If the Sequence finishes or stops, they do not remain as independent background automations. Keep the main path alive while testing a Watcher.
 
-See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Pause-Sequence.md), [Examples](Examples.md), and [Troubleshooting](Troubleshooting.md).
+See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md), [Examples](Examples.md), and [Troubleshooting](Troubleshooting.md).

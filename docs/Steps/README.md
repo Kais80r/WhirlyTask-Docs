@@ -21,7 +21,7 @@ Start with [Getting Started](../Getting-Started.md) or [Build a reliable sequenc
 | --- | --- |
 | [Play Track](Play-Track.md) | Replay a saved input recording |
 
-To reuse graph nodes, [save a selection as a premade block](../Guides/Reusable-Premade-Blocks.md) and import a copy from the Library. Templates use `.prm` files. There is no separate Premade Block Editor or current Run Premade Block toolbox card.
+To reuse graph nodes, [save a selection as a premade block](../Guides/Reusable-Premade-Blocks.md) and import a copy from the Library. Templates use `.prm` files.
 
 ## Timing
 
@@ -100,13 +100,9 @@ Watchers have trigger settings and their own action paths. They are covered in t
 | Image Watcher | [Image trigger](../Watchers/Triggers/When-Image.md) |
 | Window Watcher | [Window trigger](../Watchers/Triggers/When-Window.md) |
 | Variable Watcher | [Variable trigger](../Watchers/Variable-Watcher.md) |
-| Time Watcher | [Clock-time trigger](../Watchers/Triggers/When-Time.md) |
-| Timer Watcher | [Elapsed timer trigger](../Watchers/Triggers/When-Timer.md) |
+| Daily Schedule | [Clock-time trigger](../Watchers/Triggers/Daily-Schedule.md) |
+| Timer / Interval | [Elapsed timer trigger](../Watchers/Triggers/Timer-Interval.md) |
 | Chance Watcher | [Chance trigger](../Watchers/Triggers/For-Chance.md) |
 | Internet Watcher | [Internet trigger](../Watchers/Triggers/When-Internet.md) |
-
-## Older documentation links
-
-Old Sequence Value names now point to the canonical Variable pages. Older Pause/Stop Sequence, numbered jumps, Return to Sequence, Repeat X Times, and Run Advanced Track pages remain as compatibility explanations; they are not additional current toolbox cards.
 
 For complete connected patterns, see [Examples](../Examples/README.md). For draft recovery versus named saves and files, see [Editors and saving](../App-Features/Editors-And-Saving.md).

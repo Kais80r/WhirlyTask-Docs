@@ -1,6 +1,6 @@
-# Time Watcher
+# Daily Schedule
 
-Time Watcher schedules a daily trigger at a wall-clock time. Use Timer Watcher instead for a duration measured from playback startup.
+Daily Schedule triggers at a chosen clock time each day. Use Timer / Interval for a duration measured from playback startup.
 
 ## Fields
 
@@ -13,6 +13,6 @@ The shared Enabled, Cooldown seconds, and conflict fields follow the schedule.
 
 Choose Automatic when the event should follow the computer's local clock. A fixed UTC offset does not automatically change for daylight saving time. The schedule is checked only while the Sequence is running; closing or finishing playback does not leave an independent scheduled job behind.
 
-Time Watcher records the daily trigger so the same scheduled occurrence does not run continuously during its matching minute. It is not Timer Watcher's after/every duration control.
+Daily Schedule records the daily trigger so the same scheduled occurrence does not run continuously during its matching minute.
 
-See [Timer Watcher](When-Timer.md) and [Watcher Settings](../Watcher-Settings.md).
+See [Timer / Interval](Timer-Interval.md) and [Watcher Settings](../Watcher-Settings.md).

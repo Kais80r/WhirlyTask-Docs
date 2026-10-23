@@ -15,4 +15,4 @@ Choose a narrow search area and a distinctive target. If recognition is unavaila
 
 The loop repeats while the selected state remains true. Add an attempt/time limit when endless repetition would be undesirable. Include a meaningful delay or bounded action so the loop does not spin continuously.
 
-A whole-sequence restart is a different pattern: [Reset and Restart Sequence](../Steps/Reset-And-Restart-Sequence.md) reinitializes runtime variables. Older Repeat X Times tutorials do not describe the current toolbox.
+Use [Reset and Restart Sequence](../Steps/Reset-And-Restart-Sequence.md) when the whole workflow should begin again and reinitialize its variables.
