@@ -1,45 +1,14 @@
 # Always On Top And Help
 
-This page covers small main-menu features that make the app easier to use.
+**Menu > Always on Top** keeps the main WhirlyTask window above ordinary windows. Disable it or move the window aside if it covers a target you are recording or recognizing.
 
-## Always On Top
+Being on top does not focus another application, preserve a target's coordinates, or make a covered control visible to recognition. Screen-reading actions use the pixels they can capture.
 
-Open:
+**Menu > Help** opens the online documentation in the Windows default browser. If nothing appears, check for a browser tab behind another window and verify that Windows can open web links.
 
-```text
-Menu > Always on Top
-```
+## Related Pages
 
-When enabled, WhirlyTask stays above other windows.
-
-Use it when:
-
-- You are recording.
-- You are testing sequences.
-- You want to watch the status label.
-- You need quick access to Stop or Emergency.
-
-Turn it off when it blocks the screen area you are automating.
-
-## Help
-
-Open:
-
-```text
-Menu > Help
-```
-
-This opens the online WhirlyTask documentation in your default browser.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Always On Top covers the target area | Move WhirlyTask or turn Always On Top off while selecting areas |
-| Help does not open | Check that Windows can open links in your default browser |
-| Nothing appears to happen | Look for a browser tab or window behind the current app |
-
-## Tips
-
-- Move WhirlyTask away from selected screen areas before testing OCR or image matching.
-- If Help appears to do nothing, check whether a browser tab opened in the background.
+- [Appearance](Appearance.md)
+- [Graph Editor](Graph-Editor.md)
+- [Wrong Window Or Focus](../Troubleshooting/Wrong-Window-Or-Focus.md)
+- [Selected Area Problems](../Troubleshooting/Selected-Area-Problems.md)

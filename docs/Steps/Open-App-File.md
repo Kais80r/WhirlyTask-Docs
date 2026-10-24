@@ -1,43 +1,13 @@
 # Open App/File
 
-Open App/File opens a program, file, folder, or target path immediately.
+Opens **Target** through Windows' normal open action. It can be a program path, file, or folder supported by the system.
 
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| Target | App name, file path, folder path, or other openable target |
-
-## Setup From Scratch
-
-1. Add Open App/File.
-2. Enter the target.
-
-## Example
+Prefer a full path when a short name is ambiguous. Opening a file uses its associated application; the step does not choose a different application or wait for document loading to finish.
 
 ```text
-1. Open App/File C:\Reports\summary.xlsx
+Start -> Open App/File: C:\Reports\summary.xlsx
+      -> Wait For: Window / summary / is open / 30 seconds
+      -> If Window: summary / is open
 ```
 
-Example with follow-up input:
-
-```text
-1. Open App/File C:\Reports\summary.xlsx
-2. Wait For (Window) summary is open timeout 30
-3. Focus Window summary
-```
-
-## Useful For
-
-- Opening apps.
-- Opening files.
-- Opening folders.
-- Starting a workflow from a known target.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The app or file does not open | Use the full path when the target is not found reliably |
-| The next step runs too early | Add [Wait For (Window)](Wait-For.md) or [Wait For (Text)](Wait-For.md) after opening |
-| The target is a website | Use [Open Link](Open-Link.md) for web links |
+Wait For also continues after a timeout, so check the window before sending dependent input. Use [Open Link](Open-Link.md) for a URL, [Focus Window](Focus-Window.md) to activate an already open window, and [Close Window/App](Close-Window-App.md) to request closing it.

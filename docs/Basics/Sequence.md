@@ -1,140 +1,39 @@
 # Sequence
 
-A sequence is a full workflow.
+A Sequence is an editable workflow. Connect steps to run actions, wait for a result, choose a branch, update variables, or react through Watchers.
 
-Use a sequence when the automation needs steps, decisions, values, screen reading, loops, or watchers.
+Open **Sequence Editor...** from the main window. The toolbox has **All**, **Basic**, **Watcher**, and **Variable** tabs. Search the toolbox to find an action, then add it to the graph.
 
-A sequence is the best choice when the app may be in different states and WhirlyTask needs to react.
+## Build The Main Path
 
-## What A Sequence Contains
+1. Begin with a Start node and a small chain of actions.
+2. Select a node to edit its settings on the right.
+3. Connect each action to its successor. For conditions, connect the Then and Else paths deliberately.
+4. Use **Save** to keep the document, then **Play** to validate and test the current graph.
+5. Test the short path before extending it.
 
-| Part | Meaning |
+The settings panel hides when nothing is selected, leaving more space for the canvas. Select a step, Watcher, or editable block header to show the relevant settings again. The document name at the top is a label.
+
+## Separate Responsibilities
+
+| Part | Purpose |
 | --- | --- |
-| Starting Values | Values that exist when the sequence starts |
-| Main Steps | The normal path of the workflow |
-| Watchers | Background checks that can react while the sequence runs |
+| Starter Variable | Declare an initial value before playback begins |
+| Main blocks | Perform the normal workflow |
+| If steps | Choose Then or Else from a valid result |
+| Watchers | Check side conditions while playback runs |
+| Premade Blocks | Insert reusable copies of saved graph selections |
 
-## How To Think About It
+A recognition error is different from a confirmed negative result. Do not design a recovery path that assumes an unavailable screenshot or OCR engine means the target is absent.
 
-The main steps should describe the normal expected path.
+## Saving Is Explicit
 
-Watchers should describe side events:
+**Save** or **Ctrl+S** updates the file or Library entry you opened. A new document asks for a file name and location. **Save As** creates another file and switches to it. **More > Add to Library** creates an independent Library copy. New and Open ask how to handle unsaved edits. Automatic recovery preserves the editing session across restart.
 
-```text
-Main steps:
-Do the normal workflow
+See [Editors And Saving](../App-Features/Editors-And-Saving.md) before relying on any of these as a backup.
 
-Watcher:
-If an unexpected warning appears, pause and handle it
-```
+## Reuse A Working Section
 
-Values connect steps together:
+Shift+drag to select nodes. The top **Import Premade Block** button becomes **Save Premade Block** while a selection exists. Save the selection as a named reusable copy, then clear the selection to import a saved block.
 
-```text
-Read Text fills resultText
-If Sequence Value checks resultText
-Discord Message sends {resultText}
-```
-
-## What A Sequence Is Good For
-
-Sequences are best for workflows that need logic.
-
-Examples:
-
-```text
-Wait until text appears
-Read visible text into a value
-Click a button by text
-Retry until success
-Stop after too many attempts
-React to popups
-Send status or Discord messages
-Use a saved track as one part of a larger workflow
-```
-
-## Setup From Scratch
-
-1. Add starting values you already know you need.
-2. Build the first few main steps.
-3. Add [Status Message](../Steps/Status-Message.md) steps while testing.
-4. Run the sequence.
-5. Add loops, branches, or values after the simple path works.
-6. Add watchers only for events that can happen outside the normal path.
-7. Press Save before closing the editor.
-
-## Sequence Example
-
-```text
-Starting Values:
-statusText starts as empty
-attempts starts as 0
-
-Main Steps:
-1. Change Sequence Value attempts Add 1
-2. Read Text statusText from selected status area
-3. If Sequence Value statusText contains Complete
-   Then:
-   1. Status Message Finished
-   2. Stop Sequence
-   Else:
-   1. Wait 2 seconds
-   2. Jump Sequence Step 1
-```
-
-## Watcher Example
-
-```text
-Watcher trigger:
-When Text Warning is seen
-
-Watcher steps:
-1. Pause Sequence
-2. Click Text OK
-3. Jump Sequence Step 2
-```
-
-This watcher pauses the main sequence before recovery. Without Pause Sequence, the watcher steps can run while the main steps keep moving.
-
-## When To Use A Sequence
-
-Use a sequence when you need:
-
-- Screen text reading.
-- Image or text conditions.
-- Values.
-- Branches.
-- Loops.
-- Watchers.
-- Recovery logic.
-- Messages with live values.
-
-## Common Sequence Patterns
-
-| Pattern | Use it when | Open |
-| --- | --- | --- |
-| Basic loop | Steps should repeat | [Basic Loop](../Examples/Basic-Loop.md) |
-| Counter limit | A loop should stop after a maximum count | [Counter Limit](../Examples/Counter-Limit.md) |
-| Read and decide | Screen text controls the next step | [Read Text](../Steps/Read-Text.md) |
-| Watcher recovery | Unexpected errors should be handled | [Watcher Recovery](../Examples/Watcher-Recovery.md) |
-| Notification system | WhirlyTask should report progress or results | [Notification System](../Examples/Notification-System.md) |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Changes disappear | Press Save before closing the editor or testing from the main window |
-| Values reset unexpectedly | Check whether [Reset and Restart Sequence](../Steps/Reset-And-Restart-Sequence.md) runs before the value is used |
-| Text or image detection fails | Select a slightly larger area with margin around the target |
-| A watcher runs but the main sequence keeps moving | Put [Pause Sequence](../Steps/Pause-Sequence.md) near the start of the watcher |
-| The sequence is hard to follow | Move repeated action blocks into tracks or advanced tracks |
-| Watchers handle normal expected steps | Move the normal path into main steps and save watchers for unexpected events |
-
-Useful examples: [Basic Loop](../Examples/Basic-Loop.md), [Watcher Recovery](../Examples/Watcher-Recovery.md), [Counter Limit](../Examples/Counter-Limit.md), [Notification System](../Examples/Notification-System.md)
-
-## More About
-
-- [Steps](../Steps/README.md)
-- [Values](../Values/README.md)
-- [Watchers](../Watchers/README.md)
-- [Troubleshooting](../Troubleshooting/README.md)
+See [Premade Blocks](Premade-Blocks.md), [Variables](../Values/README.md), and [Watchers](../Watchers/README.md).

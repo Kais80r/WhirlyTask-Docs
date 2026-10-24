@@ -1,54 +1,19 @@
 # Play Track
 
-Play Track runs one of your saved tracks inside the current sequence.
-
-A track is useful for replaying keyboard and mouse input that you already recorded.
-
-If you are not sure what a track is, read [Track](../Basics/Track.md) first.
-
-## Fields
+Replays a saved mouse/keyboard recording.
 
 | Field | Meaning |
 | --- | --- |
-| Track | The saved track to run |
-| Repeat | How many times to run it |
+| Track | Name of a saved recording in the Library |
+| Repeat | Number of repetitions; use the editor's supported repeat choices |
 
-## Setup From Scratch
+Record a short track, save it to the Library, and select that exact saved name here. A missing recording cannot be replayed.
 
-1. Record and save a track in WhirlyTask.
-2. Open the sequence editor.
-3. Add Play Track.
-4. Choose the saved track.
-5. Set Repeat.
-
-## Example
+Recorded coordinates and timing depend on the desktop and application state. Before playback, focus the intended window and use a condition to check readiness where practical. Test with the same window arrangement used during recording.
 
 ```text
-1. Play Track Fill Date Fields repeat 1
+Start -> Focus Window: Report -> Wait: 0.5 -> Play Track: Export report / 1
+      -> Status Message: Recording finished
 ```
 
-Example with app readiness checks:
-
-```text
-1. Focus Window Report Tool
-2. Play Track Fill Date Fields repeat 1
-3. Wait For (Text) Ready timeout 30
-```
-
-## Useful For
-
-- Reusing recorded input.
-- Keeping sequences shorter.
-- Repeating a stable interaction.
-- Combining recorded actions with conditions and watchers.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The track plays into the wrong app | Use [Focus Window](Focus-Window.md) before Play Track |
-| The track is hard to reuse | Split large recordings into shorter tracks |
-| The next step runs too early | Add a wait or wait-for step after playback |
-| Clicks fail when the UI moves | Use [Click Text](Click-Text.md) or [Click Image](Click-Image.md) for moving targets |
-
-Related basics: [Choosing What To Use](../Basics/Choosing-What-To-Use.md)
+Track settings control recording-specific speed, delays, and mouse offsets. A premade block is a graph template, not a recorded track: see [reusable premade blocks](../Guides/Reusable-Premade-Blocks.md).

@@ -1,79 +1,61 @@
-# WhirlyTask Documentation
+# WhirlyTask
 
-WhirlyTask is a Windows automation app for building keyboard, mouse, screen-text reading, image matching, notification, and watcher-based workflows without writing scripts.
+Build Windows desktop automations with recorded input, connected steps, screen recognition and background watchers.
 
-This documentation is written for general desktop automation. The examples use neutral cases such as forms, dashboards, reports, popups, status labels, and repeated app tasks so the same ideas can be reused in many different workflows.
+![WhirlyTask workflow overview: tracks and premade blocks feed a sequence, with background watchers and screen recognition.](docs/assets/diagrams/whirlytask-automation-flow.svg)
 
-![WhirlyTask flow overview](docs/assets/diagrams/whirlytask-automation-flow.svg?v=smart-playback-helpers)
+Use the graph editor to connect actions, compare variables, recognize screen targets and save reusable Premade Blocks.
 
-## Start Here
+## Build your first workflow
 
-If you are new, read these in order:
+1. Open [Getting Started](docs/Getting-Started.md).
+2. Connect a small sequence from **Start** to the actions you need.
+3. Select a step to edit its settings on the right. With no selection, the canvas uses that space.
+4. Test with a [Status Message](docs/Steps/Status-Message.md), then use **Save** to keep your work.
 
-1. [Getting Started](docs/Getting-Started.md)
-2. [Choosing What To Use](docs/Basics/Choosing-What-To-Use.md)
-3. [Build A Reliable Sequence](docs/Guides/Build-A-Reliable-Sequence.md)
-4. [Values](docs/Values/README.md) if you need to remember text, numbers, or results
-5. [Watchers](docs/Watchers/README.md) if you need background checks or recovery
-6. [Troubleshooting](docs/Troubleshooting/README.md) when something does not work
+Use **Ctrl+S** to save, **Ctrl+Shift+S** to save under another name, and **Ctrl+O** to open a file. The editor also recovers its working session across a normal restart. See [Editors and saving](docs/App-Features/Editors-And-Saving.md).
 
-If you already know what you need, use the table below.
+## Choose the right building block
 
-## Find What You Need
-
-| I want to... | Start here |
+| You need | Use |
 | --- | --- |
-| Learn the basic workflow | [Getting Started](docs/Getting-Started.md) |
-| Understand WhirlyTask words | [Glossary](docs/Glossary.md) |
-| Understand tracks, advanced tracks, and sequences | [Basics](docs/Basics/README.md) |
-| Build a system from scratch | [Guides](docs/Guides/README.md) |
-| Set up protections, Discord, hotkeys, recording, or loop playback | [App Features](docs/App-Features/README.md) |
-| Fix something that does not work | [Troubleshooting](docs/Troubleshooting/README.md) |
-| Choose or understand a step | [Steps](docs/Steps/README.md) |
-| Run background recovery logic | [Watchers](docs/Watchers/README.md) |
-| Store, read, or change values | [Values](docs/Values/README.md) |
-| Build loops, retries, and notification systems | [Examples](docs/Examples/README.md) |
-| Build cleaner and more reliable automations | [Tips](docs/Tips/README.md) |
-| Read text from the screen | [Read Text](docs/Steps/Read-Text.md) |
-| Learn why a selected area fails | [Selected Area Problems](docs/Troubleshooting/Selected-Area-Problems.md) |
-| See all documentation sections | [Docs Index](docs/README.md) |
+| Replay a recorded mouse/keyboard action | [Track](docs/Basics/Track.md) |
+| Decisions, waits, variables and connected actions | [Sequence](docs/Basics/Sequence.md) |
+| Reuse selected steps in another workflow | [Premade Block](docs/Basics/Premade-Blocks.md) |
+| React to an event while the sequence runs | [Watcher](docs/Watchers/README.md) |
+| Store screen text, counters or other results | [Variables](docs/Values/README.md) |
 
-## What WhirlyTask Is Good At
+## Recognize what is on screen
 
-WhirlyTask is useful when a workflow has repeatable input or visible screen states:
-
-- Repeating keyboard and mouse actions.
-- Waiting for visible text, images, windows, or network state.
-- Reading visible screen text into named values. The technical word for this is OCR.
-- Clicking UI text or image targets.
-- Sending notifications with live values.
-- Recovering from popups, errors, focus changes, or missing states.
-- Combining normal steps with background watchers.
-
-## Common Starting Points
-
-| Situation | Best starting point |
+| Target | Start here |
 | --- | --- |
-| You only need to replay a recorded action | [Track](docs/Basics/Track.md) |
-| You want a reusable action block | [Advanced Track](docs/Basics/Advanced-Track.md) |
-| You need decisions, loops, values, or watchers | [Sequence](docs/Basics/Sequence.md) |
-| You need to read visible text | [Read Text](docs/Steps/Read-Text.md) |
-| You need a screen text workflow | [Screen Text Reading Workflow](docs/Guides/Screen-Text-Reading-Workflow.md) |
-| You need to send Discord alerts | [Discord Webhook](docs/App-Features/Discord-Webhook.md) |
-| You need the workflow to recover from problems | [Watcher Recovery](docs/Examples/Watcher-Recovery.md) |
-| You need a loop with a stop limit | [Counter Limit](docs/Examples/Counter-Limit.md) |
+| A word, number or sentence | [Text recognition](docs/Recognition/Text.md) |
+| An image with some visual variation | [Smart image recognition](docs/Recognition/Images.md) |
+| A literal image at its original size | [Pixel image recognition](docs/Recognition/Pixel.md) |
+| Any pixel of a chosen color inside an area | [If Pixel](docs/Steps/If-Pixel.md) |
+| An image that should be clicked only when found | [Click If Image](docs/Steps/Click-If-Image.md) |
+| Text that should be clicked only when found | [Click If Text](docs/Steps/Click-If-Text.md) |
 
-## How The Docs Are Organized
+Text recognition runs locally. The OCR search steps have character filters, while **Read Text** writes filtered output to a variable. Recognition can fail on hidden, ambiguous or unreadable targets; a failed scan is not proof that a target is absent.
 
-The documentation is split into folders so each topic has its own page:
+## Find a page
 
-- Use [Getting Started](docs/Getting-Started.md) when you want the full beginner path.
-- Use [Basics](docs/Basics/README.md) first if you are not sure what a track, advanced track, or sequence is.
-- Use [Guides](docs/Guides/README.md) when you want a full setup explanation.
-- Use [App Features](docs/App-Features/README.md) for protection settings, Discord setup, recording options, hotkeys, and playback controls.
-- Use [Steps](docs/Steps/README.md) when you need to know what a specific step does.
-- Use [Watchers](docs/Watchers/README.md) when you need background checks or recovery logic.
-- Use [Values](docs/Values/README.md) when you need to store and reuse text.
-- Use [Examples](docs/Examples/README.md) when you want complete setup patterns.
-- Use [Tips](docs/Tips/README.md) when you want practical advice for building reliable automations.
-- Use [Troubleshooting](docs/Troubleshooting/README.md) when something does not work.
+| Topic | What you will find |
+| --- | --- |
+| [Documentation index](docs/README.md) | All sections and quick routes |
+| [Graph editor](docs/App-Features/Graph-Editor.md) | Selection, connections, IDs, Auto Layout and reusable blocks |
+| [Step reference](docs/Steps/README.md) | Current step names, fields and behavior |
+| [Variables](docs/Values/README.md) | Starter values, Text/Math, references and Reset Variable |
+| [Watchers](docs/Watchers/README.md) | Triggers, intervals, cooldowns and control flow |
+| [Guides](docs/Guides/README.md) | Complete workflow walkthroughs |
+| [Examples](docs/Examples/README.md) | Small patterns you can adapt |
+| [App features](docs/App-Features/README.md) | Library, recording, hotkeys, appearance and protections |
+| [Updates](docs/App-Features/Updates.md) | Check, download and choose when to install and restart |
+| [Troubleshooting](docs/Troubleshooting/README.md) | Checks organized by the problem you see |
+| [Tips](docs/Tips/README.md) | Practical ways to keep workflows readable and reliable |
+
+Use the exact field names shown in your app. This repository documents behavior, not a guarantee that every screen or application can be automated successfully.
+
+## Maintaining the documentation
+
+Run `python tools/check_docs.py` before submitting an update. It checks local links, heading anchors, path casing and SVG files without downloading anything. Follow [the screenshot guide](docs/assets/screenshots/README.md) when adding images.

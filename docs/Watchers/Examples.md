@@ -1,67 +1,53 @@
 # Watcher Examples
 
-These examples are generic patterns. Replace the text, values, areas, and step numbers with your own workflow.
+Use these as small patterns to test. They are not complete recovery systems for every app.
 
-## Show A Message When Text Appears
-
-Use this when the main sequence can keep running.
+## Notify When Text Appears
 
 ```text
-Watcher trigger:
-When Text Complete is seen
-
-Watcher steps:
-1. Status Message Complete appeared
+Text Watcher:
+  Text: Disconnected
+  Mode: is seen
+  Screen zone: the app's notification area
+  Cooldown seconds: 30
+Actions:
+  Status Message: Connection warning detected
 ```
 
-## Pause And Handle A Popup
+The main flow keeps running. If the warning stays visible, another trigger is possible after cooldown. Use [Text Recognition](../Recognition/Text.md) to choose a suitable area and filter.
 
-Use this when the popup should interrupt the normal workflow.
+## React To A Variable
 
 ```text
-Watcher trigger:
-When Text Confirm is seen
-
-Watcher steps:
-1. Pause Sequence
-2. Click Text Confirm
-3. Jump Sequence Step 4
+Starter Variable: attempts = 0 (Math)
+Variable Watcher:
+  Variable: attempts
+  Mode: >=
+  Compare to: 3
+Actions:
+  Stop Block: Main
 ```
 
-## React To A Value
+Name your actual main block `Main`, or select its real name. Missing variables are not valid numeric comparison results. A Starter declaration ensures the counter exists before it is checked.
 
-Use this when a value is filled by another step.
+## Check An Image
+
+Use **Image Watcher**, choose or paste the image, and select **Smart** or **Pixel** recognition. Smart allows some visual variation; Pixel compares the original image size with the configured per-channel tolerance. Add a Status Message first, before adding a mouse action.
+
+If the accepted image itself must be clicked, use **Click If Image** in the action chain rather than assuming a previous Watcher detection is still a safe click location.
+
+## Take Control Deliberately
+
+A recovery chain may use:
 
 ```text
-Starting value:
-statusText starts as empty
-
-Main step:
-Read Text into statusText
-
-Watcher trigger:
-When Sequence Value statusText contains Ready
-
-Watcher steps:
-1. Status Message Ready state found
+Watcher condition
+  Stop Block: Main
+  Focus Window: target app
+  recovery actions
+  Start Block at Step: Main / selected Step ID
 ```
 
-## Retry After A Problem
+Choose a valid resume point whose preconditions recovery establishes. A Watcher does not pause the main flow automatically, and stopping a block does not itself restart it.
 
-Use this when the workflow should start again after a known problem.
-
-```text
-Watcher trigger:
-When Text Try again is seen
-
-Watcher steps:
-1. Pause Sequence
-2. Click Text Try again
-3. Reset and Restart Sequence
-```
-
-## More Complete Examples
-
-- [Watcher Recovery](../Examples/Watcher-Recovery.md)
-- [Watcher Recovery Workflow](../Guides/Watcher-Recovery-Workflow.md)
-- [Counter Limit](../Examples/Counter-Limit.md)
+See [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md), [Start Block at Step](../Steps/Start-Block-at-Step.md), and [Watcher Recovery](../Guides/Watcher-Recovery-Workflow.md).

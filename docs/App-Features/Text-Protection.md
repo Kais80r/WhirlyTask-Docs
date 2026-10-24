@@ -1,83 +1,21 @@
 # Text Protection
 
-Text Protection stops playback when WhirlyTask sees specific text on the screen.
+Text Protection is a global stop rule for a visible phrase. Set it with **Menu > Text Protection > Set Text...**. Choose Off to disable it.
 
-It is a global safety feature. It is useful when certain visible text means playback should stop immediately.
+It checks before playback starts and periodically during playback. It is not a continuous guarantee that every briefly displayed message will be observed.
 
-## Where To Find It
+## Detection And Failure
 
-Open:
+The current production path uses the local multilingual text-search worker. It searches the visible full screen using the normal unfiltered matching rules. This global menu does not expose the sequence actions' Match characters filters.
 
-```text
-Menu > Text Protection
-```
+If the phrase is found, playback is stopped or not started. If recognition is unavailable, protection also prevents/halts playback because it cannot declare the screen safe. The status distinguishes unavailable recognition from a phrase being found.
 
-The menu shows:
+Choose a clear, distinctive phrase. Test it in the actual font and screen state; OCR can miss or misread text. Avoid a generic word that appears in unrelated windows.
 
-- `Off`
-- `Set Text...`
-- the current protected text when enabled
-- `Discord Message`
+## Alerts And Alternatives
 
-## Setup
+After configuring [Discord Webhook](Discord-Webhook.md), its separate Discord Message toggle can notify you about a confirmed protection stop. An unavailable OCR check must not be reported as if the phrase had been recognized.
 
-1. Open `Menu > Text Protection > Set Text...`.
-2. Enter the text that should stop playback.
-3. Start playback.
+Use [Wait For](../Steps/Wait-For.md) with **Wait for: Text** to wait for text at one point in a workflow. Use a [Text Watcher](../Watchers/Triggers/When-Text.md) for background checks and custom recovery steps.
 
-If WhirlyTask sees that text, playback stops and the status shows:
-
-```text
-Text Protection stopped playback.
-```
-
-## How It Checks
-
-Text Protection uses screen text reading. The technical word is OCR.
-
-It checks when playback starts and then checks again during playback at random intervals. This keeps it from scanning constantly while still catching the protected text.
-
-## Discord Alert
-
-Text Protection can also send a Discord message.
-
-To use it:
-
-1. Set a webhook in [Discord Webhook](Discord-Webhook.md).
-2. Open `Menu > Text Protection`.
-3. Turn on `Discord Message`.
-
-When Text Protection stops playback, WhirlyTask sends a protection alert.
-
-## When To Use It
-
-Use Text Protection when:
-
-- A warning phrase means automation should stop.
-- A failure message can appear during playback.
-- You need a simple global stop rule without building a watcher.
-
-## Text Protection Versus Wait For (Text)
-
-| Feature | Best for |
-| --- | --- |
-| Text Protection | Stop playback if text appears at any time |
-| Wait For (Text) | Pause one sequence step until text appears |
-| Watcher When Text | Run custom recovery steps when text appears |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Protected text is not detected | Use a short, clear phrase and test the same text with [Read Text](../Steps/Read-Text.md) |
-| Playback stops on harmless text | Use a more specific phrase, or use a watcher when you need custom context |
-| The exact phrase is missed | Match the most stable part of the message instead of the full sentence |
-| Text appears only briefly | Use a watcher if the text needs custom timing or recovery steps |
-| Discord alert does not send | Set up [Discord Webhook](Discord-Webhook.md) before enabling the alert |
-
-## Tips
-
-- Use a short, unique phrase.
-- Avoid generic words that appear often.
-- If you need custom handling instead of stopping, use a [watcher](../Watchers/README.md).
-- If screen text is not read correctly, see [Read Text Is Wrong](../Troubleshooting/Read-Text-Is-Wrong.md).
+See [Text Recognition And Character Filters](../Recognition/Text.md) for the shared matching rules and limitations.

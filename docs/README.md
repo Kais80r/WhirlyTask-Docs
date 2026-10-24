@@ -1,59 +1,54 @@
 # WhirlyTask Help
 
-Use this page like a table of contents. If you are new, start with [Getting Started](Getting-Started.md).
+WhirlyTask records input and runs editable workflows with conditions, variables, screen recognition, and background Watchers.
 
-![WhirlyTask flow overview](assets/diagrams/whirlytask-automation-flow.svg?v=smart-playback-helpers)
+Start with [Getting Started](Getting-Started.md), then use the topic pages for the part you are building.
 
-## New User Path
+![WhirlyTask workflow](assets/diagrams/whirlytask-automation-flow.svg)
 
-1. [Getting Started](Getting-Started.md) explains how the pieces fit together.
-2. [Choosing What To Use](Basics/Choosing-What-To-Use.md) helps you decide between a track, advanced track, and sequence.
-3. [Guides](Guides/README.md) shows how to build common systems.
-4. [Steps](Steps/README.md) explains what each step does.
-5. [Values](Values/README.md) explains how to remember and reuse text.
-6. [Watchers](Watchers/README.md) explains background checks and recovery.
+## Find A Topic
 
-## Main Topics
-
-| Topic | Open this |
+| Topic | What you will learn |
 | --- | --- |
-| Getting Started | [Getting Started](Getting-Started.md) |
-| Glossary | [Glossary](Glossary.md) |
-| Basics | [Basics](Basics/README.md) |
-| Guides | [Guides](Guides/README.md) |
-| App Features | [App Features](App-Features/README.md) |
-| Steps | [Steps](Steps/README.md) |
-| Watchers | [Watchers](Watchers/README.md) |
-| Values | [Values](Values/README.md) |
-| Examples | [Examples](Examples/README.md) |
-| Tips | [Tips](Tips/README.md) |
-| Troubleshooting | [Troubleshooting](Troubleshooting/README.md) |
-
-## Fast Routes
-
-- You are new: open [Getting Started](Getting-Started.md).
-- Something does not work: open [Troubleshooting](Troubleshooting/README.md).
-- Need help choosing what to create: open [Basics](Basics/README.md).
-- You want a full setup explanation: open [Guides](Guides/README.md).
-- You want protections, Discord, hotkeys, recording options, or loop playback: open [App Features](App-Features/README.md).
-- Need help choosing a step: open [Steps](Steps/README.md).
-- You want background checks: open [Watchers](Watchers/README.md).
-- You want to store text or reuse it later: open [Values](Values/README.md).
-- You want a complete pattern to copy: open [Examples](Examples/README.md).
-- You want practical building advice: open [Tips](Tips/README.md).
-- You want to read screen text: open [Read Text](Steps/Read-Text.md).
+| [Getting Started](Getting-Started.md) | Build and test a small workflow |
+| [Basics](Basics/README.md) | Tracks, Sequences, Premade Blocks, and block targets |
+| [Graph Editor](App-Features/Graph-Editor.md) | Add, select, connect, and arrange nodes |
+| [Steps](Steps/README.md) | Settings and behavior of individual actions |
+| [Variables](Values/README.md) | Starter values, math, references, comparisons, and Reset |
+| [Watchers](Watchers/README.md) | Background triggers and deliberate recovery |
+| [Recognition](Recognition/README.md) | Text, Smart image, Pixel image, and color checks |
+| [Editors And Saving](App-Features/Editors-And-Saving.md) | Save, Save As, Open, Library copies and session recovery |
+| [Updates](App-Features/Updates.md) | Check for an update and install when ready to restart |
+| [App Features](App-Features/README.md) | Recording, playback, appearance, hotkeys, and protections |
+| [Guides](Guides/README.md) | End-to-end building workflows |
+| [Examples](Examples/README.md) | Small patterns to adapt |
+| [Tips](Tips/README.md) | Practical habits for reliable automation |
+| [Troubleshooting](Troubleshooting/README.md) | Diagnose incorrect or missing behavior |
+| [Glossary](Glossary.md) | Current terms used by the app and docs |
 
 ## Common Tasks
 
-| Task | Best page |
+| I want to... | Open |
 | --- | --- |
-| Build a simple repeated action | [Track](Basics/Track.md) |
-| Build a full workflow | [Sequence](Basics/Sequence.md) |
-| Reuse a block of steps | [Advanced Track](Basics/Advanced-Track.md) |
-| Wait until the screen/app is ready | [Wait For](Steps/Wait-For.md) |
-| Store text from the screen | [Read Text](Steps/Read-Text.md) |
-| Build a screen text workflow | [Screen Text Reading Workflow](Guides/Screen-Text-Reading-Workflow.md) |
-| Use `{ValueName}` in a message or text box | [Using Values In Text Boxes](Tips/Using-Values-In-Text-Boxes.md) |
-| Stop after too many repeats | [Counter Limit](Examples/Counter-Limit.md) |
-| Recover from unexpected errors | [Watcher Recovery](Examples/Watcher-Recovery.md) |
-| Send Discord messages | [Discord Webhook](App-Features/Discord-Webhook.md) |
+| Replay recorded input | [Track](Basics/Track.md) |
+| Build a connected workflow | [Sequence](Basics/Sequence.md) |
+| Reuse selected nodes | [Premade Blocks](Basics/Premade-Blocks.md) |
+| Select a jump or resume target | [Blocks And Step IDs](Basics/Blocks-And-Numbering.md) |
+| Insert a variable without typing braces | [Using Variable References](Values/Using-Values-In-Messages.md) |
+| Restore one variable's start value | [Reset Variable](Steps/Reset-Variable.md) |
+| Store screen text | [Read Text](Steps/Read-Text.md) |
+| Filter recognized characters | [Text Recognition](Recognition/Text.md) |
+| Click the same image that was found | [Click If Image](Steps/Click-If-Image.md) |
+| Click recognized text and branch on delivery | [Click If Text](Steps/Click-If-Text.md) |
+| Compare an image pixel for pixel | [Pixel Recognition](Recognition/Pixel.md) |
+| Check a color in an area | [If Pixel](Steps/If-Pixel.md) |
+| React when a variable changes | [Variable Watcher](Watchers/Variable-Watcher.md) |
+| Recover after an unexpected event | [Watcher Examples](Watchers/Examples.md) |
+| Understand what closing the editor preserves | [Editors And Saving](App-Features/Editors-And-Saving.md) |
+| Check for or install an app update | [Updates](App-Features/Updates.md) |
+
+## Variables And Reusable Steps
+
+Use **Starter Variable** to declare a start value, **Set Variable** or **Change Variable** to update it, **Reset Variable** to restore its start value, and **If Variable** to choose a branch.
+
+Save selected nodes as a **Premade Block** when they should be reused. Clear the selection to import a saved copy. Portable Premade Block files use **.prm**.

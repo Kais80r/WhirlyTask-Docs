@@ -1,70 +1,25 @@
-# When Image
+# Image Watcher
 
-Use When Image when the watcher should react to a visual target instead of readable text.
+Image Watcher looks for a reference image and starts its action chain when the selected seen/not-seen condition is valid.
 
-This is useful for icons, symbols, buttons without readable text, or visual states that stay consistent.
+## Configure The Target
 
-Use an image trigger when text reading is not the right tool. If the visible thing has clear text, a text trigger is often easier to understand and maintain. Use `...` beside the Image field to browse for the image file.
+1. Add Image Watcher from the Watcher tab.
+2. Select it and set **Image** using Choose or by pasting an image into the image field with Ctrl+V.
+3. Choose **Recognition**: Smart or Pixel.
+4. Choose **Mode** and **Screen zone**.
+5. Configure Enabled, Cooldown seconds, and the Watcher conflict policy.
 
-## Good Image Targets
+**Smart** uses learned image recognition to tolerate some visual changes. **Pixel** compares the template at its original size. Pixel mode shows **Pixel tolerance (0-255)**; zero requires exact participating RGB pixels, and a larger value permits that maximum difference in each color channel. Pixel does not scale the template or fall back to Smart.
 
-- A stable icon.
-- A unique button image.
-- A clear status symbol.
-- A stable part of the interface.
+Use a normal screen crop for transparent images. See [Pixel Recognition](../../Recognition/Pixel.md) for transparency and screen-coverage restrictions.
 
-## Risky Image Targets
+## Timing And Click Safety
 
-- Large empty areas.
-- Text that changes.
-- Animated highlights.
-- Blinking cursors.
-- Crops with changing numbers.
-- Targets that are partly covered by another window.
+Image Watcher has automatic scan scheduling, not an editable Check every seconds field. A larger area or uncertain target may take longer to evaluate.
 
-## Scan Interval
+The target can move or disappear after the Watcher fires. Use **Click If Image** when the action should search and click the same accepted target, then continue only after a delivered click. Do not assume a Watcher result is a permanently safe click position.
 
-Image triggers scan the selected area repeatedly while the sequence runs.
+A valid scan with no target is different from an unavailable capture or engine. Errors do not count as `is not seen`. Persistent conditions can trigger again after cooldown.
 
-Use the scan interval to choose how often WhirlyTask looks for the image. Lower intervals react faster but do more image matching work.
-
-## Setup Example
-
-```text
-Watcher trigger:
-When Image warning-icon is found in selected area every 2 seconds
-
-Watcher steps:
-1. Status Message Warning icon appeared
-2. Click Image warning-icon
-```
-
-If the image means the normal sequence should stop:
-
-```text
-Watcher steps:
-1. Stop Sequence
-```
-
-If the image means the watcher should recover:
-
-```text
-Watcher steps:
-1. Pause Sequence
-2. Click Image warning-icon
-3. Jump Sequence Step 3
-```
-
-## Tips
-
-- Crop only the stable part of the target.
-- Keep the same display scaling when testing.
-- Use a selected area if the icon appears in a known place.
-- If matching is unreliable, recapture the image target.
-
-## More About
-
-- [Click Image](../../Steps/Click-Image.md)
-- [If Image](../../Steps/If-Image.md)
-- [Image Not Found](../../Troubleshooting/Image-Not-Found.md)
-- [Making Areas Reliable](../../Tips/Making-Areas-Reliable.md)
+See [Image Recognition](../../Recognition/Images.md), [Click If Image](../../Steps/Click-If-Image.md), and [Watcher Settings](../Watcher-Settings.md).

@@ -1,35 +1,14 @@
 # Open Link
 
-Open Link opens a URL immediately using the system's normal browser or link handler.
-
-## Fields
-
-| Field | Meaning |
-| --- | --- |
-| URL | The link to open |
-
-## Setup From Scratch
-
-1. Add Open Link.
-2. Enter the full URL.
-
-## Example
+Opens the configured **URL** through Windows' registered handler, normally the default browser.
 
 ```text
-1. Open Link https://example.com
-2. Wait For (Text) Dashboard timeout 30
+Start -> Open Link: https://example.com
+      -> Wait: 1 -> a page-readiness check
 ```
 
-## Useful For
+Use a complete URL. Opening the browser does not prove the page loaded, navigation succeeded, or the user is signed in. Add a visible text/image condition appropriate to the page before interacting with it.
 
-- Opening dashboards.
-- Opening documentation or tools.
-- Starting browser-based workflows.
+A supported `{name}` reference can supply part of the URL. Construct and test the resulting address carefully; this step does not automatically encode variable contents as URL components.
 
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The link does not open correctly | Include `https://` or `http://` |
-| The next step runs before the page is ready | Add [Wait For (Text)](Wait-For.md) or [Wait For (Window)](Wait-For.md) |
-| Keyboard input goes elsewhere | Focus the browser window before pressing keys |
+See [Open App/File](Open-App-File.md) and [If Text](If-Text.md).

@@ -1,72 +1,28 @@
 # OCR Debug Captures
 
-OCR Debug Captures saves extra files when WhirlyTask is trying to diagnose text-search problems.
+The **Menu > OCR Debug Captures** toggle enables an optional diagnostic facility for OCR failures. It is separate from normal screen recognition and ordinary document saving.
 
-Use it when Click Text is not seeing what you expect, or when you are testing text-reading behavior and need to inspect what WhirlyTask captured. Turn it back off after testing so the debug folder does not fill up.
+Turning it on does not record every screen frame or guarantee that every failed step creates a file. The text-click path does not attach a debug-capture context, so a Click Text or Click If Text failure by itself may produce no debug files. Use [Read Text](../Steps/Read-Text.md) with a Status Message to inspect recognized text first.
 
-## Where To Find It
+## Files And Locations
 
-Open:
+When a supported diagnostic path saves a capture, it writes:
 
-```text
-Menu > OCR Debug Captures
-```
+- A `.bmp` of the captured search area.
+- A `.txt` report containing the action, target, zone, rectangle, image dimensions, search mode, attempt, saved image path, and diagnostic OCR-read result.
 
-When enabled, the menu item is checked and the status says:
+It first tries `ocr_debug` beside the WhirlyTask executable, then `%TEMP%\WhirlyTask_ocr_debug` if that directory cannot be created. Captures may contain visible text from the chosen area; inspect files before sharing them.
 
-```text
-OCR debug captures on.
-```
+The report's OCR text is a diagnostic read of that saved image. It does not prove a click was delivered or that a filtered search had safe character-level coordinates.
 
-## What It Saves
+## Using Existing Captures
 
-When a text search reaches a debug capture point, WhirlyTask saves:
+Compare the image with the intended area. Look for cropped letters, missing punctuation, covering windows, unrelated icons, or a target that moved. Check the report's rectangle and OCR text together.
 
-- a `.bmp` image of the captured area
-- a `.txt` report with the action, target text, area, rectangle, search mode, attempt count, image path, and OCR text result
+Turn the toggle off after a diagnostic session. Existing files are not automatically removed by disabling it; delete unwanted captures yourself when finished.
 
-WhirlyTask first tries to save captures beside the app:
+## Related Pages
 
-```text
-WhirlyTask folder\ocr_debug
-```
-
-If that folder cannot be created, it falls back to:
-
-```text
-%TEMP%\WhirlyTask_ocr_debug
-```
-
-## Setup
-
-1. Turn on `Menu > OCR Debug Captures`.
-2. Run the sequence or step that is failing. Click Text failures are the main case this is meant for.
-3. Open the `ocr_debug` folder beside WhirlyTask, or `%TEMP%\WhirlyTask_ocr_debug`.
-4. Compare the saved image and report with what you expected WhirlyTask to read.
-5. Turn OCR Debug Captures off when you are done.
-
-## What To Look For
-
-| Debug result | What it usually means |
-| --- | --- |
-| The image cuts off letters | Pick a larger area |
-| The image includes too much unrelated text | Pick a smaller area |
-| The image is blank or wrong | The selected area or window position changed |
-| The OCR text is close but not exact | Use a shorter, more stable phrase |
-| The OCR text is empty | Increase the selected area or use a clearer target |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| No debug files appear | Make sure OCR Debug Captures is checked before running the failing step |
-| The folder is not beside WhirlyTask | Check `%TEMP%\WhirlyTask_ocr_debug` |
-| Files pile up | Delete old debug files and turn the toggle off after testing |
-| The capture is not useful | Re-run with the target window in the same position and state |
-
-## More About
-
-- Reading visible text: [Read Text](../Steps/Read-Text.md)
-- Clicking visible text: [Click Text](../Steps/Click-Text.md)
-- Text reading problems: [Read Text Is Wrong](../Troubleshooting/Read-Text-Is-Wrong.md)
-- Selected areas: [Making Areas Reliable](../Tips/Making-Areas-Reliable.md)
+- [Read Text Is Wrong](../Troubleshooting/Read-Text-Is-Wrong.md)
+- [Text Clicks Wrong Place](../Troubleshooting/Text-Clicks-Wrong-Place.md)
+- [Selected Area Problems](../Troubleshooting/Selected-Area-Problems.md)

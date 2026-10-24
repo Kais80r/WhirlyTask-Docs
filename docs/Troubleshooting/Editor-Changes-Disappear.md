@@ -1,22 +1,20 @@
 # Editor Changes Disappear
 
-This page is for changes that vanish after closing the editor.
+Check the open document name, its source and save status. Save updates the file or Library entry you opened; an independent copy and the recovery session can contain different editing states.
 
-## Save Rule
-
-Closing the editor is treated like canceling.
-
-Press Save if you want to apply changes.
-
-## Buttons
-
-| Button | Result |
+| Symptom | What to check |
 | --- | --- |
-| Save | Applies changes to the current item |
-| Save New | Saves a copy as a new item |
-| Cancel | Closes without applying changes |
-| Window X | Closes without applying changes |
+| Changes still show as unsaved | Use Save and wait for confirmation; cancelling or a write error does not save them |
+| A Library item does not include your edits | Open that entry and use Save; saving a separate file does not update its Library copy |
+| Save opens a file dialog | This document does not have a working file yet; choose its name and location |
+| Save As changes the document name | You are now editing the newly selected file |
+| New or Open stops at a question | Choose Save, Don't Save or Cancel for the unsaved document |
+| Playback refuses the current graph | Fix Editor Issues; unfinished documents can be saved before they are playable |
 
-## Tip
+The open graph is checked before playback. A failed editor response or invalid graph must not silently start a different editing state.
 
-After a bigger edit, press Save before testing from the main window.
+Automatic recovery restores editing work across a restart, including unsaved changes. Use Save to update its file or Library entry, or Save As for a file you want to share. Edits made while a save is pending still need saving afterward.
+
+The native Track Editor has its own Save/Cancel controls for recording settings.
+
+See [Editors And Saving](../App-Features/Editors-And-Saving.md), [Library And Files](../App-Features/Library-And-Files.md), and [Graph Editor](../App-Features/Graph-Editor.md).

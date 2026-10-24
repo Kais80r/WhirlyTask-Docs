@@ -1,28 +1,24 @@
 # Value Is Blank
 
-This page is for messages like `{statusText}` showing nothing, or conditions not seeing a value.
+An existing variable containing `""` is different from a variable that does not exist. A missing or cyclic reference is an error; it is not silently replaced by an empty string.
 
-## Check These First
+## Check The Source
 
-- The value exists in Starting Values.
-- The name is spelled the same everywhere.
-- Read Text or Set Value ran before the value was used.
-- Reset and Restart Sequence did not reset the value before this step ran.
-- The Read Text area actually found text.
-
-## Good Test
+1. Use the exact case-sensitive name everywhere.
+2. Confirm Starter Variable, Set Variable, or Read Text ran before the value was needed.
+3. Enter the raw name in destination fields and `{name}` in supported interpolation fields.
+4. Check whether Reset Variable or Reset and Restart Sequence restored an initial empty value.
+5. For Read Text, inspect the area and output filter.
 
 ```text
-1. Set Value statusText to Testing
-2. Status Message {statusText}
-3. Stop
+Set Variable: statusText = Testing
+Status Message: Value: [{statusText}]
 ```
 
-If this works, the value system is working. The issue is probably the step that should fill the value.
+Brackets make a real empty value visible. Use If Variable **exists / does not exist** to check presence, and **is empty / is not empty** to check an existing value's content.
 
-## More About
+Read Text can create its result variable, but a successful read with no accepted characters stores an empty string. An OCR failure stops instead of presenting an old result as fresh.
 
-- Values: [Values](../Values/README.md)
-- Using values in text boxes: [Using Values In Text Boxes](../Tips/Using-Values-In-Text-Boxes.md)
-- Reading text into values: [Reading Text Into Values](../Values/Reading-Text-Into-Values.md)
-- Read Text step: [Read Text](../Steps/Read-Text.md)
+The Variable tab lists configured names and sources, not live runtime contents. For picker mistakes, choose a name and use Replace to replace the whole field with one reference.
+
+See [Variables](../Values/README.md), [Using Variables In Text Boxes](../Tips/Using-Values-In-Text-Boxes.md), and [Read Text Finds Nothing](Read-Text-Finds-Nothing.md).

@@ -1,23 +1,21 @@
 # Wrong Window Or Focus
 
-This page is for key presses, mouse clicks, or recorded tracks going to the wrong app or window.
+Keyboard input normally goes to the foreground application. Recorded mouse coordinates depend on the current screen layout. A window being open does not mean it is focused or ready.
 
-## Why It Happens
+## Check Before Sending Input
 
-Keyboard and mouse steps act on the currently active window. If another window has focus, input can go there instead.
+- Open the intended application and keep it visible.
+- Use Focus Window when the sequence needs a particular window.
+- Use a Window condition or Wait For Window to verify the state that matters.
+- Check the loaded item and recording's display layout.
+- Move WhirlyTask away if Always on Top covers the target.
 
-## Fixes
+Text/image clicks locate visible pixels, but they do not make every later keyboard action target that application automatically. Confirm focus before typing.
 
-- Click or activate the correct window before pressing keys.
-- Add a short Wait after opening windows.
-- Use Wait Until Window if the window needs time to appear.
-- Use Click Text or Click Image when the target can move.
-- Add a watcher for unexpected windows.
+If recorded coordinates drift after a resize, zoom, or monitor change, restore the expected layout or use a recognition-based sequence instead of a fixed-coordinate recording.
 
-## Test Pattern
+If Windows blocks input into a more privileged application, check the reported delivery error and application privilege levels. Do not treat a failed click as successful simply because recognition found the target.
 
-```text
-1. Wait Until Window target window
-2. Click Text field name
-3. Press key Enter
-```
+Use Stop or F12 Emergency if input is reaching the wrong application.
+
+See [Focus Window](../Steps/Focus-Window.md), [Wait For](../Steps/Wait-For.md), [Hotkeys](../App-Features/Hotkeys.md), and [Selected Area Problems](Selected-Area-Problems.md).

@@ -1,43 +1,20 @@
 # Testing A Sequence
 
-Test a sequence in small parts instead of building the whole thing first.
+Test the smallest connected path that demonstrates the behavior you need. Keep Stop and Emergency available before sending mouse or keyboard input.
 
-## A Good Testing Flow
+1. Add a Status Message before the action.
+2. Use a harmless action or branch message for the first test.
+3. Print any relevant `{variables}`.
+4. Add a Status Message afterward.
+5. Check Editor Issues, then use Play to test the current graph.
+6. Run the intended positive and negative cases.
 
-1. Add the first few steps.
-2. Add a Status Message that says what should be happening.
-3. Run the sequence.
-4. Fix problems before adding more steps.
-5. Save the editor when the part works.
+For If Text, If Image, or If Pixel, put a different message in Then and Else. Test with the target present and absent. An unavailable capture or invalid configuration is a third outcome, not evidence that Else is correct.
 
-## Why This Helps
+For Click If Image and Click If Text, test delivery separately from application success. Then means the verified click was delivered; use Wait For afterward to confirm the expected visible response. Test confirmed absence and moving targets for Else, and check that capture, recognition, and input errors stop instead of taking a branch.
 
-If ten new steps are added at once, it is hard to know which one caused the problem.
+Keep watchers disabled while isolating the main path, then test them one at a time. Add cooldowns and decide whether recovery should stop a work block before it sends competing input.
 
-If one or two steps are added at a time, the broken part is usually obvious.
+Use Save to keep your work. Use Save As to preserve another version in a different file.
 
-## Useful Test Messages
-
-```text
-Reached step 4
-Current value: {statusText}
-Loop count: {Loops}
-Watcher fired
-Text found: {readText}
-```
-
-## Good Signs
-
-- The status message changes when you expect it to.
-- Values show the text or number you expected.
-- Wait steps finish only after the real condition appears.
-- Watchers fire once, then respect their cooldown.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Changes disappear | Press Save before closing the editor or testing from the main window |
-| Discord messages are wrong | Test the same text with Status Message first |
-| You cannot tell whether a watcher fired | Add a Status Message as the first watcher step |
-| Testing is too fast to understand | Use longer waits and cooldowns until the sequence is stable |
+See [Status Messages](Using-Status-Messages-While-Building.md), [Screen Recognition](../Recognition/README.md), and [Editors And Saving](../App-Features/Editors-And-Saving.md).

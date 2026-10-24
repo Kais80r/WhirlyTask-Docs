@@ -1,55 +1,26 @@
 # Recording Options
 
-Recording options decide what WhirlyTask records into tracks.
+Recording options control which input is captured into new tracks. Changing an option does not rewrite events already recorded in an existing track.
 
-They affect new recordings. Old saved tracks keep their existing recorded input.
+Open **Menu > Recording**.
 
-## Where To Find Them
-
-Open:
-
-```text
-Menu > Recording
-```
-
-## Options
-
-| Option | Meaning |
+| Option | Effect |
 | --- | --- |
-| Record Mouse Movement | Records mouse movement between actions |
-| Record Mouse Buttons/Wheel | Records clicks, releases, wheel, and horizontal wheel |
-| Record Mouse Positions | Stores positions for mouse actions |
-| Record Keyboard | Records keyboard key presses |
+| Record Mouse Movement | Capture pointer movement between actions |
+| Record Mouse Buttons/Wheel | Capture mouse buttons and wheel input |
+| Record Mouse Positions | Store positions with mouse actions |
+| Record Keyboard | Capture keyboard input |
 
-## When To Turn Things Off
+Turn off movement before recording if only the clicks matter. Turning off mouse positions changes how later mouse actions use coordinates; it does not automatically recognize the intended control.
 
-Turn off mouse movement when:
+## Test A Short Track First
 
-- Tracks contain too much noisy movement.
-- Only clicks matter.
-- You want cleaner recordings.
+1. Set the recording options.
+2. Record a small, repeatable action.
+3. Stop recording.
+4. Replay once while watching the target window.
+5. Save a named track when the result is correct.
 
-Turn off mouse positions when:
+Recorded coordinates depend on the screen layout. If controls move or the application is not always ready at the same time, build a sequence using [Wait For](../Steps/Wait-For.md), [Click Text](../Steps/Click-Text.md), or [Click Image](../Steps/Click-Image.md).
 
-- You want mouse button actions without fixed screen positions.
-- You are testing keyboard-only workflows.
-
-Turn off keyboard when:
-
-- You only want mouse actions.
-- You are using the keyboard while recording but only want mouse actions saved.
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The recording has too much mouse movement | Turn off `Record Mouse Movement` before recording again |
-| Clicks replay in the wrong place | Turn off fixed mouse positions when possible, or use [Click Text](../Steps/Click-Text.md) or [Click Image](../Steps/Click-Image.md) |
-| Keys are missing | Turn on `Record Keyboard` before recording |
-| Mouse clicks are missing | Turn on `Record Mouse Buttons/Wheel` before recording |
-
-## Tips
-
-- For stable UI positions, recording positions can be useful.
-- For moving UI, use sequences with [Click Text](../Steps/Click-Text.md) or [Click Image](../Steps/Click-Image.md).
-- Keep tracks short and clean.
+Missing keys or clicks usually warrant checking the corresponding recording option before recording again. Use [Stop or Emergency](Hotkeys.md) if playback sends unexpected input.

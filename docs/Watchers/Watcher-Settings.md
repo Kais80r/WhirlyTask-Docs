@@ -1,121 +1,42 @@
 # Watcher Settings
 
-Watcher settings control when a watcher checks, when it can fire again, and what happens if another watcher is already running.
+Select a Watcher trigger card to show its condition and run settings. No selection means the settings panel is hidden.
 
-Use this page when a watcher fires too often, does not fire, or overlaps with another watcher in a confusing way.
+## Shared Run Settings
 
-## Main Settings
-
-| Setting | Meaning |
+| Field | Meaning |
 | --- | --- |
-| State | Turns the watcher on or off |
-| Trigger type | What kind of condition the watcher checks |
-| Trigger mode | How the condition is tested |
-| Trigger value | The text, image, window, value, chance, or internet state to check |
-| Area | Where screen-based triggers look |
-| Scan interval | How often the watcher checks screen or window conditions |
-| Cooldown | How long the watcher waits before it can fire again |
-| Conflict | What to do if this watcher fires while another watcher is already running |
-| After | What the watcher should do after its steps finish |
+| Enabled | On or Off for this Watcher |
+| Cooldown seconds | Minimum wait before the Watcher can trigger again |
+| If another watcher is already running | Choose what to do when a different Watcher is active |
 
-## Trigger Settings
+The conflict dropdown has these choices:
 
-The trigger type decides which fields matter.
-
-| Trigger type | Common fields |
+| Choice | Behavior |
 | --- | --- |
-| Text | Text, mode, area, scan interval |
-| Image | Image target, mode, area, scan interval |
-| Window | Window title, mode, scan interval |
-| Sequence Value | Value name, compare mode, compare text |
-| Chance | Percent chance, roll interval |
-| Internet | Online or offline mode, scan interval |
-| Timer | Timer mode, seconds |
+| Don't run this watcher | Leave the other Watcher running and do not start this one in the conflict |
+| Take over other watcher | Stop the active Watcher and run this one |
+| Run alongside other watcher | Allow the Watcher chains to run concurrently |
 
-For details on each trigger, see [Triggers](Triggers/README.md).
+These choices concern other Watchers, not the normal main flow. Concurrent actions can still compete for the mouse, keyboard, window focus, or variables.
 
-## State
+## Check Rate Is Trigger-Specific
 
-State controls whether the watcher is active.
-
-| State | Result |
+| Watcher | Timing field |
 | --- | --- |
-| On | The watcher can fire while the sequence runs |
-| Off | The watcher is saved but ignored during playback |
+| Text, Window, Internet | Check every seconds |
+| Chance | Roll every seconds |
+| Timer / Interval | Trigger after/every, then Seconds |
+| Clock Time | Time and Time zone |
+| Image | Automatic scan scheduling; no manual interval field |
+| Variable | No manual interval field |
 
-Turn a watcher off when you want to keep it for later but do not want it affecting the current test.
+A configured check interval is not a guarantee of recognition latency. Capturing and recognizing a large area can take time. Choose the smallest useful screen zone and measure the workflow on the machine that runs it.
 
-## Scan Interval
+## Cooldown Is Not A One-Shot Switch
 
-Scan interval controls how often WhirlyTask checks a trigger that needs polling.
+Text, Image, Window, Internet, and ordinary Variable conditions may trigger again while the condition remains active after cooldown. Variable changed mode reacts to changes; Clock Time triggers at its chosen clock time; Timer / Interval uses its after or every elapsed-time behavior.
 
-Text, Image, Window, Internet, and Chance triggers use this kind of interval. Chance uses it as a roll interval.
+For a persistent warning, make the action chain clear the warning or use a suitably long cooldown. If repeated messages appear, inspect the condition before shortening the scan interval.
 
-Timer triggers do not use scan interval. They use their own seconds field with `after` or `every`.
-
-Short intervals react faster, but they can cost more work and may fire during temporary screen changes.
-
-Long intervals are calmer, but the watcher can feel slower.
-
-## Cooldown
-
-Cooldown controls how long the watcher waits after firing before it can fire again.
-
-Use a longer cooldown when:
-
-- the same warning stays on screen
-- Discord or status messages repeat too often
-- recovery steps need time to finish
-- a connection or window state flickers
-
-## Conflict
-
-Conflict controls what happens when this watcher fires while another watcher is already running.
-
-| Conflict option | Meaning |
-| --- | --- |
-| Ignore | Do not start this watcher while another watcher is running |
-| Stop watcher | Let this watcher take over and stop the current watcher path |
-| Run alongside | Let this watcher run while the other watcher continues |
-
-## Choosing A Conflict Option
-
-Use `Ignore` for most recovery watchers. It prevents two recovery paths from fighting over the same app.
-
-Use `Stop watcher` when the new watcher is more important than the current one. For example, an emergency stop watcher should interrupt a slower notification watcher.
-
-Use `Run alongside` for small side effects that are safe to overlap, such as status messages or independent Discord alerts.
-
-## After
-
-After controls what happens once watcher steps finish.
-
-If the watcher never uses [Pause Sequence](Steps/Pause-Sequence.md), the main sequence usually keeps going while the watcher runs.
-
-If the watcher uses Pause Sequence, make sure the watcher steps clearly continue, reset, or stop the sequence.
-
-## Good Defaults
-
-| Watcher purpose | State | Cooldown | Conflict |
-| --- | --- | --- | --- |
-| Popup recovery | On | 5 to 15 seconds | Ignore |
-| Discord notification | On | 30 seconds or more | Run alongside |
-| Emergency stop | On | 1 to 5 seconds | Stop watcher |
-| Testing a new watcher | On | 3 to 10 seconds | Ignore |
-
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| Watcher does not fire | Check State, trigger fields, area, scan interval, and cooldown |
-| Watcher fires repeatedly | Increase Cooldown |
-| Two watchers fight each other | Use `Ignore` or `Stop watcher` instead of `Run alongside` |
-| Recovery starts too slowly | Lower Scan interval carefully |
-| Main steps keep running during recovery | Add [Pause Sequence](Steps/Pause-Sequence.md) near the start of watcher steps |
-
-## More About
-
-- Watcher overview: [Watchers](README.md)
-- Trigger types: [Triggers](Triggers/README.md)
-- Taking over the main sequence: [Pause Sequence](Steps/Pause-Sequence.md)
-- Watcher troubleshooting: [Watcher Troubleshooting](Troubleshooting.md)
+See [Triggers](Triggers/README.md), [Examples](Examples.md), and [Keeping Watchers Predictable](../Tips/Keeping-Watchers-Predictable.md).

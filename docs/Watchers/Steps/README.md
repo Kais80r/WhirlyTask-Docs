@@ -1,17 +1,14 @@
-# Watcher Steps
+# Watcher Actions
 
-Watcher steps are the actions that run after a watcher trigger becomes true.
+Watcher action chains use the same ordinary steps as the main graph. Add the trigger from **Watcher**, then add actions from **All**, **Basic**, or **Variable** and connect them to that trigger's chain.
 
-Most step ideas work the same way inside a watcher as they do in the main sequence. The special one to understand is Pause Sequence.
-
-## Pages
-
-| Page | What it explains |
+| Need | Action |
 | --- | --- |
-| [Pause Sequence](Pause-Sequence.md) | How a watcher takes over from the main sequence |
+| Report an event | [Status Message](../../Steps/Status-Message.md) or [Discord Message](../../Steps/Discord-Message.md) |
+| Stop a main block during recovery | [Stop Block](../../Steps/Stop-Block.md) |
+| Restart at a chosen main-block step | [Start Block at Step](../../Steps/Start-Block-at-Step.md) |
+| Click a currently accepted visual target | [Click If Image](../../Steps/Click-If-Image.md) |
+| Click recognized text and branch on delivery | [Click If Text](../../Steps/Click-If-Text.md) |
+| Change a shared value | [Set Variable](../../Steps/Set-Variable.md) or [Change Variable](../../Steps/Change-Variable.md) |
 
-## Quick Rule
-
-If the watcher only sends a message or performs a small side action, it may not need Pause Sequence.
-
-If the watcher should stop the normal path and handle a problem first, it should usually use Pause Sequence.
+The Watcher tab contains triggers rather than duplicates of all ordinary actions. [Controlling Main Blocks](Controlling-Main-Blocks.md) explains explicit recovery control.

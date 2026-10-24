@@ -1,41 +1,17 @@
 # Making Areas Reliable
 
-Screen reading and image matching work best when the selected area includes the whole target with a little space around it.
+Choose the smallest area that contains the complete target and enough surrounding context to identify it.
 
-## For Text Areas
+- Keep all letters, accents, signs, decimal points, shadows, and outlines inside a text crop.
+- Keep the complete reference image inside an image-search area.
+- Exclude duplicated labels, changing counters, and unrelated icons where possible.
+- Recheck the area after moving/resizing the target window or changing display scale/zoom.
+- Test both the visible target and an absent or similar-looking distractor.
 
-Select enough area to include:
+A larger crop can repair cut-off text, but Full Screen also introduces more unrelated candidates and work. A smaller crop is useful only if it still contains the target.
 
-- The full letters or numbers.
-- Shadows, outlines, or borders around text.
-- A little empty space above, below, left, and right.
+Pixel image matching needs the original reference size. If Pixel color matching needs only one matching pixel, so a broad area containing a common color may satisfy the condition in an unrelated place.
 
-Avoid cutting tightly through letters. If a letter is partly outside the area, it can be read as the wrong character or ignored.
+Keep WhirlyTask and other covering windows away from the target during diagnosis. Minimized content is not visible screen content.
 
-## For Image Areas
-
-Select enough area to include the full visual target.
-
-If the image has a border, glow, shadow, or icon background, include that too. Those details can help matching.
-
-## If A Small Area Fails
-
-Try this order:
-
-1. Make the area slightly larger.
-2. Test again.
-3. If it works, shrink it slowly until it stops working.
-4. Keep the smallest area that still works reliably.
-
-## Things That Can Change Results
-
-- Window size.
-- App zoom level.
-- Display scaling.
-- Animation or movement.
-- Text color changes.
-- Background changes behind transparent text.
-
-## Good Rule
-
-Leave a little space around the full text, number, button, or image so WhirlyTask can read or match it more reliably.
+See [Selected Area Problems](../Troubleshooting/Selected-Area-Problems.md) and [Screen Recognition](../Recognition/README.md).

@@ -1,61 +1,49 @@
 # Library And Files
 
-WhirlyTask can save items in its internal library or to separate files.
+**Save** or **Ctrl+S** updates the workflow you opened. Open a file to save back to that file, or open a Library entry to save back to that entry. The Library holds named Tracks, Sequences and Premade Blocks that you can load or reuse.
 
-## Internal Library
+## Workflow Files
 
-The Library button opens saved items inside WhirlyTask.
-
-The menu also contains library actions for:
-
-- Tracks
-- Advanced Tracks
-- Sequences
-
-Each item type can be:
-
-- saved as new
-- loaded
-- renamed
-- deleted
-- saved over an existing item
-
-## File Save And Load
-
-The menu also supports saving and loading files.
-
-Use files when:
-
-- You want to move an item between PCs.
-- You want a backup outside the app library.
-- You want to share one item without sharing the whole app data.
-
-## Library Versus Files
-
-| Storage | Best for |
+| Workflow | File extension |
 | --- | --- |
-| Library | Normal day-to-day saved items |
-| Files | Backup, transfer, sharing, or archiving |
+| Track | .mcro |
+| Sequence | .kseq |
+| Premade Block | .prm |
 
-## Item Types
+In the graph editor, **Save** asks for a file name and location when a new document has no saved source yet. Subsequent saves update that file. A document opened from the Library saves back to its Library entry. **Save As** writes another file and makes it the open document. **Open** or **Ctrl+O** opens a workflow file.
 
-| Item type | Related page |
-| --- | --- |
-| Track | [Track](../Basics/Track.md) |
-| Advanced Track | [Advanced Track](../Basics/Advanced-Track.md) |
-| Sequence | [Sequence](../Basics/Sequence.md) |
+You can save unfinished graph documents. Check Editor Issues before playback. If a file dialog is cancelled or a write fails, the editor retains your work and does not claim it was saved.
 
-## Troubleshooting
+## Add A Workflow To The Library
 
-| Problem | What to try |
-| --- | --- |
-| A file is saved but not shown in the library | Save it as a library item too if you want it in the normal WhirlyTask list |
-| A loaded file is not available later | Save it as a named library item after loading it |
-| Edits disappear | Press Save in the editor before closing |
-| The wrong item was renamed or deleted | Check the item type and name before confirming library actions |
+Use **More > Add to Library** in the editor and enter a name. The Library receives a separate copy. Editing or saving the open file does not update that copy automatically.
 
-## Tips
+Open **Library** and choose **Tracks**, **Sequences**, or **Blocks** to manage its named items. Select the intended item before loading, renaming, deleting, or replacing it.
 
-- Use clear names.
-- Use Save New when testing a risky change.
-- Keep file backups for important sequences.
+Loading a Library item makes it the open document. **Save** writes your edits back to that entry. Use **Save As** to keep a separate file on your PC.
+
+## Premade Blocks
+
+Create a Premade Block in the Sequence editor:
+
+1. Hold **Shift** and drag a rectangle over the nodes to reuse.
+2. Click **Save Premade Block**, or right-click and choose **Save as Premade Block**.
+3. Enter a unique name in the dialog.
+
+This saves a Library copy of the selected nodes and connections between them. Invalid or ambiguous fragments are rejected. It leaves the open Sequence intact.
+
+Clear the selection and click **Import Premade Block** to insert a saved template. In the Library's **Blocks** pane, select it and choose **Import**. Imported nodes are a copy you can edit in the Sequence.
+
+See [Reusable Premade Blocks](../Guides/Reusable-Premade-Blocks.md) for a complete walkthrough.
+
+## Library File Actions
+
+The Library's file buttons use the extension of the selected item type. In **Blocks**, **Save .prm** writes a selected template to a file and **Load .prm** adds a file to the Library. Import the template afterward to place its nodes in the open Sequence.
+
+Library copies and workflow files are independent. Keep the copy you intend to reuse up to date explicitly.
+
+## Check Dependencies After Transfer
+
+Verify referenced Tracks, app paths, variable names, screen zones, and block targets on the destination PC. Embedded image data travels with the graph; an unresolved external image path needs attention before recognition can use it.
+
+See [Editors And Saving](Editors-And-Saving.md), [Track](../Basics/Track.md), and [Premade Blocks](../Basics/Premade-Blocks.md).

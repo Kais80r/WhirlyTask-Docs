@@ -1,36 +1,35 @@
 # Watcher Troubleshooting
 
-Use this page when a watcher does not behave the way you expected.
+## The Watcher Never Runs
 
-## Watcher Does Not Fire
+1. Confirm playback is running and has not reached Finish Sequence.
+2. Select the trigger and set **Enabled** to **On**.
+3. Verify its condition, screen zone, and current value or window state.
+4. Check cooldown and **If another watcher is already running**.
+5. Connect a simple Status Message as the first action, then test with **Play**.
 
-Check:
+Image Watcher does not have a manual scan-interval field. A large OCR or image area can take longer than a simple variable check.
 
-- The sequence is running.
-- The watcher state is On.
-- The trigger condition is possible.
-- The selected area includes the text or image.
-- The cooldown is not too long.
-- The value name is spelled correctly.
+## The Negative Condition Does Not Fire
 
-More detail: [Watcher Does Not Fire](../Troubleshooting/Watcher-Does-Not-Fire.md)
+`is not seen` requires a valid scan that confirms absence. Capture failures, unavailable models, invalid filters, and invalid query text are errors, not absence.
 
-## Watcher Fires But The Main Sequence Keeps Running
+For Variable Watcher, a missing variable is not a valid ordinary comparison. Use **exists** or **does not exist** if that is the condition you need.
 
-This is normal unless the watcher reaches Pause Sequence.
+## The Watcher Repeats
 
-Add Pause Sequence if the watcher should take over.
+A persistent true condition can trigger again after cooldown. Clear the underlying condition during recovery, make the trigger more specific, or increase **Cooldown seconds**. Do not use a longer cooldown to hide a wrong screen area or wrong target.
 
-More detail: [Pause Sequence](Steps/Pause-Sequence.md)
+## The Main Flow Keeps Running
 
-## Watcher Pauses And Never Continues
+This is expected. A Watcher runs beside the main flow. If it must take control, use **Stop Block** with the intended main block and an explicit continuation plan. Watcher conflict settings control other Watchers only.
 
-After Pause Sequence, add a step that decides what happens next.
+## Recovery Stops And Never Resumes
 
-Use one of these:
+Find the block you stopped. Use a valid **Start Block at Step** target when recovery is complete. Selecting an unknown Step ID does not automatically choose another step. Ensure the resume point is in the intended block and has the required state.
 
-- [Jump Sequence Step](../Steps/Jump-Sequence-Step.md)
-- [Reset and Restart Sequence](../Steps/Reset-And-Restart-Sequence.md)
-- [Stop Sequence](../Steps/Stop-Sequence.md)
+## Actions Compete
 
-More detail: [Watcher Pauses And Never Continues](../Troubleshooting/Watcher-Pauses-And-Never-Continues.md)
+Two Watchers running alongside one another can both move the mouse, change focus, or write variables. Choose a suitable conflict policy and keep action chains short. A Watcher cannot use a Step ID jump into a different Watcher's chain.
+
+See [Watcher Settings](Watcher-Settings.md), [Controlling Main Blocks](Steps/Controlling-Main-Blocks.md), and [Recognition](../Recognition/README.md).

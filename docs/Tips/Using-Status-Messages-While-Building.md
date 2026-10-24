@@ -1,44 +1,17 @@
 # Using Status Messages While Building
 
-Status Message is one of the best steps for testing.
-
-It shows what the sequence is doing without needing Discord, files, or other external systems.
-
-## What To Put In A Status Message
-
-You can use plain text:
+Status Message shows text in WhirlyTask's status display. It is a simple way to see which path ran without sending a Discord message.
 
 ```text
-Reached the wait step
+Status Message: Before read
+Read Text into statusText
+Status Message: Read: [{statusText}]
 ```
 
-You can also include values:
+Brackets make an intentionally empty value easier to see. Use different Then/Else messages while testing conditions. Put a message at the start of a watcher to distinguish “trigger never ran” from “a later recovery step failed.”
 
-```text
-Current state: {statusText}
-Loop count: {Loops}
-Read text: {readText}
-```
+Messages do not pause playback or guarantee that each message stays visible long enough to read. Add a short Wait while diagnosing if a later action immediately replaces it.
 
-## Where To Put Them
+Variable references must exist when used. Missing or cyclic references are errors, not a reason to assume a blank string or default number. Avoid printing secrets into messages you might later copy or send elsewhere.
 
-Useful places:
-
-- Before an If step.
-- Inside the Then path.
-- Inside the Else path.
-- At the start of a watcher.
-- After Read Text.
-- After Change Sequence Value.
-
-## When To Remove Them
-
-Keep messages that are useful during normal use.
-
-Remove messages that were only used to find a bug, especially if they make the status area noisy.
-
-## Status Before Discord
-
-If a Discord Message does not work, test the same text with Status Message first.
-
-If the Status Message looks correct, the value replacement works and the problem is probably the Discord setup.
+See [Status Message](../Steps/Status-Message.md), [Variables](../Values/README.md), and [Using Values In Text Boxes](Using-Values-In-Text-Boxes.md).

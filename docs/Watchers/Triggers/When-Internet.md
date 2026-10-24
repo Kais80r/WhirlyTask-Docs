@@ -1,64 +1,16 @@
-# When Internet
+# Internet Watcher
 
-Use When Internet when the watcher should react to a connection state.
+Internet Watcher checks the computer's online or offline state while Sequence playback is running.
 
-This is useful for workflows that depend on a network connection or online page.
+| Field | Choices or meaning |
+| --- | --- |
+| Mode | is online or is offline |
+| Check every seconds | Requested interval between checks |
 
-Internet state tells you whether a connection is available. Use text, image, or window checks for app, page, or server readiness.
+Set the shared Enabled, Cooldown seconds, and conflict fields afterward.
 
-## Good Uses
+An online result does not prove a particular website, game server, or request is working. Use an app-specific text, image, or variable condition when that is what the workflow needs to know.
 
-- Stop or pause when the connection drops.
-- Show a notification when the connection returns.
-- Wait before continuing a network-based task.
+The condition can remain true and trigger again after cooldown. Start with a Status Message before adding actions that stop blocks or change app state.
 
-## Check Interval
-
-Internet triggers check the connection repeatedly while the sequence runs.
-
-Use the `check every` field to choose how often WhirlyTask checks the connection state.
-
-## Setup Example
-
-```text
-Watcher trigger:
-When Internet is disconnected
-(check every 5 seconds)
-
-Watcher steps:
-1. Pause Sequence
-2. Status Message Connection lost
-3. Wait 10 seconds
-4. Reset and Restart Sequence
-```
-
-## When To Combine It With Other Checks
-
-Use internet state for the broad connection problem.
-
-Use text, image, or window checks for app-specific readiness.
-
-Example:
-
-```text
-Watcher:
-When Internet is disconnected
-1. Pause Sequence
-2. Wait 10 seconds
-3. Reset and Restart Sequence
-
-Main steps:
-Wait For (Text) Loaded
-```
-
-## Tips
-
-- Use a longer cooldown to avoid repeated recovery.
-- Combine internet state with app-specific checks when the app itself can be slow.
-- Combine with Wait For (Text) when a page also shows a loaded status.
-
-## More About
-
-- [Wait For (Internet)](../../Steps/Wait-For.md)
-- [If Internet](../../Steps/If-Internet.md)
-- [Wait For (Text)](../../Steps/Wait-For.md)
+See [Watcher Settings](../Watcher-Settings.md) and [Watcher Examples](../Examples.md).

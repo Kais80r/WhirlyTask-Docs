@@ -1,52 +1,40 @@
 # If Image
 
-If Image checks whether an image target is visible, then runs the Then branch or Else branch.
-
-Use it when the decision depends on a visual state.
+If Image checks for a reference image and chooses Then or Else after a valid result. It does not click the image.
 
 ## Fields
 
 | Field | Meaning |
 | --- | --- |
-| Image | The image file or image target to find. Use `...` to browse for an image file. |
-| Mode | `is seen` or `is not seen` |
-| Area | Where to check for the image target |
-| Then branch | Steps to run when the condition is true |
-| Else branch | Steps to run when the condition is false |
+| Image | Reference file or pasted image; check the preview |
+| Recognition | Smart or Pixel |
+| Pixel tolerance (0–255) | Maximum per-channel RGB difference; Pixel only |
+| Mode | is seen or is not seen |
+| Screen zone | Where to search |
+| Then / Else | Steps chosen by the condition |
 
-## Setup From Scratch
+Smart is the default and checks the reference using learned visual features and geometric agreement. Pixel checks at the reference's original dimensions, with every included pixel within tolerance. It has no Smart fallback.
 
-1. Capture or choose a stable image target.
-2. Add If Image.
-3. Use `...` beside the Image field to browse for the image file, then choose the area.
-4. Add a Status Message in Then.
-5. Add a different Status Message in Else.
-6. Test the branch.
-7. Replace the test messages with real steps.
+## Branch Behavior
 
-## Example
+With is seen, a match selects Then and valid absence selects Else. With is not seen, those results are inverted.
+
+Invalid image/configuration, unsupported Pixel transparency, failed capture, or unavailable recognition stops playback before either branch. A failed check is not proof that the image is absent.
 
 ```text
-If Image ready-icon is seen from selected panel area
-Then:
-1. Click Image ready-icon
-Else:
-1. Wait 1 second
-2. Jump Sequence Step 1
+If Image
+Image: ready-icon.png
+Recognition: Smart
+Mode: is seen
+Screen zone: selected panel area
+Then: Status Message: Ready
+Else: Status Message: Not ready
 ```
 
-## Useful For
+Use [Click If Image](Click-If-Image.md) to click the same accepted target and branch only after delivery. Use [Wait For](Wait-For.md) to wait for a future state instead of choosing a branch now.
 
-- Visual status states.
-- Icons.
-- Buttons without readable text.
-- Branching when text reading is unreliable.
+## Related Pages
 
-## Troubleshooting
-
-| Problem | What to try |
-| --- | --- |
-| The image condition is inconsistent | Capture a stable part of the target that does not change |
-| The wrong image is matched | Use a selected area instead of a large search area |
-| The condition misses an image that appears later | Use [Wait For (Image)](Wait-For.md) when you need to wait |
-| Text would be more reliable | Use [If Text](If-Text.md) when the state has stable readable text |
+- [Smart And Pixel Image Recognition](../Recognition/Images.md)
+- [Image Not Found](../Troubleshooting/Image-Not-Found.md)
+- [If Pixel](If-Pixel.md)

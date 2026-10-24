@@ -1,75 +1,24 @@
-# Notification System
+# Progress and completion notifications
 
-Use this pattern when WhirlyTask should show or send an update.
+Keep local progress messages short, and send an external completion message only after checking the result.
 
-Notifications are useful for progress, results, warnings, recovery, and long-running workflows. Start with Status Message while testing, then use Discord Message when you want the message outside WhirlyTask.
-
-## What To Use
-
-| Need | Use |
-| --- | --- |
-| Show a message inside WhirlyTask | Status Message |
-| Send a message to Discord | Discord Message |
-| Include stored text or numbers | `{ValueName}` |
-| Send text read from the screen | Read Text, then Discord Message |
-
-## Plain Discord Text
-
-Use this when the message is always the same.
-
-![Discord message with text](../assets/screenshots/discord-message-with-text.png)
-
-Result in Discord:
-
-![Discord message in Discord](../assets/screenshots/discord-message-in-discord.png)
-
-## Discord Message With A Value
-
-Use this when the message should include something stored in a Starting Value.
-
-![Discord message with value](../assets/screenshots/discord-message-with-value.png)
-
-Replace `ValueName` with the real value name from your sequence.
-
-## Discord Message With Read Text
-
-Use this when WhirlyTask should read visible screen text and send the result.
-
-![Discord message with reading text value](../assets/screenshots/discord-message-with-reading-text-value.png)
-
-The important order is:
+Declare `completed = 0` as a Math Starter Variable.
 
 ```text
-1. Read Text into ResultText
-2. Discord Message {ResultText}
+Start -> Status Message: Starting report
+      -> report actions
+      -> If Text: Export complete / is seen
+           Then -> Change Variable: completed / Add / 1
+                -> Status Message: Reports completed: {completed}
+                -> Discord Message: Report export confirmed; count {completed}
+                -> Finish Sequence
+           Else -> Status Message: Export was not confirmed -> Finish Sequence
 ```
 
-Read Text fills the value first. Discord Message sends the value after that.
+Replace the confirmation with a signal that distinguishes success in your application. Set the screen area deliberately and test the absent state too. Recognition errors do not authorize an ordinary negative branch.
 
-Use your real value name. If the value is named `StatusText`, the message should use `{StatusText}`.
+Configure and test the Discord webhook before running this pattern. OCR results and variable text inserted into a Discord message are sent to that destination, so choose the content intentionally.
 
-## Useful Message Ideas
+The local status line can be replaced by later runtime messages. Store a value or inspect the application's output when you need a durable result.
 
-- `Started`
-- `Finished`
-- `Error seen`
-- `Current status: {statusText}`
-- `Attempt {attempts}`
-
-## Tips
-
-- Only add messages at important points.
-- Avoid sending private data unless the destination is safe.
-- If a watcher sends notifications, use a cooldown to avoid repeated spam.
-- If a value appears blank, check that the value was filled before the message step ran.
-- Use the same capitalization in the value name and the placeholder.
-
-## More About
-
-- Discord step: [Discord Message](../Steps/Discord-Message.md)
-- Discord setup: [Discord Webhook](../App-Features/Discord-Webhook.md)
-- Values: [Values](../Values/README.md)
-- Using values in text boxes: [Using Values In Text Boxes](../Tips/Using-Values-In-Text-Boxes.md)
-- Reading screen text: [Read Text](../Steps/Read-Text.md)
-- Local messages: [Status Message](../Steps/Status-Message.md)
-- Full message guide: [Messages And Values Workflow](../Guides/Messages-And-Values-Workflow.md)
+See [Discord Message](../Steps/Discord-Message.md), [Status Message](../Steps/Status-Message.md), and [If Text](../Steps/If-Text.md).

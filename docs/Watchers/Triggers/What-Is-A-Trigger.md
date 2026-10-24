@@ -1,52 +1,17 @@
-# What Is A Trigger
+# What Is A Watcher Trigger?
 
-A trigger is the "when" part of a watcher.
+A trigger is the condition on the first card of a Watcher chain. It decides whether that Watcher's actions should start while playback is running.
 
-Example:
+For example, a Text Watcher can check for `Disconnected` in the app's notification area. The connected action can show a message, change a variable, or run explicit recovery steps.
 
-```text
-When Text Complete is seen
-```
+## Condition And Actions Are Separate
 
-This means:
+The trigger does not itself click, pause the main flow, or perform recovery. Those actions belong to its connected chain. A Watcher can run alongside main steps, and some true conditions can trigger again after cooldown.
 
-```text
-If WhirlyTask sees the text Complete, run the watcher steps.
-```
+Choose a normal If or Wait For step when checking the condition is already part of the main path. Choose a Watcher when the event can occur unexpectedly while other work continues.
 
-## Trigger Versus Watcher Steps
+## Negative Results Must Be Valid
 
-The trigger only decides if the watcher should start.
+`is not seen` means a valid scan did not find the target. It does not include capture failure, invalid query/filter settings, or an unavailable recognition engine. Use status and error information to distinguish a failed check from genuine absence.
 
-The watcher steps decide what happens after it starts.
-
-Example:
-
-```text
-Trigger:
-When Text Error is seen
-
-Watcher steps:
-1. Pause Sequence
-2. Click Text OK
-3. Jump Sequence Step 4
-```
-
-## Why A Trigger May Not Fire
-
-Common reasons:
-
-- The sequence is not currently running.
-- The watcher is off.
-- The selected area does not include the thing being checked.
-- The condition is too strict.
-- The cooldown is still active.
-- The value or text is not exactly what you think it is.
-
-Use a Status Message step in the watcher while testing. That tells you whether the trigger fired at all.
-
-## More About
-
-- [Watcher Triggers](README.md)
-- [Watchers](../README.md)
-- [Watcher Does Not Fire](../../Troubleshooting/Watcher-Does-Not-Fire.md)
+See [All Triggers](README.md), [Watcher Settings](../Watcher-Settings.md), and [Examples](../Examples.md).
