@@ -1,12 +1,13 @@
 # App Features
 
-These pages cover WhirlyTask's editor, Library, recording, playback, appearance, and app-wide protections. Use the [step reference](../Steps/README.md) for actions inside a workflow.
+These pages cover WhirlyTask's editor, Library, recording, playback, updates, appearance, and app-wide protections. Use the [step reference](../Steps/README.md) for actions inside a workflow.
 
 | I want to... | Open |
 | --- | --- |
 | Add, connect, select, and arrange graph nodes | [Graph Editor](Graph-Editor.md) |
 | Save files, keep Library copies and recover editing work | [Editors And Saving](Editors-And-Saving.md) |
 | Manage named items or portable files | [Library And Files](Library-And-Files.md) |
+| Check, download and install an update | [Updates](Updates.md) |
 | Switch between dark and light themes | [Appearance](Appearance.md) |
 | Change record, play, stop, or emergency hotkeys | [Hotkeys](Hotkeys.md) |
 | Choose which input a Track records | [Recording Options](Recording-Options.md) |

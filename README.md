@@ -50,6 +50,7 @@ Text recognition runs locally. The OCR search steps have character filters, whil
 | [Guides](docs/Guides/README.md) | Complete workflow walkthroughs |
 | [Examples](docs/Examples/README.md) | Small patterns you can adapt |
 | [App features](docs/App-Features/README.md) | Library, recording, hotkeys, appearance and protections |
+| [Updates](docs/App-Features/Updates.md) | Check, download and choose when to install and restart |
 | [Troubleshooting](docs/Troubleshooting/README.md) | Checks organized by the problem you see |
 | [Tips](docs/Tips/README.md) | Practical ways to keep workflows readable and reliable |
 

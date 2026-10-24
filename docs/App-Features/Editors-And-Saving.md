@@ -33,6 +33,12 @@ The editor checkpoints its graph and editing state so work can be recovered afte
 
 Use Undo for an editing mistake. Use **Open** to load a saved file. **Save As** creates a separate working file when you want to keep another version.
 
+## Restarting For An Update
+
+Use **Save** and wait for confirmation before choosing **Install and restart**. The update flow also retains the editing session before closing the app. If that session cannot be saved, WhirlyTask stays open and the update is not installed.
+
+After restart, session recovery retains the document association and unsaved state. Use Save to write any remaining changes to the workflow file or Library entry. See [Updates](Updates.md) for the download and restart controls.
+
 ## Track Editor Is Different
 
 The native Track Editor edits playback settings for a recording. Its **Save** applies those settings; **Cancel** or closing it leaves pending settings unapplied. Use the Library's Track file actions for **.mcro** files.

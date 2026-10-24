@@ -18,6 +18,7 @@ Start with [Getting Started](Getting-Started.md), then use the topic pages for t
 | [Watchers](Watchers/README.md) | Background triggers and deliberate recovery |
 | [Recognition](Recognition/README.md) | Text, Smart image, Pixel image, and color checks |
 | [Editors And Saving](App-Features/Editors-And-Saving.md) | Save, Save As, Open, Library copies and session recovery |
+| [Updates](App-Features/Updates.md) | Check for an update and install when ready to restart |
 | [App Features](App-Features/README.md) | Recording, playback, appearance, hotkeys, and protections |
 | [Guides](Guides/README.md) | End-to-end building workflows |
 | [Examples](Examples/README.md) | Small patterns to adapt |
@@ -44,6 +45,7 @@ Start with [Getting Started](Getting-Started.md), then use the topic pages for t
 | React when a variable changes | [Variable Watcher](Watchers/Variable-Watcher.md) |
 | Recover after an unexpected event | [Watcher Examples](Watchers/Examples.md) |
 | Understand what closing the editor preserves | [Editors And Saving](App-Features/Editors-And-Saving.md) |
+| Check for or install an app update | [Updates](App-Features/Updates.md) |
 
 ## Variables And Reusable Steps
 

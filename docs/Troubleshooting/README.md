@@ -14,6 +14,7 @@ Read the status message before changing several settings. Distinguish a valid ne
 | Main does not resume after recovery | [Watcher Recovery Does Not Resume The Main Block](Watcher-Recovery-Does-Not-Resume.md) |
 | Variable seems empty or missing | [Value Is Blank](Value-Is-Blank.md) |
 | Editor and playback show different work | [Editor Changes Disappear](Editor-Changes-Disappear.md) |
+| Checking, downloading or installing an update fails | [Update Problems](Update-Problems.md) |
 | Input reaches another application | [Wrong Window Or Focus](Wrong-Window-Or-Focus.md) |
 
 ## Small Test Pattern
