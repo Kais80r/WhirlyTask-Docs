@@ -10,7 +10,7 @@ Use the graph editor to connect actions, compare variables, recognize screen tar
 
 1. Open [Getting Started](docs/Getting-Started.md).
 2. Connect a small sequence from **Start** to the actions you need.
-3. Select a step to edit its settings on the right. With no selection, the canvas uses that space.
+3. Select a step to edit its settings on the right.
 4. Test with a [Status Message](docs/Steps/Status-Message.md), then use **Save** to keep your work.
 
 Use **Ctrl+S** to save, **Ctrl+Shift+S** to save under another name, and **Ctrl+O** to open a file. The editor also recovers its working session across a normal restart. See [Editors and saving](docs/App-Features/Editors-And-Saving.md).
